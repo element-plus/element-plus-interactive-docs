@@ -62,7 +62,7 @@ const badgeTypeList: Record<'label' & 'value', BadgeProps['type']>[] = [
       </template>
     </Variant>
 
-    <Variant title="Max Value">
+    <Variant title="Max value">
       <el-badge :value="currentValue" :max="maxValue" class="item">
         <el-button>comments</el-button>
       </el-badge>
@@ -83,7 +83,7 @@ const badgeTypeList: Record<'label' & 'value', BadgeProps['type']>[] = [
       </template>
     </Variant>
 
-    <Variant title="Red Dot">
+    <Variant title="Red dot">
       <el-badge :is-dot="isDot" class="item">
         <el-button class="share-button" :icon="Share" type="primary" />
       </el-badge>
