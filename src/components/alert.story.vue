@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import type { AlertProps } from 'element-plus'
-import { ElAlert, ElSwitch } from 'element-plus'
+import { ElAlert } from 'element-plus'
 import 'element-plus/dist/index.css'
 
 const currenType = ref('success')
@@ -30,29 +30,42 @@ const alertTypeList = [
 <template>
   <Story title="Basic/Alert">
     <Variant title="Basic Usage">
-      <el-alert v-for="alertType in alertTypeList" :key="alertType.value" :type="alertType.value">
-        {{ alertType.label }}
+      <el-alert :type="currenType">
+        {{ currenType }}
       </el-alert>
-
       <template #controls>
-        <HstRadio v-model="currenType" title="type" :option="alertTypeList" />
+        <HstRadio
+          v-model="currenType"
+          title="Alert Type"
+          :options="alertTypeList"
+        />
       </template>
     </Variant>
     <Variant title="Theme">
-      <el-switch
-        v-model="currentTheme"
-        active-text="light"
-        active-value="light"
-        inactive-text="dark"
-        inactive-value="dark"
-      />
-
-      <el-alert v-for="alertType in alertTypeList" :key="alertType.value" :type="alertType.value" :effect="currentTheme">
-        {{ alertType.label }}
+      <el-alert :type="currenType" :effect="currentTheme">
+        {{ currenType }}
       </el-alert>
 
       <template #controls>
-        <HstRadio v-model="currenType" title="type" :option="alertTypeList" />
+        <HstRadio
+          v-model="currenType"
+          title="Alert Type"
+          :options="alertTypeList"
+        />
+        <HstButtonGroup
+          v-model="currentTheme"
+          title="Theme"
+          :options="[
+            {
+              label: 'Dark Theme',
+              value: 'dark',
+            },
+            {
+              label: 'Light Theme',
+              value: 'light',
+            },
+          ]"
+        />
       </template>
     </Variant>
   </Story>
@@ -62,6 +75,12 @@ const alertTypeList = [
 ## Basic usage
 
 Alert usage
+
+## Theme
+
+Alert provide two different themes, light and dark.
+
+Set effect to change theme, default is light.
 </docs>
 
 <style>
