@@ -3,7 +3,7 @@ import { ref } from 'vue'
 import type { CardProps } from 'element-plus'
 
 const header = ref('Card Name')
-const currentDate = ref(new Date())
+const currentDate = new Date()
 const bodyStyle = ref<CardProps['bodyStyle']>({ padding: '0px' })
 const currentShadow = ref<CardProps['shadow']>('always')
 
@@ -63,7 +63,7 @@ const shadowTypeList: Record<'label' & 'value', CardProps['shadow']>[] = [
             <div style="padding: 14px">
               <span>Yummy hamburger</span>
               <div class="bottom">
-                <time class="time">{{ currentDate }}</time>
+                <time class="time"> {{ currentDate }} </time>
                 <el-button text class="button">Operating</el-button>
               </div>
             </div>
