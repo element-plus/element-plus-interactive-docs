@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { Edit } from '@element-plus/icons-vue'
-
-const currentType = ref('primary')
+import type { LinkProps } from 'element-plus'
+const currentType = ref<LinkProps['type']>('primary')
 const isDisabled = ref(true)
 const isUnderline = ref(false)
-const linkTypeList = [
+const linkTypeList: { label: string; value: LinkProps['type'] }[] = [
   {
     label: 'default',
     value: 'default',
