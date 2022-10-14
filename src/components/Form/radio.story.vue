@@ -56,14 +56,14 @@ const radioChange = (e: string | number | boolean) => {
       </template>
     </Variant>
 
-    <Variant title="Style">
+    <Variant title="Button style">
       <el-radio-group v-model="radio">
         <el-radio-button label="1">Option 1</el-radio-button>
         <el-radio-button label="2">Option 2</el-radio-button>
       </el-radio-group>
     </Variant>
 
-    <Variant title="Border">
+    <Variant title="With borders">
       <el-radio-group v-model="radio">
         <el-radio label="1" :size="currentSize" :border="isBorder">Option 1</el-radio>
         <el-radio label="2" :size="currentSize" :border="isBorder">Option 2</el-radio>
