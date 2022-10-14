@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { ElButton } from 'element-plus'
 import { logEvent } from 'histoire/client'
-import 'element-plus/dist/index.css'
 
 const buttonType = ref('success')
 const buttonTypeList = [

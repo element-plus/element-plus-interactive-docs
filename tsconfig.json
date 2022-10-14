@@ -8,7 +8,8 @@
     "strict": true,
     "strictNullChecks": true,
     "resolveJsonModule": true,
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "types": ["vite/client", "@histoire/plugin-vue/components", "element-plus/global"]
   },
-  "include": ["env.d.ts", "src/**/*", "src/**/*.vue"]
+  "include": ["src/**/*", "src/**/*.vue"]
 }
