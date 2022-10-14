@@ -2,6 +2,7 @@
   "name": "@element-plus/docs-histoire",
   "type": "module",
   "private": true,
+  "packageManager": "pnpm@7.12.0",
   "scripts": {
     "dev": "histoire dev",
     "build": "histoire build",
