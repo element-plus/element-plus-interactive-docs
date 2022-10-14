@@ -24,7 +24,6 @@ devDependencies:
   '@vitejs/plugin-vue': 3.1.2_vite@3.1.8+vue@3.2.40
   eslint: 8.25.0
   histoire: 0.11.4_vite@3.1.8
-  pathe: 0.3.9
   typescript: 4.8.4
   vite: 3.1.8
   vue-tsc: 0.40.13_typescript@4.8.4
