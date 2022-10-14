@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { logEvent } from 'histoire/client'
+import type { ButtonProps } from 'element-plus'
 
-const buttonType = ref('success')
+const buttonType = ref<ButtonProps['type']>('success')
 const buttonTypeList = [
   {
     label: 'default',
