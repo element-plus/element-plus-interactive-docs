@@ -593,7 +593,11 @@ const expandTriggerList = [
         @change="handleChange"
       />
       <template #controls>
-        <HstRadio v-model="props.expandTrigger" :options="expandTriggerList" />
+        <HstRadio
+          v-model="props.expandTrigger"
+          :options="expandTriggerList"
+          title="Trigger"
+        />
       </template>
     </Variant>
     <Variant title="Disable option">
