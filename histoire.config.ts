@@ -1,4 +1,4 @@
-import { resolve } from 'node:path'
+import { resolve } from 'pathe'
 import { defineConfig } from 'histoire'
 import { HstVue } from '@histoire/plugin-vue'
 
