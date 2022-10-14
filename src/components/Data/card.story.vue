@@ -90,7 +90,27 @@ const shadowTypeList: Record<'label' & 'value', CardProps['shadow']>[] = [
 </template>
 
 <docs lang="md">
+## Basic usage
 
+Card includes title, content and operations.
+
+Card is made up of `header` and `body`. `header` is optional, and its content distribution depends on a named slot.
+
+## Simple card
+
+The header part can be omitted.
+
+## With images
+
+Display richer content by adding some configs.
+
+The `body-style` attribute defines CSS style of custom `body`. This example also uses `el-col` for layout.
+
+## Shadow
+
+You can define when to show the card shadows
+
+The `shadow` attribute determines when the card shadows are displayed. It can be `always`, `hover` or `never`.
 </docs>
 
 <style scoped>
