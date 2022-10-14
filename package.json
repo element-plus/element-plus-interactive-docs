@@ -6,8 +6,9 @@
   "scripts": {
     "dev": "histoire dev",
     "build": "histoire build",
-    "lint": "eslint .",
-    "preview": "histoire preview"
+    "preview": "histoire preview",
+    "preview:build": "pnpm run build && histoire preview",
+    "lint": "eslint ."
   },
   "dependencies": {
     "element-plus": "npm:element-plus@latest",

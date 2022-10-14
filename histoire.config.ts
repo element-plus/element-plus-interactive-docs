@@ -13,6 +13,6 @@ export default defineConfig({
       light: logo,
       square: logo,
     },
-    favicon: './src/assets/images/element-plus-logo-small.svg',
+    favicon: './favicon.svg',
   },
 })
