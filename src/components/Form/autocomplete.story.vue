@@ -7,6 +7,7 @@ interface LinkItem {
   link: string
 }
 const clearable = ref(true)
+const triggerOnFocus = ref(false)
 const state1 = ref('')
 const state2 = ref('')
 const state = ref('')
@@ -56,29 +57,18 @@ onMounted(() => {
 
 <template>
   <Story title="Form/Autocomplete">
-    <Variant title="Basic">
+    <Variant title="Basic Usage">
       <el-autocomplete
         v-model="state1"
         :fetch-suggestions="querySearch"
         :clearable="clearable"
         placeholder="Please Input"
+        :trigger-on-focus="triggerOnFocus"
         @select="handleSelect"
       />
       <template #controls>
         <HstCheckbox v-model="clearable" title="Clearable" />
-      </template>
-    </Variant>
-    <Variant title="trigger on input">
-      <el-autocomplete
-        v-model="state2"
-        :fetch-suggestions="querySearch"
-        :clearable="clearable"
-        :trigger-on-focus="false"
-        placeholder="Please Input"
-        @select="handleSelect"
-      />
-      <template #controls>
-        <HstCheckbox v-model="clearable" title="Clearable" />
+        <HstCheckbox v-model="triggerOnFocus" title="Trigger on focus" />
       </template>
     </Variant>
     <Variant title="Custom templete">
@@ -128,8 +118,7 @@ onMounted(() => {
 You can get some recommended tips based on the current input.
 
 Autocomplete component provides input suggestions. The `fetch-suggestions` attribute is a method that returns suggested input. In this example, `querySearch(queryString, cb)` returns suggestions to Autocomplete via `cb(data)` when suggestions are ready.
-## Trigger on input
-You can set trigger-on-focus to control whether show suggestions when input focus
+
 ## Custom templete
 Customize how suggestions are displayed.
 
