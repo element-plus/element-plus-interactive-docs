@@ -52,7 +52,11 @@ const fireClose = (e: Event) => {
       </template>
     </Variant>
     <Variant title="Theme">
-      <el-alert :type="currentType" :effect="currentTheme" :title="currentType" />
+      <el-alert
+        :type="currentType"
+        :effect="currentTheme"
+        :title="currentType"
+      />
       <template #controls>
         <HstRadio
           v-model="currentType"
@@ -78,27 +82,30 @@ const fireClose = (e: Event) => {
     </Variant>
 
     <Variant title="Customizable Close Button">
-      <el-alert :title="currentType" :type="currentType" :close-text="closableState.text" :closable="closableState.closable" :effect="currentTheme" @close="fireClose" />
+      <el-alert
+        :title="currentType"
+        :type="currentType"
+        :close-text="closableState.text"
+        :closable="closableState.closable"
+        :effect="currentTheme"
+        @close="fireClose"
+      />
 
       <template #controls>
-        <HstText
-          v-model="closableState.text"
-          title="Custom Close Text"
-        />
-        <HstCheckbox
-          v-model="closableState.closable"
-          title="Closable"
-        />
+        <HstText v-model="closableState.text" title="Custom Close Text" />
+        <HstCheckbox v-model="closableState.closable" title="Closable" />
       </template>
     </Variant>
 
     <Variant title="With Icon">
-      <el-alert :title="currentType" :type="currentType" :show-icon="showIcon" :effect="currentTheme" />
+      <el-alert
+        :title="currentType"
+        :type="currentType"
+        :show-icon="showIcon"
+        :effect="currentTheme"
+      />
       <template #controls>
-        <HstCheckbox
-          v-model="showIcon"
-          title="Show Icon"
-        />
+        <HstCheckbox v-model="showIcon" title="Show Icon" />
         <HstRadio
           v-model="currentType"
           title="Alert Type"
@@ -122,30 +129,29 @@ const fireClose = (e: Event) => {
     </Variant>
 
     <Variant title="Centered Text">
-      <el-alert :title="currentType" :type="currentType" :center="centeredText" :show-icon="showIcon" />
+      <el-alert
+        :title="currentType"
+        :type="currentType"
+        :center="centeredText"
+        :show-icon="showIcon"
+      />
       <template #controls>
-        <HstCheckbox
-          v-model="showIcon"
-          title="Show Icon"
-        />
-        <HstCheckbox
-          v-model="centeredText"
-          title="Centered Text"
-        />
+        <HstCheckbox v-model="showIcon" title="Show Icon" />
+        <HstCheckbox v-model="centeredText" title="Centered Text" />
       </template>
     </Variant>
 
     <Variant title="With Icon and Description">
-      <el-alert :title="currentType" :type="currentType" :show-icon="showIcon" :effect="currentTheme" :description="description" />
+      <el-alert
+        :title="currentType"
+        :type="currentType"
+        :show-icon="showIcon"
+        :effect="currentTheme"
+        :description="description"
+      />
       <template #controls>
-        <HstText
-          v-model="description"
-          title="Description"
-        />
-        <HstCheckbox
-          v-model="showIcon"
-          title="Show Icon"
-        />
+        <HstText v-model="description" title="Description" />
+        <HstCheckbox v-model="showIcon" title="Show Icon" />
         <HstRadio
           v-model="currentType"
           title="Alert Type"
