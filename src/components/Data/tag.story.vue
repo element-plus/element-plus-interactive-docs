@@ -8,7 +8,7 @@ const currentType = ref('success')
 const closable = ref(true)
 const rounded = ref(true)
 const disableTransitions = ref(true)
-const tagTypeList: Record<'label' & 'value', TagProps['type']>[] = [
+const tagTypeList: { label: string; value: TagProps['type'] }[] = [
   {
     label: 'default',
     value: '',
@@ -22,8 +22,8 @@ const tagTypeList: Record<'label' & 'value', TagProps['type']>[] = [
     value: 'warning',
   },
   {
-    label: 'error',
-    value: 'error',
+    label: 'danger',
+    value: 'danger',
   },
   {
     label: 'info',
@@ -31,7 +31,7 @@ const tagTypeList: Record<'label' & 'value', TagProps['type']>[] = [
   },
 ]
 const currentSize = ref<TagProps['size']>('large')
-const tagSizeList: Record<'label' & 'value', TagProps['size']>[] = [
+const tagSizeList: { label: string; value: TagProps['size'] }[] = [
   {
     label: 'large',
     value: 'large',
@@ -45,7 +45,7 @@ const tagSizeList: Record<'label' & 'value', TagProps['size']>[] = [
     value: 'small',
   },
 ]
-const ThemeList = [
+const ThemeList: { label: string; value: TagProps['effect'] }[] = [
   {
     label: 'Dark Theme',
     value: 'dark',
