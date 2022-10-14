@@ -95,6 +95,32 @@ const badgeTypeList: Record<'label' & 'value', BadgeProps['type']>[] = [
   </Story>
 </template>
 
+<docs lang="md">
+## Basic usage
+
+Displays the amount of new messages.
+
+The amount is defined with `value` which accepts `Number` or `String`.
+
+## Max Value
+
+You can customize the max value.
+
+The max value is defined by property `max` which is a `Number`. Note that it only works when `value` is also a `Number`.
+
+## Customizations
+
+Displays text content other than numbers.
+
+When `value` is a `String`, it can display customized text.
+
+## Red Dot
+
+Use a red dot to mark content that needs to be noticed.
+
+Use the attribute `is-dot`. It is a `Boolean`.
+</docs>
+
 <style scoped>
 .item {
   margin-top: 10px;
