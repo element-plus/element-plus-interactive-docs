@@ -4,20 +4,16 @@ import { ref } from 'vue'
 import type { CascaderOption, CascaderProps } from 'element-plus'
 
 const value1 = ref([])
-const value2 = ref([])
-const props: CascaderProps = {
+const anyLevelProps = ref<CascaderProps>({
+  multiple: false,
+  checkStrictly: true,
+})
+const props = ref<CascaderProps>({
   expandTrigger: 'hover',
-}
-const multipleProps: CascaderProps = {
+})
+const multipleProps = ref<CascaderProps>({
   multiple: true,
-}
-const singleSelectionProps: CascaderProps = {
-  checkStrictly: true,
-}
-const multipleSelectionProps: CascaderProps = {
-  multiple: true,
-  checkStrictly: true,
-}
+})
 let id = 0
 const dynamicProps: CascaderProps = {
   lazy: true,
@@ -575,32 +571,30 @@ const disableOptions: CascaderOption[] = [
     ],
   },
 ]
+const expandTriggerList = [
+  {
+    label: 'click',
+    value: 'click',
+  },
+  {
+    label: 'hover',
+    value: 'hover',
+  },
+]
 </script>
 
 <template>
   <Story title="Form/Cascader">
     <Variant title="Basic Usage">
-      <div class="example-block">
-        <span class="example-demonstration">
-          Child options expand when clicked (default)
-        </span>
-        <el-cascader
-          v-model="value1"
-          :options="options"
-          @change="handleChange"
-        />
-      </div>
-      <div class="example-block">
-        <span class="example-demonstration">
-          Child options expand when hovered
-        </span>
-        <el-cascader
-          v-model="value2"
-          :options="options"
-          :props="props"
-          @change="handleChange"
-        />
-      </div>
+      <el-cascader
+        v-model="value1"
+        :options="options"
+        :props="props"
+        @change="handleChange"
+      />
+      <template #controls>
+        <HstRadio v-model="props.expandTrigger" :options="expandTriggerList" />
+      </template>
     </Variant>
     <Variant title="Disable option">
       <el-cascader
@@ -619,50 +613,30 @@ const disableOptions: CascaderOption[] = [
       <el-cascader :props="multipleProps" :options="options" />
     </Variant>
     <Variant title="Select any level of options">
-      <div class="example-block">
-        <span class="example-demonstration">
-          Select any level of options (Single selection)
-        </span>
-        <el-cascader
-          :options="options"
-          :props="singleSelectionProps"
-          clearable
-        />
-      </div>
-      <div class="example-block">
-        <span class="example-demonstration">
-          Select any level of options (Multiple selection)
-        </span>
-        <el-cascader
-          :options="options"
-          :props="multipleSelectionProps"
-          clearable
-        />
-      </div>
+      <el-cascader :options="options" :props="anyLevelProps" clearable />
+      <template #controls>
+        <HstCheckbox
+          v-model="(anyLevelProps.multiple as boolean)"
+          title="Multiple"
+        ></HstCheckbox>
+      </template>
     </Variant>
     <Variant title="Dynamic loading">
       <el-cascader :props="dynamicProps" />
     </Variant>
     <Variant title="Filterable">
-      <div class="example-block">
-        <span class="example-demonstration">Filterable (Single selection)</span>
-        <el-cascader
-          placeholder="Try searchingL Guide"
-          :options="options"
-          filterable
-        />
-      </div>
-      <div class="example-block">
-        <span class="example-demonstration">
-          Filterable (Multiple selection)
-        </span>
-        <el-cascader
-          placeholder="Try searchingL Guide"
-          :options="options"
-          :props="props"
-          filterable
-        />
-      </div>
+      <el-cascader
+        placeholder="Try searchingL Guide"
+        :options="options"
+        :props="multipleProps"
+        filterable
+      />
+      <template #controls>
+        <HstCheckbox
+          v-model="(multipleProps.multiple as boolean)"
+          title="Multiple"
+        ></HstCheckbox>
+      </template>
     </Variant>
     <Variant title="Custom option content">
       <el-cascader :options="options">
