@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import { logEvent } from 'histoire/client'
+import type { AutocompleteProps } from 'element-plus'
 interface LinkItem {
   value: string
   link: string
 }
+const clearable = ref(true)
 const state1 = ref('')
 const state2 = ref('')
 const state = ref('')
@@ -58,20 +60,26 @@ onMounted(() => {
       <el-autocomplete
         v-model="state1"
         :fetch-suggestions="querySearch"
-        clearable
+        :clearable="clearable"
         placeholder="Please Input"
         @select="handleSelect"
       />
+      <template #controls>
+        <HstCheckbox v-model="clearable" title="Clearable" />
+      </template>
     </Variant>
     <Variant title="trigger on input">
       <el-autocomplete
         v-model="state2"
         :fetch-suggestions="querySearch"
+        :clearable="clearable"
         :trigger-on-focus="false"
-        clearable
         placeholder="Please Input"
         @select="handleSelect"
       />
+      <template #controls>
+        <HstCheckbox v-model="clearable" title="Clearable" />
+      </template>
     </Variant>
     <Variant title="Custom templete">
       <el-autocomplete
@@ -96,14 +104,21 @@ onMounted(() => {
           <span class="link">{{ item.link }}</span>
         </template>
       </el-autocomplete>
+      <template #controls>
+        <HstCheckbox v-model="clearable" title="Clearable" />
+      </template>
     </Variant>
     <Variant title="Remote search">
       <el-autocomplete
         v-model="state"
+        :clearable="clearable"
         :fetch-suggestions="querySearchAsync"
         placeholder="Please input"
         @select="handleSelect"
       />
+      <template #controls>
+        <HstCheckbox v-model="clearable" title="Clearable" />
+      </template>
     </Variant>
   </Story>
 </template>
