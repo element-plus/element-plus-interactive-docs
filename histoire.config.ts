@@ -1,4 +1,4 @@
-import { resolve } from 'node:path'
+import { resolve } from 'pathe'
 import { defineConfig } from 'histoire'
 import { HstVue } from '@histoire/plugin-vue'
 
@@ -13,6 +13,6 @@ export default defineConfig({
       light: logo,
       square: logo,
     },
-    favicon: './src/assets/images/element-plus-logo-small.svg',
+    favicon: './favicon.svg',
   },
 })
