@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import type { AlertProps } from 'element-plus'
-import { ElAlert } from 'element-plus'
-import 'element-plus/dist/index.css'
 import { logEvent } from 'histoire/client'
 
 const currentType = ref('success')
