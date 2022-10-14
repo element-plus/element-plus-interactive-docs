@@ -44,8 +44,8 @@ const loadAll = () => {
     { value: 'babel', link: 'https://github.com/babel/babel' },
   ]
 }
-const handleSelect = (e: any) => {
-  logEvent('select', e)
+const handleSelect = (value: any) => {
+  logEvent('select', value)
 }
 onMounted(() => {
   links.value = loadAll()
@@ -60,7 +60,7 @@ onMounted(() => {
         :fetch-suggestions="querySearch"
         clearable
         placeholder="Please Input"
-        @select="handleSelect($event)"
+        @select="handleSelect"
       />
     </Variant>
     <Variant title="trigger on input">
@@ -70,7 +70,7 @@ onMounted(() => {
         :trigger-on-focus="false"
         clearable
         placeholder="Please Input"
-        @select="handleSelect($event)"
+        @select="handleSelect"
       />
     </Variant>
     <Variant title="Custom templete">
