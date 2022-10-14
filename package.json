@@ -1,0 +1,25 @@
+{
+  "name": "@element-plus/docs-histoire",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "histoire dev",
+    "build": "histoire build",
+    "lint": "eslint .",
+    "preview": "histoire preview"
+  },
+  "dependencies": {
+    "element-plus": "npm:element-plus@latest",
+    "vue": "^3.2.37"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.27.0",
+    "@histoire/plugin-vue": "^0.11.2",
+    "@vitejs/plugin-vue": "^3.1.0",
+    "eslint": "^8.25.0",
+    "histoire": "^0.11.2",
+    "typescript": "^4.6.4",
+    "vite": "^3.1.0",
+    "vue-tsc": "^0.40.4"
+  }
+}
