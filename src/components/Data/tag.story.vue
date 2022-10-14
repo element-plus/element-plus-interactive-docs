@@ -8,10 +8,10 @@ const currentType = ref('success')
 const closable = ref(true)
 const rounded = ref(true)
 const disableTransitions = ref(true)
-const tagTypeList = [
+const tagTypeList: Record<'label' & 'value', TagProps['type']>[] = [
   {
     label: 'default',
-    value: 'default',
+    value: '',
   },
   {
     label: 'success',
@@ -28,6 +28,21 @@ const tagTypeList = [
   {
     label: 'info',
     value: 'info',
+  },
+]
+const currentSize = ref<TagProps['size']>('large')
+const tagSizeList: Record<'label' & 'value', TagProps['size']>[] = [
+  {
+    label: 'large',
+    value: 'large',
+  },
+  {
+    label: 'default',
+    value: 'default',
+  },
+  {
+    label: 'small',
+    value: 'small',
   },
 ]
 const ThemeList = [
@@ -78,11 +93,12 @@ const onChange = (status: boolean) => {
 <template>
   <Story title="Data/Tag">
     <Variant title="Basic usage">
-      <el-tag :type="currentType">
+      <el-tag :type="currentType" :size="currentSize">
         Tag
       </el-tag>
       <template #controls>
         <HstRadio v-model="currentType" title="Tag Type" :options="tagTypeList" />
+        <HstRadio v-model="currentSize" title="Tag Sizes" :options="tagSizeList" />
       </template>
     </Variant>
     <Variant title="Removable Tag">
