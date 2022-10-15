@@ -91,7 +91,7 @@ const onChange = (status: boolean) => {
 </script>
 
 <template>
-  <Story title="Data/Tag">
+  <Story title="Data/Tag" auto-props-disabled>
     <Variant title="Basic usage">
       <el-tag :type="currentType" :size="currentSize">
         Tag

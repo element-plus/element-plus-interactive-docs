@@ -106,7 +106,7 @@ const sizeValueOptions: HstControlOption = [
 </script>
 
 <template>
-  <Story title="Data/Switch">
+  <Story title="Data/Switch" auto-props-disabled>
     <Variant title="Basic usage">
       <el-switch v-model="isOpening" :active-color="activeColor" :inactive-color="inActiveColor" />
       <template #controls>
