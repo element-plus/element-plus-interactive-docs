@@ -24,7 +24,12 @@ const shadowTypeList: Record<'label' & 'value', CardProps['shadow']>[] = [
 </script>
 
 <template>
-  <Story title="Data/Card" auto-props-disabled>
+  <Story
+    title="Data/Card" :layout="{
+      type: 'grid',
+      width: 540,
+    }"
+  >
     <Variant title="Basic usage">
       <el-card class="box-card">
         <template #header>
