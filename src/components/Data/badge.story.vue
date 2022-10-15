@@ -34,7 +34,7 @@ const badgeTypeList: Record<'label' & 'value', BadgeProps['type']>[] = [
 </script>
 
 <template>
-  <Story title="Data/Badge">
+  <Story title="Data/Badge" auto-props-disabled>
     <Variant title="Basic usage">
       <el-badge :value="currentValue" :type="currentType" class="item">
         <el-button>comments</el-button>
