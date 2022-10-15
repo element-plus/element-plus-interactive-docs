@@ -45,7 +45,7 @@ const handleActiveChange = (val: string | null) => {
 </script>
 
 <template>
-  <Story title="Form/ColorPicker">
+  <Story title="Form/ColorPicker" auto-props-disabled>
     <Variant title="Basic Usage">
       <el-color-picker
         v-model="color"

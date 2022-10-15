@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import type { BadgeProps } from 'element-plus'
-import { CaretBottom } from '@element-plus/icons-vue'
-import { Share } from '@element-plus/icons-vue'
+import { CaretBottom, Share } from '@element-plus/icons-vue'
 
 const currentValue = ref(12)
 const stringValue = ref('hot')
@@ -35,7 +34,7 @@ const badgeTypeList: Record<'label' & 'value', BadgeProps['type']>[] = [
 </script>
 
 <template>
-  <Story title="Data/Badge">
+  <Story title="Data/Badge" auto-props-disabled>
     <Variant title="Basic usage">
       <el-badge :value="currentValue" :type="currentType" class="item">
         <el-button>comments</el-button>

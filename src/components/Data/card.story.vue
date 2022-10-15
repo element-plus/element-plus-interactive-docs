@@ -24,22 +24,28 @@ const shadowTypeList: Record<'label' & 'value', CardProps['shadow']>[] = [
 </script>
 
 <template>
-  <Story title="Data/Card">
+  <Story title="Data/Card" auto-props-disabled>
     <Variant title="Basic usage">
       <el-card class="box-card">
         <template #header>
           <div class="card-header">
             <span>Card name</span>
-            <el-button class="button" text>Operation button</el-button>
+            <el-button class="button" text>
+              Operation button
+            </el-button>
           </div>
         </template>
-        <div v-for="o in 4" :key="o" class="text item">{{ `List item ${o}` }}</div>
+        <div v-for="o in 4" :key="o" class="text item">
+          {{ `List item ${o}` }}
+        </div>
       </el-card>
     </Variant>
 
     <Variant title="Simple card">
       <el-card class="box-card" :header="header">
-        <div v-for="o in 4" :key="o" class="text item">{{ `List item ${o}` }}</div>
+        <div v-for="o in 4" :key="o" class="text item">
+          {{ `List item ${o}` }}
+        </div>
       </el-card>
 
       <template #controls>
@@ -59,12 +65,14 @@ const shadowTypeList: Record<'label' & 'value', CardProps['shadow']>[] = [
             <img
               src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
               class="image"
-            />
+            >
             <div style="padding: 14px">
               <span>Yummy hamburger</span>
               <div class="bottom">
                 <time class="time"> {{ currentDate }} </time>
-                <el-button text class="button">Operating</el-button>
+                <el-button text class="button">
+                  Operating
+                </el-button>
               </div>
             </div>
           </el-card>
@@ -80,7 +88,9 @@ const shadowTypeList: Record<'label' & 'value', CardProps['shadow']>[] = [
     </Variant>
 
     <Variant title="Shadow">
-      <el-card :shadow="currentShadow"> {{ currentShadow }} </el-card>
+      <el-card :shadow="currentShadow">
+        {{ currentShadow }}
+      </el-card>
 
       <template #controls>
         <HstRadio v-model="currentShadow" title="Shadow" :options="shadowTypeList" />
