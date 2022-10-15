@@ -32,7 +32,7 @@ const text = ref('')
         :parser="(value:string) => value.replace(/\$\s?|(,*)/g, '')"
       />
     </Variant>
-    <Variant title="Show Password">
+    <Variant title="Password box">
       <el-input
         v-model="input"
         type="password"
@@ -40,7 +40,7 @@ const text = ref('')
         show-password
       />
     </Variant>
-    <Variant title="Icon">
+    <Variant title="Input with icon">
       <el-input
         v-model="input1"
         class="w-50 m-2"
@@ -91,7 +91,7 @@ const text = ref('')
         placeholder="Please input"
       />
     </Variant>
-    <Variant title="Composite Input">
+    <Variant title="Mixed input">
       <div>
         <el-input v-model="input1" placeholder="Please input">
           <template #prepend>
@@ -143,7 +143,7 @@ const text = ref('')
         </el-input>
       </div>
     </Variant>
-    <Variant title="Size">
+    <Variant title="Sizes">
       <div class="demo-input-size">
         <el-input
           v-model="input1"
@@ -160,7 +160,7 @@ const text = ref('')
         />
       </div>
     </Variant>
-    <Variant title="Length limit">
+    <Variant title="Limit length">
       <el-input
         v-model="text"
         maxlength="10"
