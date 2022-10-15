@@ -7,14 +7,14 @@ const value1 = ref([])
 const clearable = ref(true)
 const lastLevel = ref(true)
 const filterable = ref(true)
-const anyLevelProps = ref<CascaderProps>({
+const anyLevelProps = ref({
   multiple: false,
   checkStrictly: true,
 })
 const props = ref<CascaderProps>({
   expandTrigger: 'hover',
 })
-const multipleProps = ref<CascaderProps>({
+const multipleProps = ref({
   multiple: true,
 })
 let id = 0
@@ -625,17 +625,14 @@ const expandTriggerList = [
     <Variant title="Multiple Selection">
       <el-cascader :props="multipleProps" :options="options" />
       <template #controls>
-        <HstCheckbox
-          v-model="(multipleProps.multiple as boolean)"
-          title="Multiple"
-        />
+        <HstCheckbox v-model="multipleProps.multiple" title="Multiple" />
       </template>
     </Variant>
     <Variant title="Select any level of options">
       <el-cascader :options="options" :props="anyLevelProps" clearable />
       <template #controls>
         <HstCheckbox
-          v-model="(anyLevelProps.multiple as boolean)"
+          v-model="anyLevelProps.multiple"
           title="Multiple"
         ></HstCheckbox>
       </template>
@@ -652,7 +649,7 @@ const expandTriggerList = [
       />
       <template #controls>
         <HstCheckbox
-          v-model="(multipleProps.multiple as boolean)"
+          v-model="multipleProps.multiple"
           title="Multiple"
         ></HstCheckbox>
         <HstCheckbox v-model="filterable" title="Filterable"></HstCheckbox>
@@ -670,7 +667,7 @@ const expandTriggerList = [
       <el-cascader-panel :options="options" :props="multipleProps" />
       <template #controls>
         <HstCheckbox
-          v-model="(multipleProps.multiple as boolean)"
+          v-model="multipleProps.multiple"
           title="Multiple"
         ></HstCheckbox>
       </template>
