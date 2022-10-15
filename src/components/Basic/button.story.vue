@@ -40,7 +40,7 @@ const sizeList = [
   },
   {
     label: 'default',
-    value: '',
+    value: 'default',
   },
   {
     label: 'small',
