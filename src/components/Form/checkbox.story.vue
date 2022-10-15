@@ -8,6 +8,8 @@ const checkAll = ref(false)
 const isIndeterminate = ref(true)
 const border = ref(true)
 const checkList = ref(['selected and disabled', 'Option A'])
+const max = ref(2)
+const min = ref(1)
 const checkedCities = ref(['Shanghai', 'Beijing'])
 const cities = ['Shanghai', 'Beijing', 'Guangzhou', 'Shenzhen']
 const sizeOptions: {
@@ -93,14 +95,18 @@ const checkboxGroupChange = (value: CheckboxValueType[]) => {
     <Variant title="Max/Min item checked">
       <el-checkbox-group
         v-model="checkedCities"
-        :min="1"
-        :max="2"
+        :min="min"
+        :max="max"
         @change="checkboxGroupChange"
       >
         <el-checkbox v-for="city in cities" :key="city" :label="city">
           {{ city }}
         </el-checkbox>
       </el-checkbox-group>
+      <template #controls>
+        <HstNumber v-model="min" title="Min" />
+        <HstNumber v-model="max" title="Max" />
+      </template>
     </Variant>
     <Variant title="Button style">
       <el-checkbox-group
@@ -108,12 +114,18 @@ const checkboxGroupChange = (value: CheckboxValueType[]) => {
         :size="size"
         @change="checkboxGroupChange"
       >
-        <el-checkbox-button v-for="city in cities" :key="city" :label="city">
+        <el-checkbox-button
+          v-for="city in cities"
+          :key="city"
+          :label="city"
+          :disabled="disabled"
+        >
           {{ city }}
         </el-checkbox-button>
       </el-checkbox-group>
       <template #controls>
         <HstRadio v-model="size" :options="sizeOptions" title="Size" />
+        <HstCheckbox v-model="disabled" title="Disable" />
       </template>
     </Variant>
     <Variant title="With borders">
