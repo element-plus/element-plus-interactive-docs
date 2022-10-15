@@ -1,13 +1,13 @@
 import { resolve } from 'pathe'
 export const PROJECT_DIR = process.cwd()
 export const resolver = dir => resolve(PROJECT_DIR, dir)
-export const createStoryComponent = component => `\
+export const createStoryComponent = (category, component) => `\
 <script setup lang="ts">
 import type { ${component}Props } from 'element-plus'
 </script>
 
 <template>
-  <Story title="Feedback/${component}">
+  <Story title="${category}/${component}">
     <Variant title="Basic Usage">
       <template #controls>
         <!-- HstControl -->

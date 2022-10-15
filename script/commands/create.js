@@ -39,7 +39,7 @@ const generateStoryDoc = (component, category) => {
   const storyDocFile = resolver(`src/components/${category}/${fileName}`)
 
   // 读取模板
-  const template = createStoryComponent(component)
+  const template = createStoryComponent(category, component)
   // 生成文件
   try {
     // 目录不存在则新建
@@ -54,7 +54,7 @@ const generateStoryDoc = (component, category) => {
     writeFileSync(storyDocFile, template, { encoding: 'utf-8' })
 
     console.log(`${fileName}创建成功！`)
-    console.log(`path:${storyDocFile}`)
+    console.log(`path: ${storyDocFile}`)
   }
   catch (e) {
     console.error(e.toString())
