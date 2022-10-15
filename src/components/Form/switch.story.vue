@@ -18,7 +18,7 @@ const sizeValue = ref('small')
 const isDisabled = ref(true)
 const isLoading = ref(true)
 
-const preventSwtchValue = ref(
+const preventSwitchValue = ref(
   {
     value: false,
     value_sec: false,
@@ -26,7 +26,7 @@ const preventSwtchValue = ref(
     loading_sec: false,
   },
 )
-const swtichValue = ref(
+const switchValue = ref(
   {
     value: 0,
     activeValue: 100,
@@ -41,20 +41,20 @@ const switchText = ref(
 )
 
 const beforeChange = () => {
-  preventSwtchValue.value.loading = true
+  preventSwitchValue.value.loading = true
   return new Promise((resolve) => {
     setTimeout(() => {
-      preventSwtchValue.value.loading = false
+      preventSwitchValue.value.loading = false
       ElMessage.success('Switch success')
       return resolve(true)
     }, 1000)
   })
 }
 const beforeChangeSecond = () => {
-  preventSwtchValue.value.loading_sec = true
+  preventSwitchValue.value.loading_sec = true
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      preventSwtchValue.value.loading_sec = false
+      preventSwitchValue.value.loading_sec = false
       ElMessage.error('Switch failed')
       return reject(new Error('Error'))
     }, 1000)
@@ -106,7 +106,7 @@ const sizeValueOptions: HstControlOption = [
 </script>
 
 <template>
-  <Story title="Data/Switch" auto-props-disabled>
+  <Story title="Form/Switch" auto-props-disabled>
     <Variant title="Basic usage">
       <el-switch v-model="isOpening" :active-color="activeColor" :inactive-color="inActiveColor" />
       <template #controls>
@@ -143,15 +143,15 @@ const sizeValueOptions: HstControlOption = [
     </Variant>
 
     <Variant title="Extended value types">
-      <el-tooltip :content="`Switch value: ${swtichValue.value}`" placement="bottom">
+      <el-tooltip :content="`Switch value: ${switchValue.value}`" placement="bottom">
         <el-switch
-          v-model="swtichValue.value" :active-value="swtichValue.activeValue"
-          :inactive-value="swtichValue.inActiveValue"
+          v-model="switchValue.value" :active-value="switchValue.activeValue"
+          :inactive-value="switchValue.inActiveValue"
         />
       </el-tooltip>
       <template #controls>
-        <HstNumber v-model="swtichValue.activeValue" title="activeValue" />
-        <HstNumber v-model="swtichValue.inActiveValue" title="inActiveValue" />
+        <HstNumber v-model="switchValue.activeValue" title="activeValue" />
+        <HstNumber v-model="switchValue.inActiveValue" title="inActiveValue" />
       </template>
     </Variant>
 
@@ -173,14 +173,14 @@ const sizeValueOptions: HstControlOption = [
 
     <Variant title="prevent switching">
       <el-switch
-        v-model="preventSwtchValue.value"
+        v-model="preventSwitchValue.value"
         style="margin-right: 8px;"
-        :before-change="beforeChange" :loading="preventSwtchValue.loading"
+        :before-change="beforeChange" :loading="preventSwitchValue.loading"
         @change="logEvent('change', { change: 'switch value has changed' })"
         @click="logEvent('click', $event)"
       />
       <el-switch
-        v-model="preventSwtchValue.value_sec" :loading="preventSwtchValue.loading_sec"
+        v-model="preventSwitchValue.value_sec" :loading="preventSwitchValue.loading_sec"
         :before-change="beforeChangeSecond"
         @change="logEvent('change', { change: 'switch value has changed' })"
         @click="logEvent('click', $event)"
