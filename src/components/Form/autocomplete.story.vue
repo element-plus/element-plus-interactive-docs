@@ -56,7 +56,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <Story title="Form/Autocomplete">
+  <Story title="Form/Autocomplete" auto-props-disabled>
     <Variant title="Basic Usage">
       <el-autocomplete
         v-model="state1"
