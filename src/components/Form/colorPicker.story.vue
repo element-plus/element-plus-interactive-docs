@@ -4,6 +4,7 @@ import type { ColorPickerProps } from 'element-plus'
 import { logEvent } from 'histoire/client'
 const color = ref('#409EFF')
 const alphaColor = ref('rgba(19, 206, 102, 0.8)')
+const predefine = ref(true)
 const predefineColors = ref([
   '#ff4500',
   '#ff8c00',
@@ -59,6 +60,7 @@ const handleActiveChange = (val: string | null) => {
     <Variant title="Alpha">
       <el-color-picker
         v-model="alphaColor"
+        :size="size"
         show-alpha
         @change="handleChange"
         @active-change="handleActiveChange"
@@ -70,13 +72,15 @@ const handleActiveChange = (val: string | null) => {
     <Variant title="Predefined colors">
       <el-color-picker
         v-model="color"
+        :size="size"
         show-alpha
-        :predefine="predefineColors"
+        :predefine="predefine ? predefineColors : []"
         @change="handleChange"
         @active-change="handleActiveChange"
       />
       <template #controls>
         <HstRadio v-model="size" :options="sizeList" title="Size" />
+        <HstCheckbox v-model="predefine" title="predefine" />
       </template>
     </Variant>
   </Story>
