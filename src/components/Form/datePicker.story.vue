@@ -109,7 +109,7 @@ const isHoliday = ({ dayjs }: DateCell) => {
 </script>
 
 <template>
-  <Story title="Form/DatePicker">
+  <Story title="Form/DatePicker" auto-props-disabled>
     <Variant title="Basic Usage">
       <el-date-picker
         v-model="date"
