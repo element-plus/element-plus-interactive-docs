@@ -69,9 +69,7 @@ const fireClose = () => {
       <template #controls>
         <HstRadio v-model="currentShape" title="Avatar Shape" :options="avatarShapeList" />
         <HstRadio v-model="currentSize" title="Avatar Sizes" :options="avatarSizeList" />
-        <div class="custom-size">
-          Custom Avatar Size  <input v-model="customSize" type="number">
-        </div>
+        <HstNumber v-model="customSize" title="Custom Avatar Size" />
       </template>
     </Variant>
     <Variant title="Types">
@@ -120,13 +118,5 @@ Set how the image fit its container for an image avatar, same as [object-fit](ht
 .demo-type {
   display: flex;
   justify-content: space-around;
-}
-.custom-size{
-  margin: 10px 2px;
-}
-.custom-size input {
-  border: 1px solid #333;
-  border-radius: 5px;
-  outline: none;
 }
 </style>
