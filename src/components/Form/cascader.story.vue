@@ -4,6 +4,9 @@ import { ref } from 'vue'
 import type { CascaderOption, CascaderProps } from 'element-plus'
 
 const value1 = ref([])
+const clearable = ref(true)
+const lastLevel = ref(true)
+const filterable = ref(true)
 const anyLevelProps = ref<CascaderProps>({
   multiple: false,
   checkStrictly: true,
@@ -608,13 +611,25 @@ const expandTriggerList = [
       />
     </Variant>
     <Variant title="Clearable">
-      <el-cascader :options="options" clearable />
+      <el-cascader :options="options" :clearable="clearable" />
+      <template #controls>
+        <HstCheckbox v-model="clearable" title="Clearable" />
+      </template>
     </Variant>
     <Variant title="Display only the last level">
-      <el-cascader :options="options" :show-all-levels="false" />
+      <el-cascader :options="options" :show-all-levels="!lastLevel" />
+      <template #controls>
+        <HstCheckbox v-model="lastLevel" title="Last level" />
+      </template>
     </Variant>
     <Variant title="Multiple Selection">
       <el-cascader :props="multipleProps" :options="options" />
+      <template #controls>
+        <HstCheckbox
+          v-model="(multipleProps.multiple as boolean)"
+          title="Multiple"
+        />
+      </template>
     </Variant>
     <Variant title="Select any level of options">
       <el-cascader :options="options" :props="anyLevelProps" clearable />
@@ -633,13 +648,14 @@ const expandTriggerList = [
         placeholder="Try searchingL Guide"
         :options="options"
         :props="multipleProps"
-        filterable
+        :filterable="filterable"
       />
       <template #controls>
         <HstCheckbox
           v-model="(multipleProps.multiple as boolean)"
           title="Multiple"
         ></HstCheckbox>
+        <HstCheckbox v-model="filterable" title="Filterable"></HstCheckbox>
       </template>
     </Variant>
     <Variant title="Custom option content">
@@ -651,7 +667,13 @@ const expandTriggerList = [
       </el-cascader>
     </Variant>
     <Variant title="Cascader panel">
-      <el-cascader-panel :options="options" />
+      <el-cascader-panel :options="options" :props="multipleProps" />
+      <template #controls>
+        <HstCheckbox
+          v-model="(multipleProps.multiple as boolean)"
+          title="Multiple"
+        ></HstCheckbox>
+      </template>
     </Variant>
   </Story>
 </template>
