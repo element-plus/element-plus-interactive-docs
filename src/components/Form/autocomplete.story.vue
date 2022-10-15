@@ -9,8 +9,8 @@ interface LinkItem {
 const clearable = ref(true)
 const triggerOnFocus = ref(false)
 const state1 = ref('')
-const state2 = ref('')
 const state = ref('')
+const isAsync = ref(true)
 const links = ref<LinkItem[]>([])
 const createFilter = (queryString: string) => {
   return (restaurant: LinkItem) => {
@@ -102,12 +102,13 @@ onMounted(() => {
       <el-autocomplete
         v-model="state"
         :clearable="clearable"
-        :fetch-suggestions="querySearchAsync"
+        :fetch-suggestions="isAsync ? querySearchAsync : querySearch"
         placeholder="Please input"
         @select="handleSelect"
       />
       <template #controls>
         <HstCheckbox v-model="clearable" title="Clearable" />
+        <HstCheckbox v-model="isAsync" title="Remote search" />
       </template>
     </Variant>
   </Story>
