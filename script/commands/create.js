@@ -23,21 +23,25 @@ const upperFirst = (name) => {
 }
 const createComponentsQ = (category) => {
   // 读取已有的组件
-  let files
+  let files = null
+  let choices = componentCollection[category]?.components
   try {
-    files = readdirSync(resolver(`src/components/${category}/`))
+    const path = resolver(`src/components/${category}/`)
+    if (existsSync(path))
+      files = readdirSync(path)
   }
   catch (e) {
     console.error(e.toString())
     process.exit(1)
   }
-  const existMap = {}
-  const names = files?.map(f => upperFirst(f?.split('.')[0]))
-  const allComponents = componentCollection[category]?.components
-  // 取交集，仅列出未创建的组件
-  for (const k of names)
-    existMap[k] = true
-  const choices = allComponents.filter(c => !existMap[c])
+  if (files) {
+    const existMap = {}
+    const names = files?.map(f => upperFirst(f?.split('.')[0]))
+    // 取交集，仅列出未创建的组件
+    for (const k of names)
+      existMap[k] = true
+    choices = choices.filter(c => !existMap[c])
+  }
   return ({
     type: 'checkbox',
     name: 'components',
