@@ -9,7 +9,8 @@
     "preview": "histoire preview",
     "preview:build": "pnpm run build && histoire preview",
     "lint": "eslint .",
-    "create": "node script/index.js create"
+    "lint:fix": "eslint . --fix",
+    "create": "node script/create/index.js create"
   },
   "dependencies": {
     "element-plus": "npm:element-plus@latest",
