@@ -76,8 +76,8 @@ const buttonGroupData = ref({
 </script>
 
 <template>
-  <Story title="Basic/Button" auto-props-disabled>
-    <Variant title="Basic usage" >
+  <Story title="Basic/Button">
+    <Variant title="Basic usage">
       <el-button
         :type="basicButtonData.type"
         :size="basicButtonData.size"
@@ -108,7 +108,7 @@ const buttonGroupData = ref({
         />
       </template>
     </Variant>
-    <Variant title="Custom Color" >
+    <Variant title="Custom Color">
       <el-button
         :plain="colorButtonData.plain"
         :disabled="colorButtonData.disabled"
@@ -128,7 +128,7 @@ const buttonGroupData = ref({
       </template>
     </Variant>
 
-    <Variant title="Button Group" >
+    <Variant title="Button Group">
       <el-button-group
         :size="buttonGroupData.size"
         :type="buttonGroupData.type"

@@ -91,7 +91,12 @@ const onChange = (status: boolean) => {
 </script>
 
 <template>
-  <Story title="Data/Tag" auto-props-disabled>
+  <Story
+    title="Data/Tag" :layout="{
+      type: 'grid',
+      width: 400,
+    }"
+  >
     <Variant title="Basic usage">
       <el-tag :type="currentType" :size="currentSize">
         Tag

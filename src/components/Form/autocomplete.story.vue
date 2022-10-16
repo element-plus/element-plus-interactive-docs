@@ -71,7 +71,7 @@ onMounted(() => {
         <HstCheckbox v-model="triggerOnFocus" title="Trigger on focus" />
       </template>
     </Variant>
-    <Variant title="Custom templete">
+    <Variant title="Custom template">
       <el-autocomplete
         v-model="state"
         :fetch-suggestions="querySearch"
@@ -120,7 +120,7 @@ You can get some recommended tips based on the current input.
 
 Autocomplete component provides input suggestions. The `fetch-suggestions` attribute is a method that returns suggested input. In this example, `querySearch(queryString, cb)` returns suggestions to Autocomplete via `cb(data)` when suggestions are ready.
 
-## Custom templete
+## Custom template
 Customize how suggestions are displayed.
 
 Use `scoped slot` to customize suggestion items. In the scope, you can access the suggestion object via the `item` key.

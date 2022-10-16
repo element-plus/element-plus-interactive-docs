@@ -92,7 +92,7 @@ const handleChange = (dateTime: any) => {
 </script>
 
 <template>
-  <Story title="Form/DateTimePicker">
+  <Story title="Form/DateTimePicker" :layout="{ type: 'grid', width: 480 }">
     <Variant title="Basic Usage">
       <el-date-picker
         v-model="date"
