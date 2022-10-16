@@ -634,7 +634,7 @@ const expandTriggerList = [
         <HstCheckbox
           v-model="anyLevelProps.multiple"
           title="Multiple"
-        ></HstCheckbox>
+        />
       </template>
     </Variant>
     <Variant title="Dynamic loading">
@@ -651,8 +651,8 @@ const expandTriggerList = [
         <HstCheckbox
           v-model="multipleProps.multiple"
           title="Multiple"
-        ></HstCheckbox>
-        <HstCheckbox v-model="filterable" title="Filterable"></HstCheckbox>
+        />
+        <HstCheckbox v-model="filterable" title="Filterable" />
       </template>
     </Variant>
     <Variant title="Custom option content">
@@ -669,7 +669,7 @@ const expandTriggerList = [
         <HstCheckbox
           v-model="multipleProps.multiple"
           title="Multiple"
-        ></HstCheckbox>
+        />
       </template>
     </Variant>
   </Story>

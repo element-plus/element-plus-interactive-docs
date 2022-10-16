@@ -1,15 +1,14 @@
 <script setup lang="ts">
-import type { InputNumberProps } from 'element-plus'
 import { logEvent } from 'histoire/client'
 
 import { ref } from 'vue'
-const handleChange = (currentNum: number, oldNum: number) => logEvent('Change', { currentNum, oldNum })
+const handleChange = (currentNum?: number, oldNum?: number) => logEvent('Change', { currentNum, oldNum })
 
 const numBasic = ref(1)
 const minBasic = ref(1)
 const maxBasic = ref(10)
 const numDisabled = ref(1)
-const isDisabled = ref(1)
+const isDisabled = ref(true)
 const numSteps = ref(1)
 const numStep = ref(2)
 const numStepsStrictly = ref(1)
@@ -29,11 +28,11 @@ const controlsPositionList = ['right']
     <Variant title="Basic Usage">
       <el-input-number v-model="numBasic" :min="minBasic" :max="maxBasic" @change="handleChange" />
       <template #controls>
-        <HstText
+        <HstNumber
           v-model="minBasic"
           title="min"
         />
-        <HstText
+        <HstNumber
           v-model="maxBasic"
           title="max"
         />
@@ -51,7 +50,7 @@ const controlsPositionList = ['right']
     <Variant title="Steps">
       <el-input-number v-model="numSteps" :step="numStep" />
       <template #controls>
-        <HstText
+        <HstNumber
           v-model="numStep"
           title="step"
         />
@@ -69,7 +68,7 @@ const controlsPositionList = ['right']
     <Variant title="Precision">
       <el-input-number v-model="numPrecision" :precision="precision" :step="0.1" :max="10" />
       <template #controls>
-        <HstText
+        <HstNumber
           v-model="precision"
           title="precision"
         />
