@@ -4,6 +4,11 @@
     "vue/component-name-in-template-casing": ["error","kebab-case", {
       "registeredComponentsOnly": true,
       "ignores": []
+    }],
+    "@typescript-eslint/no-unused-vars": ["error", {
+      "vars": "all",
+      "args": "after-used",
+      "ignoreRestSiblings": false
     }]
   }
 }
