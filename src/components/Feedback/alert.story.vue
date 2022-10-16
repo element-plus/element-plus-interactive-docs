@@ -3,7 +3,7 @@ import { ref } from 'vue'
 import type { AlertProps } from 'element-plus'
 import { logEvent } from 'histoire/client'
 
-const currentType = ref('success')
+const currentType = ref<AlertProps['type']>('success')
 const currentTheme = ref<AlertProps['effect']>('light')
 const closableState = ref({
   text: 'Gotcha',
@@ -38,7 +38,7 @@ const fireClose = (e: Event) => {
 </script>
 
 <template>
-  <Story title="Feedback/Alert">
+  <Story title="Feedback/Alert" auto-props-disabled>
     <Variant title="Basic Usage">
       <el-alert :type="currentType" :title="currentType" />
       <template #controls>

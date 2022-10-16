@@ -34,7 +34,7 @@ const linkTypeList: { label: string; value: LinkProps['type'] }[] = [
 </script>
 
 <template>
-  <Story title="Basic/Link">
+  <Story title="Basic/Link" auto-props-disabled>
     <Variant title="Basic Usage">
       <el-link :type="currentType" :href="void 0">
         {{ currentType }}
