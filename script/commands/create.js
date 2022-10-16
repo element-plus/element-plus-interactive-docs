@@ -1,4 +1,4 @@
-import { existsSync, mkdirSync, writeFileSync } from 'fs'
+import { existsSync, mkdirSync, readdirSync, writeFileSync } from 'fs'
 import inquirer from 'inquirer'
 import { categoryList, componentCollection, createStoryComponent, resolver } from '../common/constant.js'
 const categoryQ = {
@@ -7,24 +7,49 @@ const categoryQ = {
   message: '（必填）请选择创建组件的类型：',
   choices: categoryList,
 }
-const createComponentsQ = category => ({
-  type: 'checkbox',
-  name: 'components',
-  message: '（必填）请选择创建组件name：',
-  choices: componentCollection[category]?.components,
-  validate: (value) => {
-    if (!value.length)
-      return '组件 name 是必填项！'
-
-    return true
-  },
-})
 const lowerFirst = (name) => {
   if (!name)
     return ''
   if (name.length === 1)
     return name.toLowerCase()
   return name[0].toLowerCase() + name.substring(1)
+}
+const upperFirst = (name) => {
+  if (!name)
+    return ''
+  if (name.length === 1)
+    return name.toUpperCase()
+  return name[0].toUpperCase() + name.substring(1)
+}
+const createComponentsQ = (category) => {
+  // 读取已有的组件
+  let files
+  try {
+    files = readdirSync(resolver(`src/components/${category}/`))
+  }
+  catch (e) {
+    console.error(e.toString())
+    process.exit(1)
+  }
+  const existMap = {}
+  const names = files?.map(f => upperFirst(f?.split('.')[0]))
+  const allComponents = componentCollection[category]?.components
+  // 取交集，仅列出未创建的组件
+  for (const k of names)
+    existMap[k] = true
+  const choices = allComponents.filter(c => !existMap[c])
+  return ({
+    type: 'checkbox',
+    name: 'components',
+    message: '（必填）请选择创建组件name：',
+    choices,
+    validate: (value) => {
+      if (!value.length)
+        return '组件 name 是必填项！'
+
+      return true
+    },
+  })
 }
 
 const generateStoryDoc = (component, category) => {
