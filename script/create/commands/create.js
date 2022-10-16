@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { existsSync, mkdirSync, readdirSync, writeFileSync } from 'fs'
 import inquirer from 'inquirer'
 import { categoryList, componentCollection, createStoryComponent, resolver } from '../common/constant.js'
