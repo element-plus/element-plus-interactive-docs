@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import { logEvent } from 'histoire/client'
-import type { AutocompleteProps } from 'element-plus'
 interface LinkItem {
   value: string
   link: string
