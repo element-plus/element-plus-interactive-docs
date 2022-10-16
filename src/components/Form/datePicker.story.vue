@@ -179,7 +179,11 @@ const isHoliday = ({ dayjs }: DateCell) => {
 </script>
 
 <template>
-  <Story title="Form/DatePicker" auto-props-disabled>
+  <Story
+    title="Form/DatePicker"
+    auto-props-disabled
+    :layout="{ type: 'grid', width: 480 }"
+  >
     <Variant title="Basic Usage">
       <div>
         <el-radio-group v-model="size" label="size control" style="margin-bottom: 20px;">
