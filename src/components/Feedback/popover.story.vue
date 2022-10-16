@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { ref, unref } from 'vue'
 import { ClickOutside as vClickOutside } from 'element-plus'
-
 const visible = ref(false)
-const buttonRef = ref()
 const popoverRef = ref()
-
-const gridData = [
+const buttonRef = ref()
+const placement = ref('top-start')
+const trigger = ref('click')
+const gridData: { date: string; name: string; address: string }[] = [
   {
     date: '2016-05-02',
     name: 'Jack',
@@ -29,76 +29,108 @@ const gridData = [
   },
 ]
 
+const placementList: { label: string; value: string }[] = [
+  {
+    label: 'top',
+    value: 'top',
+  },
+  {
+    label: 'top-start',
+    value: 'top-start',
+  },
+  {
+    label: 'top-end',
+    value: 'top-end',
+  },
+  {
+    label: 'bottom',
+    value: 'bottom',
+  },
+  {
+    label: 'bottom-start',
+    value: 'bottom-start',
+  },
+  {
+    label: 'bottom-end',
+    value: 'bottom-end',
+  },
+  {
+    label: 'right',
+    value: 'right',
+  },
+  {
+    label: 'right-start',
+    value: 'right-start',
+  },
+  {
+    label: 'right-end',
+    value: 'right-end',
+  },
+  {
+    label: 'left',
+    value: 'left',
+  },
+  {
+    label: 'left-start',
+    value: 'left-start',
+  },
+  {
+    label: 'left-end',
+    value: 'left-end',
+  },
+]
+
+const triggerList: { label: string; value: string }[] = [
+  {
+    label: 'click',
+    value: 'click',
+  },
+  {
+    label: 'focus',
+    value: 'focus',
+  },
+  {
+    label: 'hover',
+    value: 'hover',
+  },
+  {
+    label: 'contextmenu',
+    value: 'contextmenu',
+  },
+]
+
 const onClickOutside = () => {
-  unref(popoverRef).popperRef?.delayHide?.()
+  unref(popoverRef).popoverRef?.delayHide?.()
 }
 </script>
 
 <template>
-  <Story title="Feedback/Popover">
+  <Story title="Feedback/Popover" :layout="{ type: 'grid', width: 500 }">
     <Variant title="Basic Usage">
       <el-popover
-        placement="top-start"
+        :placement="placement"
         title="Title"
         :width="200"
-        trigger="hover"
+        :trigger="trigger"
         content="this is content, this is content, this is content"
       >
         <template #reference>
-          <el-button>Hover to activate</el-button>
+          <el-button>{{ trigger }} to activate</el-button>
         </template>
       </el-popover>
 
-      <el-popover
-        placement="bottom"
-        title="Title"
-        :width="200"
-        trigger="click"
-        content="this is content, this is content, this is content"
-      >
-        <template #reference>
-          <el-button>Click to activate</el-button>
-        </template>
-      </el-popover>
-
-      <el-popover
-        ref="popover"
-        placement="right"
-        title="Title"
-        :width="200"
-        trigger="focus"
-        content="this is content, this is content, this is content"
-      >
-        <template #reference>
-          <el-button>Focus to activate</el-button>
-        </template>
-      </el-popover>
-
-      <el-popover
-        ref="popover"
-        title="Title"
-        :width="200"
-        trigger="contextmenu"
-        content="this is content, this is content, this is content"
-      >
-        <template #reference>
-          <el-button>contextmenu to activate</el-button>
-        </template>
-      </el-popover>
-
-      <el-popover
-        :visible="visible"
-        placement="bottom"
-        title="Title"
-        :width="200"
-        content="this is content, this is content, this is content"
-      >
-        <template #reference>
-          <el-button @click="visible = !visible">
-            Manual to activate
-          </el-button>
-        </template>
-      </el-popover>
+      <template #controls>
+        <HstSelect
+          v-model="placement"
+          title="Placement"
+          :options="placementList"
+        />
+        <HstSelect
+          v-model="trigger"
+          title="Trigger"
+          :options="triggerList"
+        />
+      </template>
     </Variant>
 
     <Variant title="Virtual triggering">
