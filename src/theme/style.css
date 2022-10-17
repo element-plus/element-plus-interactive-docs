@@ -19,8 +19,11 @@ body{
   background-color: unset;
   color: #409eff;
 }
+#app [data-test-id="story-list-folder"] [data-test-id="story-list-item"] a.active{
+  color: #fff;
+}
 #app [data-test-id="story-list-folder"] [data-test-id="story-list-item"] a.active:hover{
-background-color: #409eff;
+  background-color: #409eff;
 }
 
 #app .router-link-active{
