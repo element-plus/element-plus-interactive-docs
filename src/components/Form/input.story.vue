@@ -57,7 +57,11 @@ const useSlot = computed(() => withIcon.value === 'slot')
 </script>
 
 <template>
-  <Story title="Form/Input" :layout="{ type: 'grid', width: 500 }" auto-props-disabled>
+  <Story
+    title="Form/Input"
+    icon="iconoir:input-field"
+    :layout="{ type: 'grid', width: 500 }"
+  >
     <Variant title="Basic Usage">
       <el-input v-model="input1" placeholder="Please input" />
     </Variant>

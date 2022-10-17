@@ -5,7 +5,7 @@ const imageSize = ref(200)
 </script>
 
 <template>
-  <Story title="Data/Empty">
+  <Story title="Data/Empty" icon="mdi:delete-empty-outline">
     <Variant title="Basic Usage">
       <el-empty :description="description" />
       <template #controls>

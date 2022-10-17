@@ -7,7 +7,8 @@ import type { ${component}Props } from 'element-plus'
 </script>
 
 <template>
-  <Story title="${category}/${component}">
+  <!-- icon from https://icones.js.org/collection/all?s=element -->
+  <Story title="${category}/${component}" icon="ep:element-plus">
     <Variant title="Basic Usage">
       <template #controls>
         <!-- HstControl -->

@@ -92,10 +92,12 @@ const onChange = (status: boolean) => {
 
 <template>
   <Story
-    title="Data/Tag" :layout="{
+    title="Data/Tag"
+    :layout="{
       type: 'grid',
       width: 400,
     }"
+    icon="mdi:tag-text-outline"
   >
     <Variant title="Basic usage">
       <el-tag :type="currentType" :size="currentSize">

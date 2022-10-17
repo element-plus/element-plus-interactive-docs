@@ -106,7 +106,7 @@ const sizeValueOptions: HstControlOption = [
 </script>
 
 <template>
-  <Story title="Form/Switch" auto-props-disabled>
+  <Story title="Form/Switch" icon="mdi:toggle-switch-off-outline">
     <Variant title="Basic usage">
       <el-switch v-model="isOpening" :active-color="activeColor" :inactive-color="inActiveColor" />
       <template #controls>

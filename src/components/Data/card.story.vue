@@ -25,10 +25,12 @@ const shadowTypeList: Record<'label' & 'value', CardProps['shadow']>[] = [
 
 <template>
   <Story
-    title="Data/Card" :layout="{
+    title="Data/Card"
+    :layout="{
       type: 'grid',
       width: 540,
     }"
+    icon="mdi:card-account-details-outline"
   >
     <Variant title="Basic usage">
       <el-card class="box-card">

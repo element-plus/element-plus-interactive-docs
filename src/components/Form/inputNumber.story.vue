@@ -24,7 +24,7 @@ const controlsPositionList = ['right']
 </script>
 
 <template>
-  <Story title="Form/InputNumber">
+  <Story title="Form/InputNumber" icon="fluent-emoji-high-contrast:input-numbers">
     <Variant title="Basic Usage">
       <el-input-number v-model="numBasic" :min="minBasic" :max="maxBasic" @change="handleChange" />
       <template #controls>

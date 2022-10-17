@@ -38,7 +38,7 @@ const fireClose = (e: Event) => {
 </script>
 
 <template>
-  <Story title="Feedback/Alert" auto-props-disabled>
+  <Story title="Feedback/Alert" icon="material-symbols:add-alert-outline">
     <Variant title="Basic Usage">
       <el-alert :type="currentType" :title="currentType" />
       <template #controls>

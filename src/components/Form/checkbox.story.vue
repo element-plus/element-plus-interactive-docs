@@ -49,7 +49,7 @@ const checkboxGroupChange = (value: CheckboxValueType[]) => {
 </script>
 
 <template>
-  <Story title="Form/Checkbox">
+  <Story title="Form/Checkbox" icon="mdi:format-list-checkbox">
     <Variant title="Basic Usage">
       <el-checkbox
         label="option1"
