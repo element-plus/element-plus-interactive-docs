@@ -2,7 +2,6 @@
 import { onMounted, ref } from 'vue'
 import { Check, Minus, Plus } from '@element-plus/icons-vue'
 import type { ProgressProps } from 'element-plus'
-import { logEvent } from 'histoire/client'
 
 const currentPercentage = ref('50')
 const currentInside = ref(true)
