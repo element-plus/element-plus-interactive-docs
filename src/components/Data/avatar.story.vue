@@ -62,7 +62,7 @@ const fireClose = () => {
 </script>
 
 <template>
-  <Story title="Data/Avatar" auto-props-disabled>
+  <Story title="Data/Avatar" icon="clarity:avatar-line">
     <Variant title="Basic usage">
       <el-avatar :shape="currentShape" :size="currentSize" :src="url" />
       <el-avatar :shape="currentShape" style="margin:0 20px" :size="customSize" :src="url" />

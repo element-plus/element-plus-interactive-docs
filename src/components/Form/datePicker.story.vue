@@ -181,7 +181,7 @@ const isHoliday = ({ dayjs }: DateCell) => {
 <template>
   <Story
     title="Form/DatePicker"
-    auto-props-disabled
+    icon="carbon:calendar"
     :layout="{ type: 'grid', width: 480 }"
   >
     <Variant title="Basic Usage">

@@ -26,7 +26,7 @@ const iconList: Record<'label' & 'value', ResultProps['icon']>[] = [
 </script>
 
 <template>
-  <Story title="Data/Result">
+  <Story title="Data/Result" icon="carbon:result">
     <Variant title="Basic usage">
       <el-result
         :icon="currentIcon"

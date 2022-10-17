@@ -76,7 +76,7 @@ const buttonGroupData = ref({
 </script>
 
 <template>
-  <Story title="Basic/Button">
+  <Story title="Basic/Button" icon="teenyicons:button-outline">
     <Variant title="Basic usage">
       <el-button
         :type="basicButtonData.type"

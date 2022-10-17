@@ -30,7 +30,7 @@ const icons = [ChatRound, ChatLineRound, ChatDotRound]
 </script>
 
 <template>
-  <Story title="Form/Rate" auto-props-disabled>
+  <Story title="Form/Rate" icon="material-symbols:star-rate-half-rounded">
     <Variant title="Basic Usage">
       <!-- <el-rate v-model="rate" /> -->
       <el-rate v-model="currentRate" :max="maxRate" />

@@ -587,7 +587,7 @@ const expandTriggerList = [
 </script>
 
 <template>
-  <Story title="Form/Cascader">
+  <Story title="Form/Cascader" icon="octicon:multi-select-24">
     <Variant title="Basic Usage">
       <el-cascader
         v-model="value1"
