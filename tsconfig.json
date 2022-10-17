@@ -9,7 +9,11 @@
     "strictNullChecks": true,
     "resolveJsonModule": true,
     "jsx": "preserve",
-    "types": ["vite/client", "@histoire/plugin-vue/components", "element-plus/global"]
+    "types": [
+      "vite/client",
+      "@histoire/plugin-vue/components",
+      "element-plus/global"
+    ]
   },
-  "include": ["src/**/*", "src/**/*.vue"]
+  "include": ["src/**/*", "src/**/*.vue", "src/components/Data/.story.vue.ts"]
 }
