@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import type { DividerProps } from 'element-plus'
-import { ElDivider } from 'element-plus'
-import 'element-plus/dist/index.css'
 
 const currentDirection = ref<DividerProps['direction']>('horizontal')
 const currentBorderStyle = ref<DividerProps['borderStyle']>('solid')
@@ -22,7 +20,7 @@ const contentPositionList = [
 </script>
 
 <template>
-  <Story title="Others/Divider">
+  <Story title="Others/Divider" icon="material-symbols:safety-divider">
     <Variant title="Basic Usage">
       <span>Rain</span>
       <el-divider />
