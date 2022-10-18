@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import { onMounted, reactive, ref } from 'vue'
-// import { logEvent } from 'histoire/client'
-import { ElButton, ElCard, ElSkeleton, ElSkeletonItem, ElSpace } from 'element-plus'
 
 interface ListItem {
   imgUrl: string
