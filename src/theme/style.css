@@ -12,6 +12,7 @@ body{
 #app [data-test-id="story-list-folder"] > [role="button"]{
   border-radius: 0.55rem;
   height: 2.55rem;
+  margin: 0 1rem;
 }
 
 #app [data-test-id="story-list-folder"] [data-test-id="story-list-item"] a:not(.active):hover,
@@ -38,6 +39,10 @@ body{
 .v-popper > div{
   height: 2.3rem;
   padding: 0 0.7rem;
+}
+
+#app .__histoire-pane-shadow-from-right{
+  background-image: none;
 }
 
 #app .htw-dark .dark\:htw-text-black{
