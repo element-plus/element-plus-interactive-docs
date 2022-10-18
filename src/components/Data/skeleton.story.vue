@@ -8,8 +8,9 @@ interface ListItem {
   name: string
 }
 
-const loading = reactive([true, false, true])
+const animated = ref(true)
 const rows = ref<number>(5)
+const loading = reactive([true, false, true])
 const currentDate = new Date().toDateString()
 
 const lists = ref<ListItem[]>([])
@@ -67,7 +68,13 @@ onMounted(() => {
       </template>
     </Variant>
     <Variant title="Animation">
-      <el-skeleton :rows="5" animated />
+      <el-space direction="vertical" alignment="flex-start">
+        <div>
+          <label style="margin-right: 16px">Switch Animated</label>
+          <el-switch v-model="animated" />
+        </div>
+        <el-skeleton style="width: 240px" :rows="5" :animated="animated" />
+      </el-space>
     </Variant>
     <Variant title="Customized Template">
       <el-skeleton style="width: 240px">
