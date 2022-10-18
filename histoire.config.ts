@@ -12,14 +12,16 @@ export default defineConfig({
       gray: {
         ...defaultColors.slate,
         100: '#cfd3dc',
+        300: '#b7b7b7',
         700: '#141414',
         750: '#141414',
-        800: '#141414',
+        800: '#434445',
         900: '#606266',
       },
       primary: {
         ...defaultColors.blue,
         500: '#409eff',
+        700: '#409eff',
       },
     },
     title: 'Element Plus',
