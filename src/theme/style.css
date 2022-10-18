@@ -44,9 +44,14 @@ body{
   color: #fff;
 }
 
+.htw-dark .dark\:htw-border-gray-800 {
+  border-color: #4c4d4f;
+}
+
 #app [data-test-id="search-modal"] [data-test-id="search-item"] a.active{
   color: #fff;
 }
+
 
 ::-webkit-scrollbar {
   width: 4px;
