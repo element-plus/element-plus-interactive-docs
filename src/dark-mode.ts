@@ -1,9 +1,10 @@
-import { useLocalStorage, useMutationObserver } from '@vueuse/core'
+import { useDark, useLocalStorage, useMutationObserver } from '@vueuse/core'
 
 const setDarkMode = () => {
   setTimeout(() => {
+    const isDark = useDark({ valueDark: '' })
     const vueuseColorScheme = useLocalStorage('vueuse-color-scheme', 'auto')
-    const colorMode = vueuseColorScheme.value === 'auto' ? 'dark' : ''
+    const colorMode = !isDark.value && vueuseColorScheme.value === 'auto' ? '' : 'dark'
     const classList = Array.from(document.documentElement.classList)
 
     if (classList.length && !classList.includes(colorMode)) {
