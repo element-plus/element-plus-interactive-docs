@@ -39,7 +39,9 @@ const blockMargin = computed(() => {
 
 <template>
   <Story
-    title="Data/Descriptions" :layout="{
+    title="Data/Descriptions"
+    icon="mdi:card-account-details-outline"
+    :layout="{
       type: 'grid',
       width: 700,
     }"

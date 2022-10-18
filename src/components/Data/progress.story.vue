@@ -3,7 +3,7 @@ import { onMounted, ref } from 'vue'
 import { Check, Minus, Plus } from '@element-plus/icons-vue'
 import type { ProgressProps } from 'element-plus'
 
-const currentPercentage = ref('50')
+const currentPercentage = ref(50)
 const currentInside = ref(true)
 const progressPercentageList: { label: string; value: string }[] = [
   {
@@ -93,7 +93,7 @@ const indeterminate = ref(true)
 </script>
 
 <template>
-  <Story title="Data/Progress">
+  <Story title="Data/Progress" icon="carbon:progress-bar-round">
     <Variant title="Linear progress bar">
       <el-progress :percentage="currentPercentage" :status="currentStatus" />
       <template #controls>
@@ -145,7 +145,9 @@ const indeterminate = ref(true)
     </Variant>
     <Variant title="Customized content" class="demo-type">
       <el-progress :percentage="50">
-        <el-button text>Content</el-button>
+        <el-button text>
+          Content
+        </el-button>
       </el-progress>
       <el-progress
         :text-inside="currentInside"

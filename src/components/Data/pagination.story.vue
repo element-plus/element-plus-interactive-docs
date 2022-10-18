@@ -73,7 +73,11 @@ const handleCurrentChange = (val: number) => {
 </script>
 
 <template>
-  <Story title="Data/Pagination" auto-props-disabled :layout="{ type: 'grid', width: 550 }">
+  <Story
+    title="Data/Pagination"
+    icon="fluent:dual-screen-pagination-20-regular"
+    :layout="{ type: 'grid', width: 550 }"
+  >
     <!-- Basic Usage Variant -->
     <Variant title="Basic Usage">
       <div>
