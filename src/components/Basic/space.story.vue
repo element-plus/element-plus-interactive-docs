@@ -56,36 +56,16 @@ const fillRatio = ref<SpaceProps['fillRatio']>(30)
   <Story title="Basic/Space" icon="ic:twotone-space-bar">
     <Variant title="Basic usage">
       <el-space wrap>
-        <el-card v-for="i in 3" :key="i">
-          <template #header>
-            <div>
-              <span>Card name</span>
-              <el-button class="button" text>
-                Operation button
-              </el-button>
-            </div>
-          </template>
-          <div v-for="o in 4" :key="o" class="text item">
-            {{ `List item ${o}` }}
-          </div>
-        </el-card>
+        <el-button v-for="i in 3" :key="i">
+          button
+        </el-button>
       </el-space>
     </Variant>
     <Variant title="Vertical layout">
       <el-space :direction="currentDirection">
-        <el-card v-for="i in 3" :key="i" class="box-card">
-          <template #header>
-            <div class="card-header">
-              <span>Card name</span>
-              <el-button class="button" text>
-                Operation button
-              </el-button>
-            </div>
-          </template>
-          <div v-for="o in 4" :key="o" class="text item">
-            {{ `List item ${o}` }}
-          </div>
-        </el-card>
+        <el-button v-for="i in 3" :key="i">
+          button
+        </el-button>
       </el-space>
       <template #controls>
         <HstRadio v-model="currentDirection" title="Direction" :options="spaceDirectionList" />
@@ -94,19 +74,9 @@ const fillRatio = ref<SpaceProps['fillRatio']>(30)
     <Variant title="Control the size of the gap">
       <el-space direction="vertical" alignment="start" :size="30">
         <el-space wrap :size="currentSize">
-          <el-card v-for="i in 3" :key="i">
-            <template #header>
-              <div class="card-header">
-                <span>Card name</span>
-                <el-button class="button" text>
-                  Operation button
-                </el-button>
-              </div>
-            </template>
-            <div v-for="o in 4" :key="o" class="text item">
-              {{ `List item ${o}` }}
-            </div>
-          </el-card>
+          <el-button v-for="i in 3" :key="i">
+            button
+          </el-button>
         </el-space>
       </el-space>
       <template #controls>
@@ -115,19 +85,9 @@ const fillRatio = ref<SpaceProps['fillRatio']>(30)
     </Variant>
     <Variant title="Custom size">
       <el-space wrap :size="customSize">
-        <el-card v-for="i in 2" :key="i">
-          <template #header>
-            <div class="card-header">
-              <span>Card name</span>
-              <el-button class="button" text>
-                Operation button
-              </el-button>
-            </div>
-          </template>
-          <div v-for="o in 4" :key="o" class="text item">
-            {{ `List item ${o}` }}
-          </div>
-        </el-card>
+        <el-button v-for="i in 3" :key="i">
+          button
+        </el-button>
       </el-space>
       <template #controls>
         <HstNumber v-model="customSize" title="Custom Size" />
@@ -135,7 +95,7 @@ const fillRatio = ref<SpaceProps['fillRatio']>(30)
     </Variant>
     <Variant title="Wrap">
       <el-space :wrap="isWrap">
-        <div v-for="i in 20" :key="i">
+        <div v-for="i in 3" :key="i">
           <el-button text>
             Text button
           </el-button>
@@ -151,7 +111,7 @@ const fillRatio = ref<SpaceProps['fillRatio']>(30)
       <el-space size="large" direction="vertical">
         <el-space size="default" :spacer="spacer">
           <div v-for="i in 2" :key="i">
-            <el-button> button {{ i }} </el-button>
+            <el-button>button</el-button>
           </div>
         </el-space>
       </el-space>
@@ -178,19 +138,9 @@ const fillRatio = ref<SpaceProps['fillRatio']>(30)
     </Variant>
     <Variant title="Fill container">
       <el-space :fill="isFill" wrap>
-        <el-card v-for="i in 3" :key="i">
-          <template #header>
-            <div class="card-header">
-              <span>Card name</span>
-              <el-button class="button" text>
-                Operation button
-              </el-button>
-            </div>
-          </template>
-          <div v-for="o in 4" :key="o" class="text item">
-            {{ `List item ${o}` }}
-          </div>
-        </el-card>
+        <el-button v-for="i in 3" :key="i">
+          button
+        </el-button>
       </el-space>
       <template #controls>
         <HstCheckbox v-model="isFill" title="Fill" />
@@ -204,19 +154,9 @@ const fillRatio = ref<SpaceProps['fillRatio']>(30)
         :direction="currentDirection"
         style="width: 100%"
       >
-        <el-card v-for="i in 3" :key="i">
-          <template #header>
-            <div class="card-header">
-              <span>Card name</span>
-              <el-button text>
-                Operation button
-              </el-button>
-            </div>
-          </template>
-          <div v-for="o in 4" :key="o">
-            {{ `List item ${o}` }}
-          </div>
-        </el-card>
+        <el-button v-for="i in 3" :key="i">
+          button
+        </el-button>
       </el-space>
       <template #controls>
         <HstNumber v-model="fillRatio" title="FillRatio" />
