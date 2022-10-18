@@ -2,7 +2,7 @@ import { useDark, useLocalStorage, useMutationObserver } from '@vueuse/core'
 
 const setDarkMode = () => {
   setTimeout(() => {
-    const isDark = useDark({ selector: 'body' })
+    const isDark = useDark({ valueDark: '' })
     const vueuseColorScheme = useLocalStorage('vueuse-color-scheme', 'auto')
     const classList = Array.from(document.documentElement.classList)
     let colorMode
