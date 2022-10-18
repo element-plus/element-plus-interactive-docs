@@ -9,7 +9,18 @@ export default defineConfig({
   plugins: [HstVue()],
   theme: {
     colors: {
-      primary: defaultColors.sky,
+      gray: {
+        ...defaultColors.slate,
+        100: '#cfd3dc',
+        700: '#141414',
+        750: '#141414',
+        800: '#141414',
+        900: '#606266',
+      },
+      primary: {
+        ...defaultColors.blue,
+        500: '#409eff',
+      },
     },
     title: 'Element Plus',
     logo: {

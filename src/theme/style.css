@@ -1,0 +1,64 @@
+body{
+  font-family: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,\5fae\8f6f\96c5\9ed1,Arial,sans-serif;
+  color: #606266;
+}
+
+#app code{
+  font-family: 'JetBrains Mono', source-code-pro, Menlo, Monaco, Consolas,
+    'Courier New', monospace;
+}
+
+#app [data-test-id="story-list-folder"] [data-test-id="story-list-item"] a,
+#app [data-test-id="story-list-folder"] > [role="button"]{
+  border-radius: 0.55rem;
+  height: 2.55rem;
+}
+
+#app [data-test-id="story-list-folder"] [data-test-id="story-list-item"] a:not(.active):hover,
+#app [data-test-id="story-list-folder"] > [role="button"]:hover{
+  background-color: unset;
+  color: #409eff;
+}
+#app [data-test-id="story-list-folder"] [data-test-id="story-list-item"] a.active{
+  color: #fff;
+}
+#app [data-test-id="story-list-folder"] [data-test-id="story-list-item"] a.active:hover{
+  background-color: #409eff;
+}
+
+#app .router-link-active{
+  padding: 0.35rem 0.57rem;
+  border-radius: 0.28rem;
+}
+
+#app [data-test-id="story-controls"] > div:first-child{
+  height: 3.21rem;
+}
+#app [data-test-id="story-controls"] input[type="text"],
+.v-popper > div{
+  height: 2.3rem;
+  padding: 0 0.7rem;
+}
+
+#app .htw-dark .dark\:htw-text-black{
+  color: #fff;
+}
+
+#app [data-test-id="search-modal"] [data-test-id="search-item"] a.active{
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 0;
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: #409eff;
+}
