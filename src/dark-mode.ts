@@ -9,7 +9,6 @@ const setDarkMode = () => {
     if (vueuseColorScheme.value === 'auto') {
       if (isDark.value)
         colorMode = 'dark'
-
       else
         colorMode = ''
     }
