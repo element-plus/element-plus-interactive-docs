@@ -9,6 +9,7 @@ specifiers:
   element-plus: npm:element-plus@latest
   eslint: ^8.25.0
   histoire: ^0.11.2
+  husky: ^8.0.1
   inquirer: ^9.1.3
   pathe: ^0.3.9
   typescript: ^4.6.4
@@ -28,6 +29,7 @@ devDependencies:
   commander: 9.4.1
   eslint: 8.25.0
   histoire: 0.11.4_vite@3.1.8
+  husky: 8.0.1
   inquirer: 9.1.3
   pathe: 0.3.9
   typescript: 4.8.4
@@ -2399,6 +2401,12 @@ packages:
     resolution: {integrity: sha512-bqX0XTF6fnXSQcEJ2Iuyr75yVakyjIDCqroJQ/aHfSdlM743Cwqoi2nDYMzLGWUcuTWGWy8AAvOKXTfiv6q9RA==}
     dependencies:
       '@types/node': 10.17.60
+    dev: true
+
+  /husky/8.0.1:
+    resolution: {integrity: sha512-xs7/chUH/CKdOCs7Zy0Aev9e/dKOMZf3K1Az1nar3tzlv0jfqnYtu235bstsWTmXOR0EfINrPa97yy4Lz6RiKw==}
+    engines: {node: '>=14'}
+    hasBin: true
     dev: true
 
   /iconv-lite/0.4.24:
