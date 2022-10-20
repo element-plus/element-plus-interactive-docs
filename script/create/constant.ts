@@ -1,7 +1,7 @@
 import { resolve } from 'pathe'
 export const PROJECT_DIR = process.cwd()
-export const resolver = dir => resolve(PROJECT_DIR, dir)
-export const createStoryComponent = (category, component) => `\
+export const resolver = (dir: string) => resolve(PROJECT_DIR, dir)
+export const createStoryComponent = (category: string, component: string) => `\
 <script setup lang="ts">
 import type { ${component}Props } from 'element-plus'
 </script>
@@ -120,5 +120,8 @@ export const componentCollection = {
   Others: {
     components: ['Divider'],
   },
-}
-export const categoryList = Object.keys(componentCollection)
+} as const
+export type CategoryType = keyof typeof componentCollection
+export type ComponentType = typeof componentCollection[CategoryType]['components'][number]
+export const categoryList = Object.keys(componentCollection) as [CategoryType]
+
