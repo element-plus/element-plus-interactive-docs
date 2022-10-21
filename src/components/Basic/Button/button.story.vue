@@ -98,7 +98,7 @@ const buttonGroupData = ref({
 
         <HstRadio
           v-model="basicButtonData.type"
-          title="Button Type"
+          title="Type"
           :options="basicButtonData.typeList"
         />
         <HstRadio
@@ -133,7 +133,10 @@ const buttonGroupData = ref({
         :size="buttonGroupData.size"
         :type="buttonGroupData.type"
       >
-        <el-button :icon="ArrowLeft">
+        <el-button>
+          <el-icon class="el-icon--left">
+            <arrow-left />
+          </el-icon>
           Previous Page
         </el-button>
         <el-button>
@@ -146,7 +149,7 @@ const buttonGroupData = ref({
       <template #controls>
         <HstRadio
           v-model="buttonGroupData.type"
-          title="Button Type"
+          title="Type"
           :options="buttonGroupData.typeList"
         />
         <HstRadio
@@ -158,9 +161,3 @@ const buttonGroupData = ref({
     </Variant>
   </Story>
 </template>
-
-<docs lang="md">
-## Basic usage
-
-demo Use `type`, `plain`, `round` and `circle` to define Button's style.
-</docs>
