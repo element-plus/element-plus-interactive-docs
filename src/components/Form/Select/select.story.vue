@@ -1,33 +1,55 @@
 <script setup lang="ts">
 import sizeOptions from '@constants/sizeOptions'
+import { computed, reactive } from 'vue'
 import { groupOptions, selectOptions, templateSource, templateSourceGroup } from './constant'
 
-function initState() {
-  return {
-    value: '' as string | string[],
-    size: '',
-    disabled: false,
-    clearable: false,
-    filterable: false,
-    allowCreate: false,
-    multiple: false,
-    multipleLimit: 0,
-    placeholder: 'Select',
-    defaultFirstOption: false,
-    popperClass: '',
-    reserveKeyword: false,
-    valueKey: '',
-    collapseTags: false,
-    collapseTagsTooltip: false,
-    popperAppendToBody: true,
-    automaticDropdown: true,
-  }
-}
+const initState = reactive({
+  value: '' as string | string[],
+  size: '',
+  disabled: false,
+  clearable: false,
+  filterable: false,
+  allowCreate: false,
+  multiple: false,
+  multipleLimit: 0,
+  placeholder: 'Select',
+  defaultFirstOption: false,
+  popperClass: '',
+  reserveKeyword: false,
+  valueKey: '',
+  collapseTags: false,
+  collapseTagsTooltip: false,
+  popperAppendToBody: true,
+  automaticDropdown: true,
+})
+
+const BasicSource = computed(() =>
+    `
+<el-select
+  v-model="${initState.value}"
+  :placeholder="${initState.placeholder}"
+  :size="state.size"
+  :disabled="state.disabled"
+  :clearable="state.clearable"
+>
+  <el-option
+    v-for="item in selectOptions"
+    :key="item.value"
+    :label="item.label"
+    :value="item.value"
+    :disabled="item.disabled"
+  />
+</el-select>`,
+)
 </script>
 
 <template>
   <Story title="Form/Select" icon="mi:select">
-    <Variant title="Basic Usage" :init-state="initState">
+    <Variant
+      title="Basic Usage"
+      :init-state="() => initState"
+      :source="BasicSource"
+    >
       <template #default="{ state }">
         <el-select
           v-model="state.value"
@@ -62,7 +84,7 @@ function initState() {
         />
       </template>
     </Variant>
-    <Variant title="multiple select" :init-state="initState">
+    <Variant title="multiple select" :init-state="() => initState">
       <template #default="{ state }">
         <el-select
           v-model="state.value"
@@ -89,7 +111,7 @@ function initState() {
         />
       </template>
     </Variant>
-    <Variant title="Option filtering" :init-state="initState">
+    <Variant title="Option filtering" :init-state="() => initState">
       <template #default="{ state }">
         <el-select
           v-model="state.value"
@@ -115,7 +137,7 @@ function initState() {
         />
       </template>
     </Variant>
-    <Variant title="Custom template" :init-state="initState" :source="templateSource">
+    <Variant title="Custom template" :init-state="() => initState" :source="templateSource">
       <template #default="{ state }">
         <el-select
           v-model="state.value"
@@ -126,19 +148,13 @@ function initState() {
             :label="item.label"
             :value="item.value"
           >
-            <span style="float: left">{{ item.label }}</span>
-            <span
-              style="
-                float: right;
-                color: var(--el-text-color-secondary);
-                font-size: 13px;
-              "
-            >{{ item.value }}</span>
+            <span class="left-bar">{{ item.label }}</span>
+            <span class="right-bar">{{ item.value }}</span>
           </el-option>
         </el-select>
       </template>
     </Variant>
-    <Variant title="Grouping" :init-state="initState" :source="templateSourceGroup">
+    <Variant title="Grouping" :init-state="() => initState" :source="templateSourceGroup">
       <template #default="{ state }">
         <el-select v-model="state.value" placeholder="Select">
           <el-option-group
@@ -159,5 +175,13 @@ function initState() {
   </Story>
 </template>
 
-<style>
+<style scoped>
+.left-bar {
+  float: left;
+}
+.right-bar {
+  float: right;
+  color: var(--el-text-color-secondary);
+  font-size: 13px;
+}
 </style>
