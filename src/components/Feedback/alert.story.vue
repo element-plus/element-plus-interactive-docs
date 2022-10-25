@@ -180,7 +180,7 @@ Alert provide two different themes, light and dark.
 Set effect to change theme, default is light.
 </docs>
 
-<style>
+<style scoped>
 .el-alert {
   margin: 20px 0 0;
 }

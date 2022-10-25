@@ -5,20 +5,30 @@ export const resolver = (dir: string) => resolve(PROJECT_DIR, dir)
 export const createStoryComponent = (category: CategoryType, component: ComponentType) => `\
 <script setup lang="ts">
 import type { ${component}Props } from 'element-plus'
+function initState () {
+  return {
+  }
+}
 </script>
 
 <template>
   <!-- icon from https://icones.js.org/collection/all?s=element -->
   <Story title="${category}/${component}" icon="ep:element-plus">
-    <Variant title="Basic Usage">
-      <template #controls>
+    <Variant
+      title="Basic Usage"
+      :init-state="initState"
+    >
+      <template #default="{ state }">
+        <!-- default -->
+      </template>
+      <template #controls="{ state }">
         <!-- HstControl -->
       </template>
     </Variant>
   </Story>
 </template>
 
-<style>
+<style scoped>
 </style>
 `
 

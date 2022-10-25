@@ -1,5 +1,5 @@
-/* eslint-disable no-console */
 import { existsSync, mkdirSync, readdirSync, writeFileSync } from 'fs'
+import consola from 'consola'
 import { lowerFirst, upperFirst } from '../utils'
 import type { CategoryType, ComponentType } from './constant'
 import { categoryList, componentCollection, createStoryComponent, createStoryMd, resolver } from './constant'
@@ -32,7 +32,7 @@ export const getComponentChoices = async () => {
 export const generateStoryDoc = (component: ComponentType) => {
   const category = categoryList.find(type => (componentCollection[type]?.components as [ComponentType])?.includes(component))!
   if (!category)
-    return console.log(`${component} not a legal component of EP, please check and re-enter!`)
+    return consola.error(`${component} not a legal component of EP, please check and re-enter!`)
 
   // 确定生成路径
   const fileVueName = `${lowerFirst(component)}.story.vue`
@@ -52,24 +52,26 @@ export const generateStoryDoc = (component: ComponentType) => {
 
     // 组件文档存在则退出
     if (existsSync(storyDocFileVue)) {
-      console.log(`${storyDocFileVue} Already existed!`)
+      consola.error(`${storyDocFileVue} Already existed!`)
       return
     }
     writeFileSync(storyDocFileVue, template, { encoding: 'utf-8' })
 
     if (existsSync(storyDocFileMd)) {
-      console.log(`${storyDocFileMd} Already existed!`)
+      consola.error(`${storyDocFileMd} Already existed!`)
       return
     }
     writeFileSync(storyDocFileMd, md, { encoding: 'utf-8' })
 
-    console.log(`${storyDocFileVue} Creation success!`)
-    console.log(`${storyDocFileMd} Creation success!`)
-    console.log(`path: ${storyDocFileVue}`)
-    console.log(`path: ${storyDocFileMd}`)
+    printSuccess(component, storyDocFileVue)
   }
   catch (e) {
     console.error(e.toString())
     process.exit(1)
   }
+}
+
+function printSuccess(component: ComponentType, dir: string) {
+  consola.success(`\x1B[36m${component} Creation Success\x1B[39m`)
+  consola.info(`\x1B[36mPath:\x1B[39m \x1B[32m${dir}\x1B[39m`)
 }
