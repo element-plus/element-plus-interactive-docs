@@ -36,7 +36,7 @@ const asideWidth = ref(100)
   </Story>
 </template>
 
-<style>
+<style scoped>
   .el-header, .el-footer {
     background-color: #c6e2ff;
     color: #333;

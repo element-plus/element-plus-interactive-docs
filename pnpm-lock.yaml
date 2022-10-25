@@ -7,6 +7,7 @@ specifiers:
   '@vitejs/plugin-vue': ^3.1.0
   '@vueuse/core': ^9.3.1
   commander: ^9.4.1
+  consola: ^2.15.3
   element-plus: npm:element-plus@latest
   eslint: ^8.25.0
   histoire: ^0.11.2
@@ -21,7 +22,7 @@ specifiers:
   vue-tsc: ^1.0.8
 
 dependencies:
-  element-plus: 2.2.18_vue@3.2.41
+  element-plus: 2.2.19_vue@3.2.41
   vue: 3.2.41
 
 devDependencies:
@@ -31,6 +32,7 @@ devDependencies:
   '@vitejs/plugin-vue': 3.1.2_vite@3.1.8+vue@3.2.41
   '@vueuse/core': 9.3.1_vue@3.2.41
   commander: 9.4.1
+  consola: 2.15.3
   eslint: 8.25.0
   histoire: 0.11.5_vite@3.1.8
   inquirer: 9.1.4
@@ -1251,6 +1253,10 @@ packages:
       - supports-color
     dev: true
 
+  /consola/2.15.3:
+    resolution: {integrity: sha512-9vAdYbHj6x2fLKC4+oPH0kFzY/orMZyG2Aj+kNylHxKGJ/Ed4dpNyAQYwJOdqO4zdM7XpVHmyejQDcQHrnuXbw==}
+    dev: true
+
   /constant-case/3.0.4:
     resolution: {integrity: sha512-I2hSBi7Vvs7BEuJDr5dDHfzb/Ruj3FyvFyh7KLilAjNQw3Be+xgqUBA2W6scVEcL0hL1dwPRtIqEPVUCKkSsyQ==}
     dependencies:
@@ -1425,8 +1431,8 @@ packages:
     resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}
     dev: true
 
-  /element-plus/2.2.18_vue@3.2.41:
-    resolution: {integrity: sha512-2pK2zmVOwP14eFl3rGoR+3BWJwDyO+DZCvzjQ8L6qjUR+hVKwFhgxIcSkKJatbcHFw5Xui6UyN20jV+gQP7mLg==}
+  /element-plus/2.2.19_vue@3.2.41:
+    resolution: {integrity: sha512-uN0gt9lUus/IHzu5J6vkbYoYJgUtU05osdtFv9RO27bHKOG5GN7dH6uA3OKfkQQ6R2sV8ZxY1rc9PH1X8Dgrow==}
     peerDependencies:
       vue: ^3.2.0
     dependencies:
