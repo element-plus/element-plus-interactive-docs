@@ -7,6 +7,7 @@ specifiers:
   '@vitejs/plugin-vue': ^3.1.0
   '@vueuse/core': ^9.3.1
   commander: ^9.4.1
+  consola: ^2.15.3
   element-plus: npm:element-plus@latest
   eslint: ^8.25.0
   histoire: npm:histoire@latest
@@ -33,6 +34,7 @@ devDependencies:
   '@vitejs/plugin-vue': 3.1.2_vite@3.1.8+vue@3.2.41
   '@vueuse/core': 9.3.1_vue@3.2.41
   commander: 9.4.1
+  consola: 2.15.3
   eslint: 8.25.0
   histoire: 0.11.5_vite@3.1.8
   inquirer: 9.1.4
@@ -1275,6 +1277,10 @@ packages:
       utils-merge: 1.0.1
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /consola/2.15.3:
+    resolution: {integrity: sha512-9vAdYbHj6x2fLKC4+oPH0kFzY/orMZyG2Aj+kNylHxKGJ/Ed4dpNyAQYwJOdqO4zdM7XpVHmyejQDcQHrnuXbw==}
     dev: true
 
   /constant-case/3.0.4:
