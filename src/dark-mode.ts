@@ -1,5 +1,3 @@
-import { useDark, useLocalStorage, useMutationObserver } from '@vueuse/core'
-
 const setDarkMode = () => {
   setTimeout(() => {
     const isDark = useDark({ valueDark: '' })

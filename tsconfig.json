@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "target": "es2017",
-    "module": "esnext",
+    "target": "es2016",
+    "module": "ESnext",
     "lib": ["esnext", "DOM", "DOM.Iterable"],
     "moduleResolution": "node",
     "esModuleInterop": true,
@@ -22,5 +22,5 @@
       "@constants/*": ["src/constants/*"]
     }
   },
-  "include": ["src/**/*"]
+  "exclude": [".histoire", "node_modules", "public"]
 }
