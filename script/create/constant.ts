@@ -1,7 +1,8 @@
 import { resolve } from 'pathe'
 export const PROJECT_DIR = process.cwd()
 export const resolver = (dir: string) => resolve(PROJECT_DIR, dir)
-export const createStoryComponent = (category: string, component: string) => `\
+
+export const createStoryComponent = (category: CategoryType, component: ComponentType) => `\
 <script setup lang="ts">
 import type { ${component}Props } from 'element-plus'
 </script>
@@ -17,21 +18,21 @@ import type { ${component}Props } from 'element-plus'
   </Story>
 </template>
 
-<docs lang="md">
-## Basic usage
-${component} usage
-</docs>
-
 <style>
 </style>
 `
+
+export const createStoryMd = (component: ComponentType) => `\
+## ${component} Attributes
+`
+
 export const componentCollection = {
   Basic: {
     components: [
       'Button',
       'Border',
       'Color',
-      'LayoutContainer',
+      'Container',
       'Icon',
       'Layout',
       'Link',

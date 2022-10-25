@@ -2,8 +2,8 @@
 import { existsSync, mkdirSync, readdirSync, writeFileSync } from 'fs'
 import { lowerFirst, upperFirst } from '../utils'
 import type { CategoryType, ComponentType } from './constant'
+import { categoryList, componentCollection, createStoryComponent, createStoryMd, resolver } from './constant'
 import { getCategory } from './questions/category'
-import { categoryList, componentCollection, createStoryComponent, resolver } from './constant'
 
 export const getComponentChoices = async () => {
   const category: CategoryType = await getCategory()
@@ -35,12 +35,15 @@ export const generateStoryDoc = (component: ComponentType) => {
     return console.log(`${component} not a legal component of EP, please check and re-enter!`)
 
   // 确定生成路径
-  const fileName = `${lowerFirst(component)}.story.vue`
-  const storyDocDir = resolver(`src/components/${category}/`)
-  const storyDocFile = resolver(`src/components/${category}/${fileName}`)
+  const fileVueName = `${lowerFirst(component)}.story.vue`
+  const fileMdName = `${lowerFirst(component)}.story.md`
+  const storyDocDir = resolver(`src/components/${category}/${component}`)
+  const storyDocFileVue = resolver(`src/components/${category}/${component}/${fileVueName}`)
+  const storyDocFileMd = resolver(`src/components/${category}/${component}/${fileMdName}`)
 
   // 读取模板
   const template = createStoryComponent(category, component)
+  const md = createStoryMd(component)
   // 生成文件
   try {
     // 目录不存在则新建
@@ -48,14 +51,22 @@ export const generateStoryDoc = (component: ComponentType) => {
       mkdirSync(storyDocDir)
 
     // 组件文档存在则退出
-    if (existsSync(storyDocFile)) {
-      console.log(`${fileName} Already existed!`)
+    if (existsSync(storyDocFileVue)) {
+      console.log(`${storyDocFileVue} Already existed!`)
       return
     }
-    writeFileSync(storyDocFile, template, { encoding: 'utf-8' })
+    writeFileSync(storyDocFileVue, template, { encoding: 'utf-8' })
 
-    console.log(`${fileName} Creation success!`)
-    console.log(`path: ${storyDocFile}`)
+    if (existsSync(storyDocFileMd)) {
+      console.log(`${storyDocFileMd} Already existed!`)
+      return
+    }
+    writeFileSync(storyDocFileMd, md, { encoding: 'utf-8' })
+
+    console.log(`${storyDocFileVue} Creation success!`)
+    console.log(`${storyDocFileMd} Creation success!`)
+    console.log(`path: ${storyDocFileVue}`)
+    console.log(`path: ${storyDocFileMd}`)
   }
   catch (e) {
     console.error(e.toString())
