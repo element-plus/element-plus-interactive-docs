@@ -1,58 +1,17 @@
 <script setup lang="ts">
+import sizeOptions from '@constants/sizeOptions'
+import { isAttribute } from '@utils'
 import { logEvent } from 'histoire/client'
-import {
-  ArrowLeft,
-  ArrowRight,
-} from '@element-plus/icons-vue'
+import { Search } from '@element-plus/icons-vue'
+import { typeList } from './constants'
 
-const typeList = [
-  {
-    label: 'default',
-    value: '',
-  },
-  {
-    label: 'primary',
-    value: 'primary',
-  },
-  {
-    label: 'success',
-    value: 'success',
-  },
-  {
-    label: 'warning',
-    value: 'warning',
-  },
-  {
-    label: 'danger',
-    value: 'danger',
-  },
-  {
-    label: 'info',
-    value: 'info',
-  },
-]
-
-const sizeList = [
-  {
-    label: 'large',
-    value: 'large',
-  },
-  {
-    label: 'default',
-    value: 'default',
-  },
-  {
-    label: 'small',
-    value: 'small',
-  },
-]
-
-const basicButtonData = ref({
+// Basic-Button
+const basicButtonData = reactive({
   text: 'Button',
   type: '',
   typeList,
-  size: '',
-  sizeList,
+  size: 'default',
+  sizeOptions,
   plain: false,
   round: false,
   circle: false,
@@ -60,23 +19,130 @@ const basicButtonData = ref({
   disabled: false,
 })
 
-const colorButtonData = ref({
+const basicSource = computed(() => {
+  return `<el-button${isAttribute(
+    basicButtonData.type !== '',
+    `type="${basicButtonData.type}"`,
+  )}${isAttribute(
+    basicButtonData.size !== 'default',
+    `size="${basicButtonData.size}"`,
+  )}${isAttribute(
+    basicButtonData.plain,
+    'plain',
+  )}${isAttribute(
+    basicButtonData.round,
+    'round',
+  )}${isAttribute(
+    basicButtonData.circle,
+    'circle',
+  )}${isAttribute(
+    basicButtonData.loading,
+     'loading',
+  )}${isAttribute(
+    basicButtonData.disabled,
+    'disabled',
+  )}
+  @click="console.log('Button is clicked')"
+>
+  ${basicButtonData.text}
+</el-button>`
+})
+
+// Icon Button
+const iconButtonData = reactive({
+  icon: shallowRef(Search),
+  text: '',
+  type: '',
+  typeList,
+  size: 'default',
+  sizeOptions,
+  circle: true,
+  plain: false,
+  loading: false,
+  disabled: false,
+})
+const iconSource = computed(() => {
+  return `<script setup lang="ts">
+import { ${iconButtonData.icon.name} } from '@element-plus/icons-vue'
+<\/script>
+
+<el-button
+  :icon="${iconButtonData.icon.name}"${isAttribute(
+    iconButtonData.type !== '',
+    `type="${iconButtonData.type}"`,
+  )}${isAttribute(
+    iconButtonData.size !== 'default',
+    `size="${iconButtonData.size}"`,
+  )}${isAttribute(
+    iconButtonData.plain,
+    'plain',
+  )}${isAttribute(
+    iconButtonData.circle,
+    'circle',
+  )}${isAttribute(
+    iconButtonData.loading,
+     'loading',
+  )}${isAttribute(
+    iconButtonData.disabled,
+    'disabled',
+  )}
+  @click="console.log('Button is clicked')"
+>${isAttribute(Boolean(iconButtonData.text), iconButtonData.text)}
+</el-button>
+`
+})
+
+// Color Button
+const colorButtonData = reactive({
   text: 'Custom Color Button',
   color: '#626aef',
   plain: false,
   disabled: false,
 })
-const buttonGroupData = ref({
+
+const ColorSource = computed(() => {
+  return `<el-button${isAttribute(
+    true,
+    `color="${colorButtonData.color}"`,
+  )}${isAttribute(
+    colorButtonData.plain,
+    'plain',
+  )}${isAttribute(
+    colorButtonData.disabled,
+    'disabled',
+  )}
+  @click="console.log('Button is clicked')"
+>
+  ${colorButtonData.text}
+</el-button>`
+})
+
+// Button Group
+const buttonGroupData = reactive({
   type: '',
   typeList,
-  size: '',
-  sizeList,
+  size: 'default',
+  sizeOptions,
+})
+
+const buttonGroupSource = computed(() => {
+  return `<el-button-group${isAttribute(
+    buttonGroupData.type !== '',
+    `type="${buttonGroupData.type}"`,
+  )}${isAttribute(
+    buttonGroupData.size !== 'default',
+    `size="${buttonGroupData.size}"`,
+  )}
+>
+  <el-button>Previous Page</el-button>
+  <el-button>Next Page</el-button>
+</el-button-group>`
 })
 </script>
 
 <template>
   <Story title="Basic/Button" icon="teenyicons:button-outline">
-    <Variant title="Basic usage">
+    <Variant title="Basic usage" :source="basicSource">
       <el-button
         :type="basicButtonData.type"
         :size="basicButtonData.size"
@@ -84,7 +150,7 @@ const buttonGroupData = ref({
         :round="basicButtonData.round"
         :disabled="basicButtonData.disabled"
         :loading="basicButtonData.loading"
-        @click="logEvent('click', $event)"
+        @click="logEvent('click', { log: 'Button is clicked' })"
       >
         {{ basicButtonData.text }}
       </el-button>
@@ -103,11 +169,49 @@ const buttonGroupData = ref({
         <HstRadio
           v-model="basicButtonData.size"
           title="Size"
-          :options="basicButtonData.sizeList"
+          :options="basicButtonData.sizeOptions"
         />
       </template>
     </Variant>
-    <Variant title="Custom Color">
+    <Variant title="Icon Button" :source="iconSource" icon="line-md:iconify2">
+      <el-button
+        :icon="iconButtonData.icon"
+        :type="iconButtonData.type"
+        :size="iconButtonData.size"
+        :plain="iconButtonData.plain"
+        :circle="iconButtonData.circle"
+        :disabled="iconButtonData.disabled"
+        :loading="iconButtonData.loading"
+        @click="logEvent('click', { log: 'Button is clicked' })"
+      >
+        <template v-if="iconButtonData.text" #default>
+          {{ iconButtonData.text }}
+        </template>
+      </el-button>
+      <template #controls>
+        <HstText v-model="iconButtonData.text" title="Text" />
+        <HstCheckbox v-model="iconButtonData.plain" title="Plain" />
+        <HstCheckbox v-model="iconButtonData.circle" title="Circle" />
+        <HstCheckbox v-model="iconButtonData.disabled" title="Disabled" />
+        <HstCheckbox v-model="iconButtonData.loading" title="Loading" />
+
+        <HstRadio
+          v-model="iconButtonData.type"
+          title="Type"
+          :options="iconButtonData.typeList"
+        />
+        <HstRadio
+          v-model="iconButtonData.size"
+          title="Size"
+          :options="iconButtonData.sizeOptions"
+        />
+      </template>
+    </Variant>
+    <Variant
+      title="Custom Color"
+      icon="ic:outline-color-lens"
+      :source="ColorSource"
+    >
       <el-button
         :plain="colorButtonData.plain"
         :disabled="colorButtonData.disabled"
@@ -127,22 +231,20 @@ const buttonGroupData = ref({
       </template>
     </Variant>
 
-    <Variant title="Button Group">
+    <Variant
+      title="Button Group"
+      icon="clarity:blocks-group-line"
+      :source="buttonGroupSource"
+    >
       <el-button-group
         :size="buttonGroupData.size"
         :type="buttonGroupData.type"
       >
         <el-button>
-          <el-icon class="el-icon--left">
-            <arrow-left />
-          </el-icon>
           Previous Page
         </el-button>
         <el-button>
           Next Page
-          <el-icon class="el-icon--right">
-            <arrow-right />
-          </el-icon>
         </el-button>
       </el-button-group>
       <template #controls>
@@ -154,7 +256,7 @@ const buttonGroupData = ref({
         <HstRadio
           v-model="buttonGroupData.size"
           title="Size"
-          :options="buttonGroupData.sizeList"
+          :options="buttonGroupData.sizeOptions"
         />
       </template>
     </Variant>
