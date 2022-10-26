@@ -11,6 +11,7 @@ export default defineConfig({
       '@': `${path.resolve(__dirname, 'src')}/`,
       '@components': `${path.resolve(__dirname, 'src/components')}/`,
       '@constants': `${path.resolve(__dirname, 'src/constants')}/`,
+      '@utils': `${path.resolve(__dirname, 'src/utils')}/`,
     },
   },
   plugins: [
