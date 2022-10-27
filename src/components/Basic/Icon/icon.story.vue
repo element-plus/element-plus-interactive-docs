@@ -6,7 +6,7 @@ import { isAttribute } from '@/utils'
 const elIconData = reactive({
   icon: shallowRef(Edit),
   size: 20,
-  color: '#303133',
+  color: '',
 })
 const elIconSource = computed(() => {
   return `<script setup lang="ts">
@@ -17,7 +17,7 @@ import { Edit } from '@element-plus/icons-vue'
     elIconData.size !== 20,
     `size="${elIconData.size}"`,
   )}${isAttribute(
-    elIconData.color !== '#303133',
+    elIconData.color !== '',
     `color="${elIconData.color}"`,
   )}
 >
