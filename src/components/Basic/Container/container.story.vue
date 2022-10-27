@@ -8,8 +8,7 @@ const asideWidth = ref(100)
 
 <template>
   <Story title="Basic/Container" icon="carbon:container-software">
-    <Variant title="Basic Usage">
-      <div class="common-layout">
+    <Variant title="Basic Usage" >
         <el-container>
           <el-header :height="`${headerHeight}px`">
             Header
@@ -26,7 +25,6 @@ const asideWidth = ref(100)
             </el-container>
           </el-container>
         </el-container>
-      </div>
       <template #controls>
         <HstNumber v-model="headerHeight" title="HeaderHeight" />
         <HstNumber v-model="footerHeight" title="FooterHeight" />

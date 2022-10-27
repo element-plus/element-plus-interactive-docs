@@ -75,7 +75,7 @@ declare module '@vue/runtime-core' {
     'Empty.story': typeof import('./src/components/Data/empty.story.vue')['default']
     'Input.story': typeof import('./src/components/Form/input.story.vue')['default']
     'InputNumber.story': typeof import('./src/components/Form/inputNumber.story.vue')['default']
-    'Link.story': typeof import('./src/components/Basic/link.story.vue')['default']
+    'Link.story': typeof import('./src/components/Basic/Link/link.story.vue')['default']
     'Pagination.story': typeof import('./src/components/Data/pagination.story.vue')['default']
     'Progress.story': typeof import('./src/components/Data/progress.story.vue')['default']
     'Radio.story': typeof import('./src/components/Form/radio.story.vue')['default']
