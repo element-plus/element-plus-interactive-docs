@@ -1,27 +1,20 @@
 import { resolve } from 'pathe'
+import { lowerFirst } from 'script/utils'
 export const PROJECT_DIR = process.cwd()
 export const resolver = (dir: string) => resolve(PROJECT_DIR, dir)
 
 export const createStoryComponent = (category: CategoryType, component: ComponentType) => `\
 <script setup lang="ts">
 import type { ${component}Props } from 'element-plus'
-function initState () {
-  return {
-  }
-}
 </script>
 
 <template>
-  <!-- icon from https://icones.js.org/collection/all?s=element -->
+  <!-- icon from https://icones.js.org/collection/all?s=${lowerFirst(component)} -->
   <Story title="${category}/${component}" icon="ep:element-plus">
     <Variant
       title="Basic Usage"
-      :init-state="initState"
     >
-      <template #default="{ state }">
-        <!-- default -->
-      </template>
-      <template #controls="{ state }">
+      <template #controls>
         <!-- HstControl -->
       </template>
     </Variant>
