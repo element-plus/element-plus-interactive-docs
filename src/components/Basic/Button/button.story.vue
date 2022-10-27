@@ -222,10 +222,7 @@ const buttonGroupSource = computed(() => {
       </el-button>
       <template #controls>
         <HstText v-model="colorButtonData.text" title="Text" />
-        <span style="padding: 0 8px; font-size: 14px; margin-right: 68px;">
-          Color:
-        </span>
-        <el-color-picker v-model="colorButtonData.color" size="small" />
+        <HstColor v-model="colorButtonData.color" title="Color" />
         <HstCheckbox v-model="colorButtonData.plain" title="Plain" />
         <HstCheckbox v-model="colorButtonData.disabled" title="Disabled" />
       </template>
