@@ -1,11 +1,6 @@
 import { ElMessage } from 'element-plus'
+import { isDark } from '@/dark-mode'
 import 'element-plus/theme-chalk/el-message.css'
-
-export const isDark = useDark({
-  storageKey: 'el-theme-appearance',
-})
-
-export const toggleDark = useToggle(isDark)
 
 export const getCssVarName = (namespace: string, type: string) => {
   return type ? `--el-${namespace}-${type}` : `--el-${namespace}`

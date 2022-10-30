@@ -40,4 +40,5 @@ export default defineConfig({
     responsiveDisabled: true,
     autoPropsDisabled: true,
   },
+  sandboxDarkClass: 'dark',
 })

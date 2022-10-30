@@ -1,6 +1,6 @@
+export const isDark = useDark({ valueDark: '' })
 const setDarkMode = () => {
   setTimeout(() => {
-    const isDark = useDark({ valueDark: '' })
     const vueuseColorScheme = useLocalStorage('vueuse-color-scheme', 'auto')
     const classList = Array.from(document.documentElement.classList)
     let colorMode

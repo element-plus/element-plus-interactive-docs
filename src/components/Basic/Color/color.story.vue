@@ -10,7 +10,7 @@
     }"
     icon="carbon:container-software"
   >
-    <Variant title="Basic Usage">
+    <Variant title="Basic Usage" source=" ">
       <h1>
         Color
       </h1>
