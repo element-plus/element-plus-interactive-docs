@@ -1,4 +1,5 @@
 export const isDark = useDark({ valueDark: '' })
+
 const setDarkMode = () => {
   setTimeout(() => {
     const vueuseColorScheme = useLocalStorage('vueuse-color-scheme', 'auto')
