@@ -8,7 +8,7 @@
       type: 'single',
       iframe: true,
     }"
-    icon="carbon:container-software"
+    icon="ic:outline-color-lens"
   >
     <Variant title="Basic Usage" source=" ">
       <h1>

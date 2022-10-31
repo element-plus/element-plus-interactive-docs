@@ -11,6 +11,7 @@ declare module '@vue/runtime-core' {
     'Autocomplete.story': typeof import('./src/components/Form/autocomplete.story.vue')['default']
     'Avatar.story': typeof import('./src/components/Data/avatar.story.vue')['default']
     'Badge.story': typeof import('./src/components/Data/badge.story.vue')['default']
+    'Border.story': typeof import('./src/components/Basic/Border/border.story.vue')['default']
     'Button.story': typeof import('./src/components/Basic/Button/button.story.vue')['default']
     'Card.story': typeof import('./src/components/Data/card.story.vue')['default']
     'Cascader.story': typeof import('./src/components/Form/cascader.story.vue')['default']
