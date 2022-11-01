@@ -5,6 +5,7 @@ export const lowerFirst = (name: string) => {
     return name.toLowerCase()
   return name[0].toLowerCase() + name.substring(1)
 }
+
 export const upperFirst = (name: string) => {
   if (!name)
     return ''

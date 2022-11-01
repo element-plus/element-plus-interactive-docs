@@ -78,6 +78,7 @@ declare module '@vue/runtime-core' {
     'Icon.story': typeof import('./src/components/Basic/Icon/icon.story.vue')['default']
     'Input.story': typeof import('./src/components/Form/input.story.vue')['default']
     'InputNumber.story': typeof import('./src/components/Form/inputNumber.story.vue')['default']
+    'Layout.story': typeof import('./src/components/Basic/Layout/layout.story.vue')['default']
     'Link.story': typeof import('./src/components/Basic/Link/link.story.vue')['default']
     MainColor: typeof import('./src/components/Basic/Color/main-color.vue')['default']
     NeutralColor: typeof import('./src/components/Basic/Color/neutral-color.vue')['default']
