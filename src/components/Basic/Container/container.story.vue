@@ -7,7 +7,7 @@ const asideWidth = ref(100)
 </script>
 
 <template>
-  <Story title="Basic/Container" icon="carbon:container-software">
+  <Story title="Basic/Container" icon="ph:layout-thin">
     <Variant title="Basic Usage" >
         <el-container>
           <el-header :height="`${headerHeight}px`">

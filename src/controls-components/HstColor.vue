@@ -42,11 +42,10 @@ const predefineColors = ref([
 
 <template>
   <span style="padding: 0 8px; font-size: 14px; margin-right: 68px;">
-    {{ title }}:
+    {{ title }}
   </span>
   <el-color-picker
     v-model="colorModel"
-    color-format="hex"
     size="small"
     show-alpha
     :predefine="predefineColors"
