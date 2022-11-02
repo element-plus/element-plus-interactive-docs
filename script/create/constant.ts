@@ -5,7 +5,7 @@ export const resolver = (dir: string) => resolve(PROJECT_DIR, dir)
 
 export const createStoryComponent = (category: CategoryType, component: ComponentType) => `\
 <script setup lang="ts">
-import type { ${component}Props } from 'element-plus'
+// import type { ${component}Props } from 'element-plus'
 </script>
 
 <template>
