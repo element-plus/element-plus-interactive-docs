@@ -5,6 +5,7 @@ const basicUsage = reactive({
   trigger: 'hover',
   interval: 3000,
   height: 150,
+  autoplay: true,
   arrow: 'always',
   indicatorPosition: '',
   type: '',
@@ -12,8 +13,6 @@ const basicUsage = reactive({
   direction: 'horizontal',
   pauseOnHover: true,
 })
-
-const autoplay = ref(false)
 
 const isCardType = computed({
   get: () => basicUsage.type === 'card',
@@ -32,10 +31,10 @@ basicUsage.trigger === 'click',
 basicUsage.direction === 'vertical',
 'direction="vertical"')}${
   isAttribute(
-autoplay.value,
+basicUsage.autoplay,
 'autoplay')}${
   isAttribute(
-autoplay.value && basicUsage.interval !== 3000,
+basicUsage.autoplay && basicUsage.interval !== 3000,
 `interval="${basicUsage.interval}"`)}${
   isAttribute(
 basicUsage.arrow !== 'hover',
@@ -50,7 +49,7 @@ isCardType.value,
 !basicUsage.loop,
 'loop="false"')}${
   isAttribute(
-!basicUsage.pauseOnHover && autoplay.value,
+!basicUsage.pauseOnHover && basicUsage.autoplay,
 'pause-on-hover="false"')}
 >
   <el-carousel-item
@@ -79,7 +78,7 @@ isCardType.value,
       <el-carousel
         :height="`${basicUsage.height}px`"
         :trigger="basicUsage.trigger"
-        :autoplay="autoplay"
+        :autoplay="basicUsage.autoplay"
         :interval="basicUsage.interval"
         :indicator-position="basicUsage.indicatorPosition"
         :arrow="basicUsage.arrow"
@@ -115,14 +114,12 @@ isCardType.value,
             { label: 'vertical', value: 'vertical' },
           ]"
         />
-        <HstCheckbox v-model="autoplay" title="Autoplay" />
+        <HstCheckbox v-model="basicUsage.autoplay" title="Autoplay" />
         <HstCheckbox
-          v-if="autoplay"
           v-model="basicUsage.pauseOnHover"
           title="Pause On Hover"
         />
         <HstSlider
-          v-if="autoplay"
           v-model="basicUsage.interval"
           title="Interval"
           :min="0"
