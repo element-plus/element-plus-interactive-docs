@@ -31,8 +31,8 @@ basicUsage.trigger === 'click',
 basicUsage.direction === 'vertical',
 'direction="vertical"')}${
   isAttribute(
-basicUsage.autoplay,
-'autoplay')}${
+!basicUsage.autoplay,
+'autoplay="false"')}${
   isAttribute(
 basicUsage.autoplay && basicUsage.interval !== 3000,
 `interval="${basicUsage.interval}"`)}${
