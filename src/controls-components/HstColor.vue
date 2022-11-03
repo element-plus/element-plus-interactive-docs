@@ -30,24 +30,42 @@ const predefineColors = ref([
   '#00ced1',
   '#1e90ff',
   '#c71585',
-  'rgba(255, 69, 0, 0.68)',
   'rgb(255, 120, 0)',
   'hsv(51, 100, 98)',
-  'hsva(120, 40, 94, 0.5)',
   'hsl(181, 100%, 37%)',
-  'hsla(209, 100%, 56%, 0.73)',
-  '#c7158577',
 ])
 </script>
 
 <template>
-  <span style="padding: 0 8px; font-size: 14px; margin-right: 68px;">
-    {{ title }}
-  </span>
-  <el-color-picker
-    v-model="colorModel"
-    size="small"
-    show-alpha
-    :predefine="predefineColors"
-  />
+  <label class="container">
+    <span
+      class="title"
+    >
+      {{ title }}
+    </span>
+    <el-color-picker
+      v-model="colorModel"
+      size="small"
+      show-alpha
+      :predefine="predefineColors"
+    />
+  </label>
 </template>
+
+<style scoped>
+.container {
+  padding: 0.5rem;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+  cursor: pointer;
+  display: flex;
+}
+.title {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  flex-shrink: 0;
+  width: 7rem;
+}
+</style>
