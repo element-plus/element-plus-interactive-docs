@@ -6,7 +6,7 @@ const basicUsage = reactive({
   interval: 3000,
   height: 150,
   autoplay: true,
-  arrow: 'always',
+  arrow: 'hover',
   indicatorPosition: '',
   type: '',
   loop: true,
