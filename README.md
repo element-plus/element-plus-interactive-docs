@@ -1,5 +1,11 @@
 # 🎉 Element Plus Interactive Docs
 
+<p align="center">
+    <a href="https://github.com/element-plus/element-plus-interactive-docs/stargazers"><img src="https://img.shields.io/github/stars/element-plus/element-plus-interactive-docs?colorA=363a4f&colorB=b7bdf8&style=for-the-badge"></a>
+    <a href="https://github.com/element-plus/element-plus-interactive-docs/issues"><img src="https://img.shields.io/github/issues/element-plus/element-plus-interactive-docs?colorA=363a4f&colorB=f5a97f&style=for-the-badge"></a>
+    <a href="https://github.com/element-plus/element-plus-interactive-docs/contributors"><img src="https://img.shields.io/github/contributors/element-plus/element-plus-interactive-docs?colorA=363a4f&colorB=a6da95&style=for-the-badge"></a>
+</p>
+
 <pre align="center">
 🏗 Working in Progress
 </pre>
@@ -12,7 +18,7 @@
 - Create custom template using `pnpm run create`
 - Run interactive tests using `pnpm dev`
 
-## Contributors
+## 💝 Contributors
 
 This project exists thanks to all the people who contribute.
 
