@@ -90,6 +90,7 @@ declare module '@vue/runtime-core' {
     'Link.story': typeof import('./src/components/Basic/Link/link.story.vue')['default']
     MainColor: typeof import('./src/components/Basic/Color/main-color.vue')['default']
     NeutralColor: typeof import('./src/components/Basic/Color/neutral-color.vue')['default']
+    'Notification.story': typeof import('./src/components/Feedback/Notification/notification.story.vue')['default']
     'Pagination.story': typeof import('./src/components/Data/pagination.story.vue')['default']
     'Progress.story': typeof import('./src/components/Data/progress.story.vue')['default']
     'Radio.story': typeof import('./src/components/Form/radio.story.vue')['default']
