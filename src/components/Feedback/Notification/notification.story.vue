@@ -1,12 +1,12 @@
 <script setup lang="ts">
-// import type { NotificationProps } from 'element-plus'
+import type { NotificationProps } from 'element-plus'
 import { positionList, typeList } from './constants'
 
 // Basic-Nofitication
 const basicNofiticationData = reactive({
   title: 'title',
   message: 'message',
-  type: '',
+  type: ref<NotificationProps['type']>(''),
   typeList,
 })
 const basicNotificationOpen = () => {
@@ -22,7 +22,7 @@ const basicSource = computed(() => {
     ElNotification({
       title: '${basicNofiticationData.title}',
       message: '${basicNofiticationData.message}',
-      type: '${basicNofiticationData.type}',
+      ${basicNofiticationData.type !== '' ? `type: '${basicNofiticationData.type}',` : ''}
     })
   }
 <\/script>
@@ -38,8 +38,8 @@ const basicSource = computed(() => {
 const customCloseNofiticationData = reactive({
   title: 'title',
   message: 'message',
-  duration: 4500,
-  showClose: true,
+  duration: ref<NotificationProps['duration']>(4500),
+  showClose: ref<NotificationProps['showClose']>(true),
 })
 const customCloseNofiticationOpen = () => {
   ElNotification({
@@ -72,8 +72,8 @@ const customCloseSource = computed(() => {
 const positionNofiticationData = reactive({
   title: 'title',
   message: 'message',
-  position: 'top-right',
-  offset: 0,
+  position: ref<NotificationProps['position']>('top-right'),
+  offset: ref<NotificationProps['offset']>(0),
   positionList,
 })
 const positionNofiticationOpen = () => {
@@ -106,8 +106,8 @@ const positionSource = computed(() => {
 // htmlMessage-Nofitication
 const htmlMessageNofiticationData = reactive({
   title: 'title',
-  dangerouslyUseHTMLString: true,
   message: 'message',
+  dangerouslyUseHTMLString: ref<NotificationProps['dangerouslyUseHTMLString']>(true),
 })
 const htmlMessageNofiticationOpen = () => {
   ElNotification({
