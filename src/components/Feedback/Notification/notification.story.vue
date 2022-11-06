@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { NotificationProps } from 'element-plus'
 import { positionList, typeList } from './constants'
+import { isAttribute } from '@/utils'
 
 // Basic-Notification
 const basicNotificationData = reactive({
@@ -21,8 +22,9 @@ const basicSource = computed(() => {
   const basicNotificationOpen = () => {
     ElNotification({
       title: '${basicNotificationData.title}',
-      message: '${basicNotificationData.message}',
-      ${basicNotificationData.type !== '' ? `type: '${basicNotificationData.type}',` : ''}
+      message: '${basicNotificationData.message}',${isAttribute(
+        basicNotificationData.type !== '',
+        `    type: '${basicNotificationData.type}'`)}
     })
   }
 <\/script>
@@ -55,8 +57,8 @@ const customCloseSource = computed(() => {
     ElNotification({
       title: '${customCloseNotificationData.title}',
       message: '${customCloseNotificationData.message}',
-      duration: '${customCloseNotificationData.duration}',
-      showClose: '${customCloseNotificationData.showClose}',
+      duration: ${customCloseNotificationData.duration},
+      showClose: ${customCloseNotificationData.showClose},
     })
   }
 <\/script>
@@ -89,16 +91,22 @@ const positionSource = computed(() => {
   const positionNotificationOpen = () => {
     ElNotification({
       title: '${positionNotificationData.title}',
-      message: '${positionNotificationData.message}',
-      position: '${positionNotificationData.position}',
-      offset: '${positionNotificationData.offset}',
+      message: '${positionNotificationData.message}',${
+        isAttribute(
+          positionNotificationData.position !== 'top-right',
+          `    position: '${positionNotificationData.position}'`,
+        )
+      }${isAttribute(
+        positionNotificationData.offset !== 0,
+        `    offset: ${positionNotificationData.offset}`,
+      )}
     })
   }
 <\/script>
 
 <template>
-  <el-button @click="positionNofiticationOpen">
-    positionNofitication
+  <el-button @click="positionNotificationOpen">
+    positionNotification
   </el-button> 
 </template>`
 })

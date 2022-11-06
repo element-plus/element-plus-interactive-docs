@@ -1,4 +1,8 @@
-export const typeList = [
+import type { NotificationProps } from 'element-plus'
+
+type TypeListTypes = { label: NotificationProps['type'] | 'default'; value: NotificationProps['type'] }[]
+
+export const typeList: TypeListTypes = [
   {
     label: 'default',
     value: '',
@@ -20,15 +24,9 @@ export const typeList = [
     value: 'error',
   },
 ]
-export const positionList = [
-  {
-    label: 'bottom-right',
-    value: 'bottom-right',
-  },
-  {
-    label: 'bottom-left',
-    value: 'bottom-left',
-  },
+
+type PositionListTypes = { label: NotificationProps['position']; value: NotificationProps['position'] }[]
+export const positionList: PositionListTypes = [
   {
     label: 'top-right',
     value: 'top-right',
@@ -36,6 +34,14 @@ export const positionList = [
   {
     label: 'top-left',
     value: 'top-left',
+  },
+  {
+    label: 'bottom-right',
+    value: 'bottom-right',
+  },
+  {
+    label: 'bottom-left',
+    value: 'bottom-left',
   },
 ]
 
