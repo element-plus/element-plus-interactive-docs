@@ -57,8 +57,9 @@ const customCloseSource = computed(() => {
     ElNotification({
       title: '${customCloseNotificationData.title}',
       message: '${customCloseNotificationData.message}',
-      duration: ${customCloseNotificationData.duration},
-      showClose: ${customCloseNotificationData.showClose},
+      duration: ${customCloseNotificationData.duration},${isAttribute(
+        !customCloseNotificationData.showClose,
+        `    showClose: ${customCloseNotificationData.showClose}`)}
     })
   }
 <\/script>
@@ -91,15 +92,15 @@ const positionSource = computed(() => {
   const positionNotificationOpen = () => {
     ElNotification({
       title: '${positionNotificationData.title}',
-      message: '${positionNotificationData.message}',${
+      message: '${positionNotificationData.message}',${isAttribute(
+          positionNotificationData.offset !== 0,
+          `    offset: ${positionNotificationData.offset}`,
+        )}${
         isAttribute(
           positionNotificationData.position !== 'top-right',
           `    position: '${positionNotificationData.position}'`,
         )
-      }${isAttribute(
-        positionNotificationData.offset !== 0,
-        `    offset: ${positionNotificationData.offset}`,
-      )}
+      }
     })
   }
 <\/script>
