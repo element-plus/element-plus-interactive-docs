@@ -83,6 +83,7 @@ declare module '@vue/runtime-core' {
     ElTooltip: typeof import('element-plus/es')['ElTooltip']
     'Empty.story': typeof import('./src/components/Data/empty.story.vue')['default']
     HstColor: typeof import('./src/controls-components/HstColor.vue')['default']
+    HstDateTimePIcker: typeof import('./src/controls-components/HstDateTimePicker.vue')['default']
     'Icon.story': typeof import('./src/components/Basic/Icon/icon.story.vue')['default']
     'Image.story': typeof import('./src/components/Data/Image/image.story.vue')['default']
     'Input.story': typeof import('./src/components/Form/input.story.vue')['default']

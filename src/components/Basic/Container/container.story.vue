@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-
 const headerHeight = ref(60)
 const footerHeight = ref(60)
 const asideWidth = ref(100)
