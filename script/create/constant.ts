@@ -8,17 +8,17 @@ export const createStoryComponent = (category: CategoryType, component: Componen
 // import type { ${component}Props } from 'element-plus'
 </script>
 
+<!-- icon from https://icones.js.org/collection/all?s=${lowerFirst(component)} -->
 <template>
-  <!-- icon from https://icones.js.org/collection/all?s=${lowerFirst(component)} -->
-  <Story title="${category}/${component}" icon="ep:element-plus">
+  <!-- <Story title="${category}/${component}" icon="ep:element-plus">
     <Variant
       title="Basic Usage"
     >
       <template #controls>
-        <!-- HstControl -->
+        HstControls
       </template>
     </Variant>
-  </Story>
+  </Story> -->
 </template>
 
 <style scoped>
