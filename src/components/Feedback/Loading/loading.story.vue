@@ -2,38 +2,12 @@
 import { ElLoading } from 'element-plus'
 import { isAttribute } from '@utils'
 import { logEvent } from 'histoire/client'
-import { tableData } from './constants'
 
 // Basic-Loading
 const basicLoadingData = ref(false)
 const basicSource = computed(() => {
-  return `<script setup lang="ts">
-  const basicLoadingData = ref(false)
-  const tableData = [
-  {
-    date: '2016-05-02',
-    name: 'John Smith',
-    address: 'No.1518,  Jinshajiang Road, Putuo District',
-  },
-  {
-    date: '2016-05-04',
-    name: 'John Smith',
-    address: 'No.1518,  Jinshajiang Road, Putuo District',
-  },
-  {
-    date: '2016-05-01',
-    name: 'John Smith',
-    address: 'No.1518,  Jinshajiang Road, Putuo District',
-  },
-]
-<\/script>
-
-<template>
-  <el-table v-loading="basicLoadingData" :data="tableData" style="width: 100%">
-    <el-table-column prop="date" label="Date" />
-    <el-table-column prop="name" label="Name" />
-    <el-table-column prop="address" label="Address" />
-  </el-table>
+  return `<template>
+  <el-card v-loading="${basicLoadingData.value}"}/>
 </template>
 `
 })
@@ -48,50 +22,23 @@ const customLoadingData = reactive({
   background: '',
 })
 const customLoadingSource = computed(() => {
-  return `<script setup lang="ts">
-  const tableData = [
-  {
-    date: '2016-05-02',
-    name: 'John Smith',
-    address: 'No.1518,  Jinshajiang Road, Putuo District',
-  },
-  {
-    date: '2016-05-04',
-    name: 'John Smith',
-    address: 'No.1518,  Jinshajiang Road, Putuo District',
-  },
-  {
-    date: '2016-05-01',
-    name: 'John Smith',
-    address: 'No.1518,  Jinshajiang Road, Putuo District',
-  },
-]
-<\/script>
-
-<el-table 
-  v-loading="basicLoadingData" 
-  :data="tableData"${isAttribute(
-    customLoadingData.text !== '',
-    `element-loading-text="${customLoadingData.text}"`,
-    )}${isAttribute(
-    customLoadingData.spinner !== '',
-    `element-loading-spinner="${customLoadingData.spinner}"`,
-    )}${isAttribute(
-    customLoadingData.svg !== '',
-    `element-loading-svg="${customLoadingData.svg}"`,
-    )}${isAttribute(
-    customLoadingData.viewBox !== '',
-    `element-loading-svg-view-box="${customLoadingData.viewBox}"`,
-    )}${isAttribute(
-    customLoadingData.background !== '',
-    `element-loading-background="${customLoadingData.background}"`,
-    )}
->
-  <el-table-column prop="date" label="Date" />
-  <el-table-column prop="name" label="Name" />
-  <el-table-column prop="address" label="Address" />
-</el-table>
-
+  return `<el-card 
+  v-loading="${customLoadingData.loading}"${isAttribute(customLoadingData.text !== '',
+  `element-loading-text="${customLoadingData.text}"`,
+  )}${isAttribute(
+  customLoadingData.spinner !== '',
+  `element-loading-spinner="${customLoadingData.spinner}"`,
+  )}${isAttribute(
+  customLoadingData.svg !== '',
+  `element-loading-svg="${customLoadingData.svg}"`,
+  )}${isAttribute(
+  customLoadingData.viewBox !== '',
+  `element-loading-svg-view-box="${customLoadingData.viewBox}"`,
+  )}${isAttribute(
+  customLoadingData.background !== '',
+  `element-loading-background="${customLoadingData.background}"`,
+  )}
+/>
 `
 })
 
@@ -180,33 +127,32 @@ const serviceLoadingSource = computed(() => {
 <template>
   <Story title="Feedback/Loading" icon="ep:loading">
     <Variant title="Basic usage" :source="basicSource">
-      <el-table v-loading="basicLoadingData" :data="tableData" style="width: 100%">
-        <el-table-column prop="date" label="Date" />
-        <el-table-column prop="name" label="Name" />
-        <el-table-column prop="address" label="Address" />
-      </el-table>
+      <el-card v-loading="basicLoadingData">
+        <div class="content">
+          content
+        </div>
+      </el-card>
       <template #controls>
-        <HstCheckbox v-model="basicLoadingData" title="V-loading" />
+        <HstCheckbox v-model="basicLoadingData" title="v-loading" />
       </template>
     </Variant>
     <Variant title="Custom Loading" :source="customLoadingSource" icon="material-symbols:dashboard-customize-outline">
-      <el-table
+      <el-card
         v-loading="customLoadingData.loading"
         :element-loading-text="customLoadingData.text"
         :element-loading-spinner="customLoadingData.spinner"
         :element-loading-svg="customLoadingData.svg"
         :element-loading-svg-view-box="customLoadingData.viewBox"
         :element-loading-background="customLoadingData.background"
-        :data="tableData"
       >
-        <el-table-column prop="date" label="Date" />
-        <el-table-column prop="name" label="Name" />
-        <el-table-column prop="address" label="Address" />
-      </el-table>
+        <div class="content">
+          content
+        </div>
+      </el-card>
       <template #controls>
-        <HstCheckbox v-model="customLoadingData.loading" title="V-loading" />
+        <HstCheckbox v-model="customLoadingData.loading" title="v-loading" />
         <el-divider border-style="dotted" content-position="left">
-          <span>Element-loading</span>
+          <span>element-loading</span>
         </el-divider>
         <HstText v-model="customLoadingData.text" title="text" />
         <HstText v-model="customLoadingData.spinner" title="spinner" />
@@ -240,3 +186,12 @@ const serviceLoadingSource = computed(() => {
     </Variant>
   </Story>
 </template>
+
+<style scoped>
+.content {
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+</style>
