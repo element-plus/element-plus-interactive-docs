@@ -88,13 +88,13 @@ declare module '@vue/runtime-core' {
     'Empty.story': typeof import('./src/components/Data/empty.story.vue')['default']
     HstColor: typeof import('./src/controls-components/HstColor.vue')['default']
     HstDateTimePicker: typeof import('./src/controls-components/HstDateTimePicker.vue')['default']
-    HstDateTimePIcker: typeof import('./src/controls-components/HstDateTimePicker.vue')['default']
     'Icon.story': typeof import('./src/components/Basic/Icon/icon.story.vue')['default']
     'Image.story': typeof import('./src/components/Data/Image/image.story.vue')['default']
     'Input.story': typeof import('./src/components/Form/input.story.vue')['default']
     'InputNumber.story': typeof import('./src/components/Form/inputNumber.story.vue')['default']
     'Layout.story': typeof import('./src/components/Basic/Layout/layout.story.vue')['default']
     'Link.story': typeof import('./src/components/Basic/Link/link.story.vue')['default']
+    'Loading.story': typeof import('./src/components/Feedback/Loading/loading.story.vue')['default']
     MainColor: typeof import('./src/components/Basic/Color/main-color.vue')['default']
     NeutralColor: typeof import('./src/components/Basic/Color/neutral-color.vue')['default']
     'Notification.story': typeof import('./src/components/Feedback/Notification/notification.story.vue')['default']
@@ -110,5 +110,8 @@ declare module '@vue/runtime-core' {
     'Switch.story': typeof import('./src/components/Form/switch.story.vue')['default']
     'Tag.story': typeof import('./src/components/Data/tag.story.vue')['default']
     'Timeline.story': typeof import('./src/components/Data/Timeline/timeline.story.vue')['default']
+  }
+  export interface ComponentCustomProperties {
+    vLoading: typeof import('element-plus/es')['ElLoadingDirective']
   }
 }
