@@ -7,8 +7,21 @@ import { logEvent } from 'histoire/client'
 const basicLoadingData = ref(false)
 const basicSource = computed(() => {
   return `<template>
-  <el-card v-loading="${basicLoadingData.value}"}/>
+  <el-card v-loading="${basicLoadingData.value}"}>
+    <div class="content">
+      content
+    </div>
+  </el-card>
 </template>
+
+<style scoped>
+.content {
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+</style>
 `
 })
 
@@ -38,7 +51,20 @@ const customLoadingSource = computed(() => {
   customLoadingData.background !== '',
   `element-loading-background="${customLoadingData.background}"`,
   )}
-/>
+>
+  <div class="content">
+    content
+  </div>
+</el-card>
+
+<style scoped>
+.content {
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+</style>
 `
 })
 
@@ -110,7 +136,9 @@ const serviceLoadingSource = computed(() => {
   import { ElLoading } from 'element-plus'
 
   const openServiceLoading = () => {
-  const loading = ElLoading.service({lock: ${serviceLoadingData.lock},${serviceLoadingData.text !== '' ? ` text: ${serviceLoadingData.text},` : ''}${serviceLoadingData.spinner !== '' ? ` spinner: ${serviceLoadingData.spinner},` : ''}${serviceLoadingData.background !== '' ? ` background: ${serviceLoadingData.background},` : ''}})
+  const loading = ElLoading.service({
+    lock: ${serviceLoadingData.lock},${serviceLoadingData.text !== '' ? `\n    text: ${serviceLoadingData.text},` : ''}${serviceLoadingData.spinner !== '' ? `\n    spinner: ${serviceLoadingData.spinner},` : ''}${serviceLoadingData.background !== '' ? `\n    background: ${serviceLoadingData.background},` : ''}
+  })
   setTimeout(() => {
     loading.close()
   }, 2000)
