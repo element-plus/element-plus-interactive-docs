@@ -84,6 +84,8 @@ declare module '@vue/runtime-core' {
     ElTable: typeof import('element-plus/es')['ElTable']
     ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
     ElTag: typeof import('element-plus/es')['ElTag']
+    ElTimeline: typeof import('element-plus/es')['ElTimeline']
+    ElTimelineItem: typeof import('element-plus/es')['ElTimelineItem']
     ElTooltip: typeof import('element-plus/es')['ElTooltip']
     'Empty.story': typeof import('./src/components/Data/empty.story.vue')['default']
     HstColor: typeof import('./src/controls-components/HstColor.vue')['default']
@@ -109,6 +111,7 @@ declare module '@vue/runtime-core' {
     'Space.story': typeof import('./src/components/Basic/space.story.vue')['default']
     'Switch.story': typeof import('./src/components/Form/switch.story.vue')['default']
     'Tag.story': typeof import('./src/components/Data/tag.story.vue')['default']
+    'Timeline.story': typeof import('./src/components/Data/Timeline/timeline.story.vue')['default']
   }
   export interface ComponentCustomProperties {
     vLoading: typeof import('element-plus/es')['ElLoadingDirective']
