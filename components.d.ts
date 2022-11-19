@@ -27,6 +27,7 @@ declare module '@vue/runtime-core' {
     'Descriptions.story': typeof import('./src/components/Data/descriptions.story.vue')['default']
     'Dialog.story': typeof import('./src/components/Feedback/dialog.story.vue')['default']
     'Divider.story': typeof import('./src/components/Others/divider.story.vue')['default']
+    'Drawer.story': typeof import('./src/components/Feedback/Drawer/drawer.story.vue')['default']
     ElAlert: typeof import('element-plus/es')['ElAlert']
     ElAside: typeof import('element-plus/es')['ElAside']
     ElAutocomplete: typeof import('element-plus/es')['ElAutocomplete']
@@ -81,6 +82,8 @@ declare module '@vue/runtime-core' {
     ElSkeletonItem: typeof import('element-plus/es')['ElSkeletonItem']
     ElSpace: typeof import('element-plus/es')['ElSpace']
     ElSwitch: typeof import('element-plus/es')['ElSwitch']
+    ElTable: typeof import('element-plus/es')['ElTable']
+    ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
     ElTag: typeof import('element-plus/es')['ElTag']
     ElTooltip: typeof import('element-plus/es')['ElTooltip']
     'Empty.story': typeof import('./src/components/Data/empty.story.vue')['default']
@@ -92,6 +95,7 @@ declare module '@vue/runtime-core' {
     'InputNumber.story': typeof import('./src/components/Form/inputNumber.story.vue')['default']
     'Layout.story': typeof import('./src/components/Basic/Layout/layout.story.vue')['default']
     'Link.story': typeof import('./src/components/Basic/Link/link.story.vue')['default']
+    'Loading.story': typeof import('./src/components/Feedback/Loading/loading.story.vue')['default']
     MainColor: typeof import('./src/components/Basic/Color/main-color.vue')['default']
     NeutralColor: typeof import('./src/components/Basic/Color/neutral-color.vue')['default']
     'Notification.story': typeof import('./src/components/Feedback/Notification/notification.story.vue')['default']
@@ -106,5 +110,8 @@ declare module '@vue/runtime-core' {
     'Space.story': typeof import('./src/components/Basic/space.story.vue')['default']
     'Switch.story': typeof import('./src/components/Form/switch.story.vue')['default']
     'Tag.story': typeof import('./src/components/Data/tag.story.vue')['default']
+  }
+  export interface ComponentCustomProperties {
+    vLoading: typeof import('element-plus/es')['ElLoadingDirective']
   }
 }
