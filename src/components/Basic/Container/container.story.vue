@@ -6,23 +6,23 @@ const asideWidth = ref(100)
 
 <template>
   <Story title="Basic/Container" icon="ph:layout-thin">
-    <Variant title="Basic Usage" >
+    <Variant title="Basic Usage">
+      <el-container>
+        <el-header :height="`${headerHeight}px`">
+          Header
+        </el-header>
         <el-container>
-          <el-header :height="`${headerHeight}px`">
-            Header
-          </el-header>
+          <el-aside :width="`${asideWidth}px`">
+            Aside
+          </el-aside>
           <el-container>
-            <el-aside :width="`${asideWidth}px`">
-              Aside
-            </el-aside>
-            <el-container>
-              <el-main>Main</el-main>
-              <el-footer :height="`${footerHeight}px`">
-                Footer
-              </el-footer>
-            </el-container>
+            <el-main>Main</el-main>
+            <el-footer :height="`${footerHeight}px`">
+              Footer
+            </el-footer>
           </el-container>
         </el-container>
+      </el-container>
       <template #controls>
         <HstNumber v-model="headerHeight" title="HeaderHeight" />
         <HstNumber v-model="footerHeight" title="FooterHeight" />
