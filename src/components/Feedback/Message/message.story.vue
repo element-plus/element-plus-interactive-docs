@@ -1,19 +1,31 @@
 <script setup lang="ts">
 import type { MessageProps } from 'element-plus'
 import { h } from 'vue'
+import { logEvent } from 'histoire/client'
 import { typeList } from './constants'
 
 // Basic-Usage
-const basicMessage = ref('message')
-const basicOpen = () => {
-  ElMessage(basicMessage.value)
-}
-const basicOpenVn = () => {
-  ElMessage({
-    message: h('p', null, [
-      h('span', null, 'Message can be '),
-      h('i', { style: 'color: teal' }, 'VNode'),
-    ]),
+const basicMessageData = reactive({
+  message: 'message',
+  offset: ref<MessageProps['offset']>(20),
+  center: ref<MessageProps['center']>(true),
+  showClose: ref<MessageProps['showClose']>(true),
+  duration: ref<MessageProps['duration']>(3000),
+  type: ref<MessageProps['type']>('info'),
+  typeList,
+})
+const basicMessageOpen = () => {
+  const basicElMessageInstance = ElMessage({
+    message: basicMessageData.message,
+    offset: basicMessageData.offset,
+    center: basicMessageData.center,
+    showClose: basicMessageData.showClose,
+    duration: basicMessageData.duration,
+    type: basicMessageData.type,
+    onClose: () => {
+      logEvent('onClose', { log: 'basicElMessageInstance will be closed' })
+      basicElMessageInstance.close()
+    },
   })
 }
 const basicMessageSource = computed(() => {
@@ -21,10 +33,40 @@ const basicMessageSource = computed(() => {
   import { h } from 'vue'
   import { ElMessage } from 'element-plus'
 
-  const basicOpen = () => {
-    ElMessage('${basicMessage.value}')
+  const basicMessageOpen = () => {
+    const basicElMessageInstance = ElMessage({
+      message: '${basicMessageData.message}',
+      offset: ${basicMessageData.offset},${basicMessageData.center ? `\n      center: ${basicMessageData.center},` : ''}${basicMessageData.showClose ? `\n      showClose: ${basicMessageData.showClose},` : ''}
+      duration: ${basicMessageData.duration},
+      type: '${basicMessageData.type}',
+      onClose: () => {
+        console.log(log: 'basicElMessageInstance will be closed')
+        basicElMessageInstance.close()
+      },
+    })
   }
-  const basicOpenVn = () => {
+<\/script>
+
+<template>
+  <el-button :plain="true" @click="basicMessageOpen">Show basic message</el-button>
+</template>`
+})
+
+// VNode-Message
+const VNodeMessageOpen = () => {
+  ElMessage({
+    message: h('p', null, [
+      h('span', null, 'Message can be '),
+      h('i', { style: 'color: teal' }, 'VNode'),
+    ]),
+  })
+}
+const VNodeMessageSource = computed(() => {
+  return `<script setup lang="ts">
+  import { h } from 'vue'
+  import { ElMessage } from 'element-plus'
+
+  const VNodeMessageOpen = () => {
     ElMessage({
       message: h('p', null, [
         h('span', null, 'Message can be '),
@@ -35,73 +77,7 @@ const basicMessageSource = computed(() => {
 <\/script>
 
 <template>
-  <el-button :plain="true" @click="basicOpen">Show message</el-button>
-  <el-button :plain="true" @click="basicOpenVn">VNode</el-button>
-</template>`
-})
-
-// Show-Close
-const showCloseMessageData = reactive({
-  message: 'message',
-  showClose: ref<MessageProps['showClose']>(true),
-  duration: ref<MessageProps['duration']>(3000),
-  type: ref<MessageProps['type']>('info'),
-  typeList,
-})
-const showCloseMessageOpen = () => {
-  ElMessage({
-    message: showCloseMessageData.message,
-    showClose: showCloseMessageData.showClose,
-    duration: showCloseMessageData.duration,
-    type: showCloseMessageData.type,
-  })
-}
-const showCloseMessageSource = computed(() => {
-  return `<script setup lang="ts">
-  import { ElMessage } from 'element-plus'
-
-  const showCloseMessageOpen = () => {
-    ElMessage({
-      message: '${showCloseMessageData.message}',
-      showClose: ${showCloseMessageData.showClose},
-      duration: ${showCloseMessageData.duration},
-      type: '${showCloseMessageData.type}',
-    })
-  }
-
-<template>
-  <el-button :plain="true" @click="showCloseMessageOpen">Show close message</el-button>
-</template>`
-})
-
-// Center-Message
-const centerMessageData = reactive({
-  message: 'Centered text',
-  center: ref<MessageProps['center']>(true),
-  type: ref<MessageProps['type']>('info'),
-  typeList,
-})
-const centerMessageOpen = () => {
-  ElMessage({
-    message: centerMessageData.message,
-    center: centerMessageData.center,
-    type: centerMessageData.type,
-  })
-}
-const centerMessageSource = computed(() => {
-  return `<script setup lang="ts">
-  import { ElMessage } from 'element-plus'
-
-  const centerMessageOpen = () => {
-    ElMessage({
-      message: '${centerMessageData.message}',
-      center: ${centerMessageData.center},
-      type: '${centerMessageData.type}',
-    })
-  }
-
-<template>
-  <el-button :plain="true" @click="centerMessageOpen">Show center text message</el-button>
+  <el-button :plain="true" @click="VNodeMessageOpen">show VNode message</el-button>
 </template>`
 })
 
@@ -125,11 +101,11 @@ const htmlMessageSource = computed(() => {
 
   const htmlMessageOpen = () => {
     ElMessage({
-      message: '${htmlMessageData.message}',
-      dangerouslyUseHTMLString: ${htmlMessageData.dangerouslyUseHTMLString},
-      type: '${centerMessageData.type}',
+      message: '${htmlMessageData.message}',${htmlMessageData.dangerouslyUseHTMLString ? `\n      dangerouslyUseHTMLString: ${htmlMessageData.dangerouslyUseHTMLString},` : ''}
+      type: '${htmlMessageData.type}',
     })
   }
+<\/script>
 
 <template>
   <el-button :plain="true" @click="htmlMessageOpen">Show HTML message</el-button>
@@ -156,11 +132,11 @@ const groupingMessageSource = computed(() => {
 
   const groupingMessageOpen = () => {
     ElMessage({
-      message: '${groupingMessageData.message}',
-      grouping: ${groupingMessageData.grouping},
+      message: '${groupingMessageData.message}',${groupingMessageData.grouping ? `\n      grouping: ${groupingMessageData.grouping},` : ''}
       type: '${groupingMessageData.type}',
     })
   }
+<\/script>
 
 <template>
   <el-button :plain="true" @click="groupingMessageOpen">Show grouping message</el-button>
@@ -171,36 +147,22 @@ const groupingMessageSource = computed(() => {
 <template>
   <Story title="Feedback/Message" icon="mdi:message-text-outline">
     <Variant title="Basic Usage" :source="basicMessageSource">
-      <el-button :plain="true" @click="basicOpen">Show message</el-button>
-      <el-button :plain="true" @click="basicOpenVn">VNode</el-button>
+      <el-button :plain="true" @click="basicMessageOpen">Show basic message</el-button>
       <template #controls>
-        <HstText v-model="basicMessage" title="Message" />
-      </template>
-    </Variant>
-    <Variant title="Show Close" :source="showCloseMessageSource">
-      <el-button :plain="true" @click="showCloseMessageOpen">Show close message</el-button>
-      <template #controls>
-        <HstText v-model="showCloseMessageData.message" title="Message" />
-        <HstCheckbox v-model="showCloseMessageData.showClose" title="Close" />
-        <HstNumber v-model="showCloseMessageData.duration" title="Duration" />
+        <HstText v-model="basicMessageData.message" title="Message" />
+        <HstNumber v-model="basicMessageData.offset" title="Offset" />
+        <HstCheckbox v-model="basicMessageData.center" title="Center" />
+        <HstCheckbox v-model="basicMessageData.showClose" title="Close" />
+        <HstNumber v-model="basicMessageData.duration" title="Duration" />
         <HstRadio
-          v-model="showCloseMessageData.type"
+          v-model="basicMessageData.type"
           title="Type"
-          :options="showCloseMessageData.typeList"
+          :options="basicMessageData.typeList"
         />
       </template>
     </Variant>
-    <Variant title="Center" :source="centerMessageSource">
-      <el-button :plain="true" @click="centerMessageOpen">Show center text message</el-button>
-      <template #controls>
-        <HstText v-model="centerMessageData.message" title="Message" />
-        <HstCheckbox v-model="centerMessageData.center" title="Center" />
-        <HstRadio
-          v-model="centerMessageData.type"
-          title="Type"
-          :options="centerMessageData.typeList"
-        />
-      </template>
+    <Variant title="VNode Message" :source="VNodeMessageSource" icon="clarity:nodes-line">
+      <el-button :plain="true" @click="VNodeMessageOpen">show VNode message</el-button>
     </Variant>
     <Variant title="HTML Message" :source="htmlMessageSource" icon="bi:filetype-html">
       <el-button :plain="true" @click="htmlMessageOpen">Show HTML message</el-button>
@@ -214,7 +176,7 @@ const groupingMessageSource = computed(() => {
         />
       </template>
     </Variant>
-    <Variant title="Grouping Message" :source="groupingMessageSource">
+    <Variant title="Grouping Message" :source="groupingMessageSource" icon="uit:layer-group">
       <el-button :plain="true" @click="groupingMessageOpen">Show grouping message</el-button>
       <template #controls>
         <HstText v-model="groupingMessageData.message" title="Message" />
