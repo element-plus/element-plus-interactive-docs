@@ -118,6 +118,7 @@ declare module '@vue/runtime-core' {
     SecondaryColors: typeof import('./src/components/Basic/Color/secondary-colors.vue')['default']
     'Select.story': typeof import('./src/components/Form/Select/select.story.vue')['default']
     'Skeleton.story': typeof import('./src/components/Data/skeleton.story.vue')['default']
+    'Slider.story': typeof import('./src/components/Form/Slider/slider.story.vue')['default']
     'Space.story': typeof import('./src/components/Basic/space.story.vue')['default']
     'Switch.story': typeof import('./src/components/Form/switch.story.vue')['default']
     'Tag.story': typeof import('./src/components/Data/tag.story.vue')['default']
