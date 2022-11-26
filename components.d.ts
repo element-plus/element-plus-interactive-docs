@@ -85,6 +85,7 @@ declare module '@vue/runtime-core' {
     ElSelectV2: typeof import('element-plus/es')['ElSelectV2']
     ElSkeleton: typeof import('element-plus/es')['ElSkeleton']
     ElSkeletonItem: typeof import('element-plus/es')['ElSkeletonItem']
+    ElSlider: typeof import('element-plus/es')['ElSlider']
     ElSpace: typeof import('element-plus/es')['ElSpace']
     ElSwitch: typeof import('element-plus/es')['ElSwitch']
     ElTable: typeof import('element-plus/es')['ElTable']
@@ -97,6 +98,7 @@ declare module '@vue/runtime-core' {
     'Form.story': typeof import('./src/components/Form/Form/form.story.vue')['default']
     HstColor: typeof import('./src/controls-components/HstColor.vue')['default']
     HstDateTimePicker: typeof import('./src/controls-components/HstDateTimePicker.vue')['default']
+    HstRange: typeof import('./src/controls-components/HstRange.vue')['default']
     'Icon.story': typeof import('./src/components/Basic/Icon/icon.story.vue')['default']
     'Image.story': typeof import('./src/components/Data/Image/image.story.vue')['default']
     'Input.story': typeof import('./src/components/Form/input.story.vue')['default']
@@ -120,6 +122,8 @@ declare module '@vue/runtime-core' {
     'Switch.story': typeof import('./src/components/Form/switch.story.vue')['default']
     'Tag.story': typeof import('./src/components/Data/tag.story.vue')['default']
     'Timeline.story': typeof import('./src/components/Data/Timeline/timeline.story.vue')['default']
+    'TimePicker.story': typeof import('./src/components/Form/TimePicker/timePicker.story.vue')['default']
+    'VirtualizedSelect.story': typeof import('./src/components/Form/VirtualizedSelect/virtualizedSelect.story.vue')['default']
   }
   export interface ComponentCustomProperties {
     vLoading: typeof import('element-plus/es')['ElLoadingDirective']
