@@ -1,5 +1,5 @@
 {
-  "name": "@element-plus/docs-histoire",
+  "name": "@element-plus/interactive-docs",
   "type": "module",
   "private": true,
   "packageManager": "pnpm@7.12.0",
