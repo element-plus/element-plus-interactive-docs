@@ -89,20 +89,20 @@ const fullscreenLoadingSource = computed(() => {
 import { ref } from 'vue'
 import { ElLoading } from 'element-plus'
 
-  const fullscreenLoading = ref(false)
-  const openFullScreen1 = () => {
-    fullscreenLoading.value = true
-    setTimeout(() => {
-      fullscreenLoading.value = false
-    }, 2000)
-  }
+const fullscreenLoading = ref(false)
+const openFullScreen1 = () => {
+  fullscreenLoading.value = true
+  setTimeout(() => {
+    fullscreenLoading.value = false
+  }, 2000)
+}
 
-  const openFullScreen2 = () => {
-    const loading = ElLoading.service()
-    setTimeout(() => {
-      loading.close()
-    }, 2000)
-  }
+const openFullScreen2 = () => {
+  const loading = ElLoading.service()
+  setTimeout(() => {
+    loading.close()
+  }, 2000)
+}
 <\/script>
 
 <template>
@@ -133,9 +133,9 @@ const openServiceLoading = () => {
 }
 const serviceLoadingSource = computed(() => {
   return `<script setup lang="ts">
-  import { ElLoading } from 'element-plus'
+import { ElLoading } from 'element-plus'
 
-  const openServiceLoading = () => {
+const openServiceLoading = () => {
   const loading = ElLoading.service({
     lock: ${serviceLoadingData.lock},${serviceLoadingData.text !== '' ? `\n    text: ${serviceLoadingData.text},` : ''}${serviceLoadingData.spinner !== '' ? `\n    spinner: ${serviceLoadingData.spinner},` : ''}${serviceLoadingData.background !== '' ? `\n    background: ${serviceLoadingData.background},` : ''}
   })
