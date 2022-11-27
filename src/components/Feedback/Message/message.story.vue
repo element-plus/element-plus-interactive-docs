@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { MessageProps } from 'element-plus'
+import { ElMessage } from 'element-plus'
 import { h } from 'vue'
 import { logEvent } from 'histoire/client'
 import { typeList } from './constants'
@@ -147,7 +148,9 @@ const groupingMessageSource = computed(() => {
 <template>
   <Story title="Feedback/Message" icon="mdi:message-text-outline">
     <Variant title="Basic Usage" :source="basicMessageSource">
-      <el-button :plain="true" @click="basicMessageOpen">Show basic message</el-button>
+      <el-button :plain="true" @click="basicMessageOpen">
+        Show basic message
+      </el-button>
       <template #controls>
         <HstText v-model="basicMessageData.message" title="Message" />
         <HstNumber v-model="basicMessageData.offset" title="Offset" />
@@ -162,10 +165,14 @@ const groupingMessageSource = computed(() => {
       </template>
     </Variant>
     <Variant title="VNode Message" :source="VNodeMessageSource" icon="clarity:nodes-line">
-      <el-button :plain="true" @click="VNodeMessageOpen">show VNode message</el-button>
+      <el-button :plain="true" @click="VNodeMessageOpen">
+        show VNode message
+      </el-button>
     </Variant>
     <Variant title="HTML Message" :source="htmlMessageSource" icon="bi:filetype-html">
-      <el-button :plain="true" @click="htmlMessageOpen">Show HTML message</el-button>
+      <el-button :plain="true" @click="htmlMessageOpen">
+        Show HTML message
+      </el-button>
       <template #controls>
         <HstTextarea v-model="htmlMessageData.message" title="Message" />
         <HstCheckbox v-model="htmlMessageData.dangerouslyUseHTMLString" title="useHTMLString" />
@@ -177,7 +184,9 @@ const groupingMessageSource = computed(() => {
       </template>
     </Variant>
     <Variant title="Grouping Message" :source="groupingMessageSource" icon="uit:layer-group">
-      <el-button :plain="true" @click="groupingMessageOpen">Show grouping message</el-button>
+      <el-button :plain="true" @click="groupingMessageOpen">
+        Show grouping message
+      </el-button>
       <template #controls>
         <HstText v-model="groupingMessageData.message" title="Message" />
         <HstCheckbox v-model="groupingMessageData.grouping" title="Grouping" />

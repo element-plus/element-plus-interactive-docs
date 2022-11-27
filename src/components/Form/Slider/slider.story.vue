@@ -130,9 +130,9 @@ watch(
         <HstNumber v-model="basicData.max" title="Max" />
         <HstNumber v-model="basicData.min" title="Min" />
         <HstCheckbox v-model="basicData.range" title="Range" />
-        <HstCheckbox v-model="basicData.showInput" title="Show Input" :style="{ display: basicData.range ? 'none' : 'flex' }" />
-        <HstCheckbox v-if="basicData.showInput" v-model="basicData.showInputControls" title="Show World Limit" :style="{ display: basicData.range ? 'none' : 'flex' }" />
-        <HstButtonGroup v-if="basicData.showInput" v-model="basicData.inputSize" title="input-size" :options="sizeOptions" />
+        <HstCheckbox v-model="basicData.showInput" title="Show Input" :style="useElDisplay(!basicData.range)" />
+        <HstCheckbox v-if="basicData.showInput" v-model="basicData.showInputControls" title="Show World Limit" :style="useElDisplay(!basicData.range)" />
+        <HstButtonGroup v-if="basicData.showInput" v-model="basicData.inputSize" title="input-size" :options="sizeOptions" :style="useElDisplay(!basicData.range)" />
         <HstCheckbox v-model="basicData.disabled" title="Disabled" />
         <HstNumber v-model="basicData.step" title="Step" />
         <HstCheckbox v-model="basicData.showStops" title="Show Stops" />
