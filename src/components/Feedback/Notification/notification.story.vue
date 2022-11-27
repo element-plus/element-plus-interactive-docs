@@ -131,7 +131,7 @@ const htmlMessageNotificationSource = computed(() => {
     ElNotification({
       title: '${htmlMessageNotificationData.title}',
       message: '${htmlMessageNotificationData.message}',
-      dangerouslyUseHTMLString: '${htmlMessageNotificationData.dangerouslyUseHTMLString}',
+      dangerouslyUseHTMLString: ${htmlMessageNotificationData.dangerouslyUseHTMLString},
     })
   }
 <\/script>
@@ -192,6 +192,7 @@ const htmlMessageNotificationSource = computed(() => {
       </el-button>
       <template #controls>
         <HstText v-model="htmlMessageNotificationData.title" title="Title" />
+        <HstCheckbox v-model="htmlMessageNotificationData.dangerouslyUseHTMLString" title="useHTMLString" />
         <HstTextarea v-model="htmlMessageNotificationData.message" title="Message" />
       </template>
     </Variant>

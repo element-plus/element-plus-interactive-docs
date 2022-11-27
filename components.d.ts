@@ -107,6 +107,7 @@ declare module '@vue/runtime-core' {
     'Link.story': typeof import('./src/components/Basic/Link/link.story.vue')['default']
     'Loading.story': typeof import('./src/components/Feedback/Loading/loading.story.vue')['default']
     MainColor: typeof import('./src/components/Basic/Color/main-color.vue')['default']
+    'Message.story': typeof import('./src/components/Feedback/Message/message.story.vue')['default']
     NeutralColor: typeof import('./src/components/Basic/Color/neutral-color.vue')['default']
     'Notification.story': typeof import('./src/components/Feedback/Notification/notification.story.vue')['default']
     'Pagination.story': typeof import('./src/components/Data/pagination.story.vue')['default']
@@ -124,7 +125,6 @@ declare module '@vue/runtime-core' {
     'Tag.story': typeof import('./src/components/Data/tag.story.vue')['default']
     'Timeline.story': typeof import('./src/components/Data/Timeline/timeline.story.vue')['default']
     'TimePicker.story': typeof import('./src/components/Form/TimePicker/timePicker.story.vue')['default']
-    'VirtualizedSelect.story': typeof import('./src/components/Form/VirtualizedSelect/virtualizedSelect.story.vue')['default']
   }
   export interface ComponentCustomProperties {
     vLoading: typeof import('element-plus/es')['ElLoadingDirective']
