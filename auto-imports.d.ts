@@ -548,3 +548,9 @@ declare module '@vue/runtime-core' {
     readonly whenever: UnwrapRef<typeof import('@vueuse/core')['whenever']>
   }
 }
+ypeof import('@vueuse/core')['watchThrottled']>
+    readonly watchTriggerable: UnwrapRef<typeof import('@vueuse/core')['watchTriggerable']>
+    readonly watchWithFilter: UnwrapRef<typeof import('@vueuse/core')['watchWithFilter']>
+    readonly whenever: UnwrapRef<typeof import('@vueuse/core')['whenever']>
+  }
+}
