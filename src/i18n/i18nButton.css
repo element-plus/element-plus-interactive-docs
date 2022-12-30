@@ -1,0 +1,19 @@
+.tooltip-i18n__item {
+  cursor: pointer;
+  padding: 4px 0;
+}
+
+.tooltip-i18n__item:hover {
+  color: #409eff;
+}
+
+.popper-i18n__container::after {
+  content: '';
+  position: absolute;
+  top: -16%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent rgba(0, 0, 0, 0.8) transparent;
+}

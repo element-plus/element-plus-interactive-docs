@@ -3,7 +3,10 @@ import sizeOptions from '@constants/sizeOptions'
 import { isAttribute } from '@utils'
 import { logEvent } from 'histoire/client'
 import { Search } from '@element-plus/icons-vue'
+import { useI18n } from 'vue-i18n'
 import { typeList } from './constants'
+
+const i18n = useI18n()
 
 // Basic-Button
 const basicButtonData = reactive({
@@ -142,7 +145,7 @@ const buttonGroupSource = computed(() => {
 
 <template>
   <Story title="Basic/Button" icon="teenyicons:button-outline">
-    <Variant title="Basic usage" :source="basicSource">
+    <Variant :title="i18n.t('message.hello')" :source="basicSource">
       <el-button
         :type="basicButtonData.type"
         :size="basicButtonData.size"
