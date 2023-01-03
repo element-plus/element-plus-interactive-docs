@@ -25,7 +25,7 @@ specifiers:
   vue-tsc: ^1.0.8
 
 dependencies:
-  element-plus: 2.2.22_vue@3.2.41
+  element-plus: 2.2.28_vue@3.2.41
   vue: 3.2.41
 
 devDependencies:
@@ -1459,8 +1459,8 @@ packages:
     resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}
     dev: true
 
-  /element-plus/2.2.22_vue@3.2.41:
-    resolution: {integrity: sha512-gg2g2WOMNpWf0wGesymUvTV0VZDF/4khQKroSNeCV/vWJ/cqssPYdtqfGxTiFRt/f+JpyFkV7O1mo0yzMCzrBg==}
+  /element-plus/2.2.28_vue@3.2.41:
+    resolution: {integrity: sha512-BsxF7iEaBydmRfw1Tt++EO9jRBjbtJr7ZRIrnEwz4J3Cwa1IzHCNCcx3ZwcYTlJq9CYFxv94JnbNr1EbkTou3A==}
     peerDependencies:
       vue: ^3.2.0
     dependencies:

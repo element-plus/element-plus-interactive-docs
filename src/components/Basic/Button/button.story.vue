@@ -142,7 +142,7 @@ const buttonGroupSource = computed(() => {
 
 <template>
   <Story title="Basic/Button" icon="teenyicons:button-outline">
-    <Variant title="Basic usage" :source="basicSource">
+    <Variant title="Basic Usage" :source="basicSource">
       <el-button
         :type="basicButtonData.type"
         :size="basicButtonData.size"
