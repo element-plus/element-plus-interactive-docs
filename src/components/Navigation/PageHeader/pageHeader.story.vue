@@ -35,7 +35,7 @@ const basicSource = computed(() => {
         v-else
         icon="null"
         :title="basicData.title"
-        :content="`${basicData.content}123`"
+        :content="basicData.content"
       />
       <template #controls>
         <HstCheckbox
