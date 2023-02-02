@@ -29,6 +29,7 @@ declare module '@vue/runtime-core' {
     'Descriptions.story': typeof import('./src/components/Data/descriptions.story.vue')['default']
     'Dialog.story': typeof import('./src/components/Feedback/dialog.story.vue')['default']
     'Divider.story': typeof import('./src/components/Others/divider.story.vue')['default']
+    'Dropdown.story': typeof import('./src/components/Navigation/Dropdown/dropdown.story.vue')['default']
     ElAlert: typeof import('element-plus/es')['ElAlert']
     ElAside: typeof import('element-plus/es')['ElAside']
     ElAutocomplete: typeof import('element-plus/es')['ElAutocomplete']

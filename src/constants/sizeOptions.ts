@@ -1,4 +1,4 @@
-export default [
+const sizeOptions = [
   {
     label: 'large',
     value: 'large',
@@ -11,4 +11,8 @@ export default [
     label: 'small',
     value: 'small',
   },
-]
+] as const
+
+export default sizeOptions
+
+export type SizeOptions = typeof sizeOptions[number]['label']

@@ -1,4 +1,4 @@
-export default [
+export const typeOptions = [
   {
     label: 'default',
     value: '',
@@ -23,4 +23,8 @@ export default [
     label: 'info',
     value: 'info',
   },
-]
+] as const
+
+export default typeOptions
+
+export type TypeOptions = typeof typeOptions[number]['value']
