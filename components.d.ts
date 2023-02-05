@@ -114,6 +114,7 @@ declare module '@vue/runtime-core' {
     HstRange: typeof import('./src/controls-components/HstRange.vue')['default']
     'Icon.story': typeof import('./src/components/Basic/Icon/icon.story.vue')['default']
     'Image.story': typeof import('./src/components/Data/Image/image.story.vue')['default']
+    'InfiniteScroll.story': typeof import('./src/components/Data/InfiniteScroll/infiniteScroll.story.vue')['default']
     'Input.story': typeof import('./src/components/Form/input.story.vue')['default']
     'InputNumber.story': typeof import('./src/components/Form/inputNumber.story.vue')['default']
     'Layout.story': typeof import('./src/components/Basic/Layout/layout.story.vue')['default']
@@ -143,6 +144,7 @@ declare module '@vue/runtime-core' {
     'TimePicker.story': typeof import('./src/components/Form/TimePicker/timePicker.story.vue')['default']
   }
   export interface ComponentCustomProperties {
+    vInfiniteScroll: typeof import('element-plus/es')['ElInfiniteScroll']
     vLoading: typeof import('element-plus/es')['ElLoadingDirective']
   }
 }
