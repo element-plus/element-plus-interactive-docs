@@ -1,73 +1,53 @@
 <script setup lang="ts">
-// import type { TimeSelectProps } from 'element-plus'
+import type { ISelectProps } from 'element-plus'
+import { Link } from '@element-plus/icons-vue'
+import sizeOptions from '@/constants/sizeOptions'
+
 // Basic Usage
 const basicData = reactive({
   value: '',
-  start: '08:30',
-  step: '00:15',
-  end: '18:30',
+  start: '09:00',
+  step: '00:30',
+  end: '18:00',
   placeholder: 'Select time',
   disabled: false,
   editable: true,
   clearable: true,
+  size: 'default' as ISelectProps['size'],
 })
-const size = ref<'large' | 'default' | 'small'>('default')
-const sizeList = [
-  {
-    label: 'large',
-    value: 'large',
-  },
-  {
-    label: 'default',
-    value: 'default',
-  },
-  {
-    label: 'small',
-    value: 'small',
-  },
-]
 
 const basicSource = computed(() => {
-  return `<template>
-  <el-time-select
-    v-model="value"
-    start="${basicData.start}"
-    step="${basicData.step}"
-    end="${basicData.end}"
-    placeholder="${basicData.placeholder}"
-    disabled="${basicData.disabled}"
-    editable="${basicData.editable}"
-    clearable="${basicData.clearable}"
-    size="${size.value}"
-  />
-</template>
+  return `<el-time-select
+  v-model="value"${isAttribute(
+    basicData.start !== '09:00',
+    `start="${basicData.start}"`,
+  )}${isAttribute(
+    basicData.step !== '00:30',
+    `step="${basicData.step}"`,
+  )}${isAttribute(
+    basicData.end !== '18:00',
+    `end="${basicData.end}"`,
+  )}${isAttribute(
+    basicData.placeholder !== '',
+    `placeholder="${basicData.placeholder}"`,
+  )}${isAttribute(
+    basicData.disabled,
+    'disabled',
+  )}${isAttribute(
+    !basicData.editable,
+    ':editable="false"',
+  )}${isAttribute(
+    !basicData.clearable,
+    ':clearable="false"',
+  )}${isAttribute(
+    basicData.size !== 'default',
+    `size="${basicData.size}"`,
+  )}
+/>
+
 <script setup lang="ts">
-  import { reactive } from 'vue'
-  const basicData = reactive({
-    value: '',
-    start: '08:30',
-    step: '00:15',
-    end: '18:30',
-    placeholder: 'Select time',
-    disabled: false,
-    editable: true,
-    clearable: true,
-  })
-  const size = ref<'large' | 'default' | 'small'>('default')
-  const sizeList = [
-    {
-      label: 'large',
-      value: 'large',
-    },
-    {
-      label: 'default',
-      value: 'default',
-    },
-    {
-      label: 'small',
-      value: 'small',
-    },
-  ]
+import { ref } from 'vue'
+const value = ref('')
 <\/script>
 `
 })
@@ -79,24 +59,15 @@ const timeFormatsData = reactive({
 })
 
 const timeFormatsSource = computed(() => {
-  return `
-  <template>
-    <el-time-select
-      v-model="value"
-      start="08:30"
-      step="00:15"
-      end="18:30"
-      placeholder="Select time"
-      format="${timeFormatsData.format}"
-    />
-  </template>
-  <script setup lang="ts">
-    import { reactive } from 'vue'
-    const basicData = reactive({
-      value: '',
-      format: 'hh:mm A',
-    })
-  <\/script>
+  return `<el-time-select
+  v-model="value"
+  format="${timeFormatsData.format}"
+/>
+
+<script setup lang="ts">
+import { ref } from 'vue'
+const value = ref('')
+<\/script>
 `
 })
 
@@ -112,7 +83,6 @@ const fixedTimeSource = computed(() => {
   <el-time-select
     v-model="fixedTimeData.startTime"
     :max-time="fixedTimeData.endTime"
-    class="mr-4"
     placeholder="Start time"
     start="08:30"
     step="00:15"
@@ -127,10 +97,10 @@ const fixedTimeSource = computed(() => {
     end="18:30"
   />
 </template>
+
 <script setup lang="ts">
   import { reactive } from 'vue'
   const basicData = reactive({
-    value: 'startTime',
     endTime: '',
     startTime: '',
   })
@@ -162,7 +132,7 @@ const fixedTimeSource = computed(() => {
         :disabled="basicData.disabled"
         :editable="basicData.editable"
         :clearable="basicData.clearable"
-        :size="size"
+        :size="basicData.size"
       />
       <template #controls>
         <HstText
@@ -181,7 +151,7 @@ const fixedTimeSource = computed(() => {
           v-model="basicData.placeholder"
           title="Placeholder"
         />
-        <HstRadio v-model="size" :options="sizeList" title="Size" />
+        <HstButtonGroup v-model="basicData.size" :options="sizeOptions" title="Size" />
         <HstCheckbox v-model="basicData.disabled" title="Disabled" />
         <HstCheckbox v-model="basicData.editable" title="Editable" />
         <HstCheckbox v-model="basicData.clearable" title="Clearable" />
@@ -204,15 +174,13 @@ const fixedTimeSource = computed(() => {
           v-model="timeFormatsData.format"
           title="Format"
         />
-        <div class="htw-p-2">
+        <div class="htw-p-2 tips">
           Use format to control format of time(hours and minutes).
           Check the list
           <el-link type="primary" target="_blank" href="https://day.js.org/docs/zh-CN/display/format">
             here
             <template #icon>
-              <el-icon :size="12" color="--el-color-primary">
-                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="currentColor"><path d="M5 6a1 1 0 0 1 1-1h4a1 1 0 1 0 0-2H6a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3v-4a1 1 0 1 0-2 0v4a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6zm10-3a1 1 0 1 0 0 2h2.586l-6.293 6.293a1 1 0 0 0 1.414 1.414L19 6.414V9a1 1 0 1 0 2 0V4a1 1 0 0 0-1-1h-5z" /></g></svg>
-              </el-icon>
+              <link>
             </template>
           </el-link>
           of all available formats of Day.js.
@@ -253,5 +221,10 @@ const fixedTimeSource = computed(() => {
 }
 .demo-time-range .el-select:first-child{
   margin-right: 6px;
+}
+.tips{
+  color: #606266;
+  font-size: 12px;
+  margin-top: 10px;
 }
 </style>
