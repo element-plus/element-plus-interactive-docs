@@ -177,11 +177,13 @@ const fixedTimeSource = computed(() => {
         <div class="htw-p-2 tips">
           Use format to control format of time(hours and minutes).
           Check the list
-          <el-link type="primary" target="_blank" href="https://day.js.org/docs/zh-CN/display/format">
+          <el-link
+            type="primary"
+            target="_blank"
+            href="https://day.js.org/docs/zh-CN/display/format"
+            :icon="Link"
+          >
             here
-            <template #icon>
-              <link>
-            </template>
           </el-link>
           of all available formats of Day.js.
         </div>
