@@ -106,6 +106,7 @@ declare module '@vue/runtime-core' {
     ElTimeline: typeof import('element-plus/es')['ElTimeline']
     ElTimelineItem: typeof import('element-plus/es')['ElTimelineItem']
     ElTimePicker: typeof import('element-plus/es')['ElTimePicker']
+    ElTimeSelect: typeof import('element-plus/es')['ElTimeSelect']
     ElTooltip: typeof import('element-plus/es')['ElTooltip']
     'Empty.story': typeof import('./src/components/Data/empty.story.vue')['default']
     'Form.story': typeof import('./src/components/Form/Form/form.story.vue')['default']
@@ -145,6 +146,7 @@ declare module '@vue/runtime-core' {
     'Tag.story': typeof import('./src/components/Data/tag.story.vue')['default']
     'Timeline.story': typeof import('./src/components/Data/Timeline/timeline.story.vue')['default']
     'TimePicker.story': typeof import('./src/components/Form/TimePicker/timePicker.story.vue')['default']
+    'TimeSelect.story': typeof import('./src/components/Form/TimeSelect/timeSelect.story.vue')['default']
   }
   export interface ComponentCustomProperties {
     vInfiniteScroll: typeof import('element-plus/es')['ElInfiniteScroll']
