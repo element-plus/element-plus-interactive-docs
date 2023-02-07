@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { ISelectProps } from 'element-plus'
-import { Link } from '@element-plus/icons-vue'
 import sizeOptions from '@/constants/sizeOptions'
 
 // Basic Usage
