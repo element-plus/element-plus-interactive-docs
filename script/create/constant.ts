@@ -128,4 +128,3 @@ export const componentCollection = {
 export type CategoryType = keyof typeof componentCollection
 export type ComponentType = typeof componentCollection[CategoryType]['components'][number]
 export const categoryList = Object.keys(componentCollection) as [CategoryType]
-
