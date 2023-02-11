@@ -30,7 +30,10 @@ export default defineConfig({
       light: logo,
       square: logo,
     },
-    favicon: './favicon.svg',
+    favicon: 'favicon.svg',
+    defaultColorScheme: 'dark',
+    hideColorSchemeSwitch: false,
+    storeColorScheme: true,
   },
   defaultStoryProps: {
     layout: {
@@ -40,5 +43,4 @@ export default defineConfig({
     responsiveDisabled: true,
     autoPropsDisabled: true,
   },
-  sandboxDarkClass: 'dark',
 })
