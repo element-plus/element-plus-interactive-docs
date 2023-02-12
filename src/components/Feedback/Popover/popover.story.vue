@@ -1,31 +1,27 @@
 <script setup lang="ts">
-import type { ElTooltipProps } from 'element-plus'
+import type { PopoverProps } from 'element-plus'
 import placementOptions from '@/constants/placementOptions'
 const basicData = reactive({
   effect: 'dark',
   content: 'content',
-  rawContent: false,
-  placement: 'bottom',
-  visible: null,
+  placement: 'bottom' as PopoverProps['placement'],
+  visible: null as PopoverProps['visible'],
   disabled: false,
   offset: 0,
   showAfter: 0,
   showArrow: true,
   hideAfter: 0,
   enterable: true,
-  trigger: 'hover',
-} as ElTooltipProps)
+  trigger: 'hover' as PopoverProps['trigger'],
+})
 
 const basicSource = computed(() => {
-  return `<el-tooltip${isAttribute(
+  return `<el-popover${isAttribute(
     basicData.effect !== 'dark',
     'effect="light"',
   )}${isAttribute(
     basicData.content !== '',
     `content="${basicData.content}"`,
-  )}${isAttribute(
-    basicData.rawContent,
-    'raw-content',
   )}${isAttribute(
     basicData.placement !== 'bottom',
     `placement="${basicData.placement}"`,
@@ -55,22 +51,23 @@ const basicSource = computed(() => {
     `trigger="${basicData.trigger}"`,
   )}
 >
-  <el-button>el-tooltip</el-button>
-</el-tooltip>`
+  <template #reference>
+    <el-button>el-popover</el-button>
+  </template>
+</el-popover>`
 })
 </script>
 
-<!-- icon from https://icones.js.org/collection/all?s=tooltip -->
+<!-- icon from https://icones.js.org/collection/all?s=popover -->
 <template>
-  <Story title="Feedback/Tooltip" icon="mdi:tooltip-minus-outline">
+  <Story title="Feedback/Popover" icon="mdi-light:tooltip-text">
     <Variant
       title="Basic Usage"
       :source="basicSource"
     >
-      <el-tooltip
+      <el-popover
         :effect="basicData.effect"
         :content="basicData.content"
-        :raw-content="basicData.rawContent"
         :placement="basicData.placement"
         :visible="basicData.visible"
         :disabled="basicData.disabled"
@@ -81,8 +78,12 @@ const basicSource = computed(() => {
         :enterable="basicData.enterable"
         :trigger="basicData.trigger"
       >
-        <el-button>el-tooltip</el-button>
-      </el-tooltip>
+        <template #reference>
+          <el-button>
+            el-popover
+          </el-button>
+        </template>
+      </el-popover>
       <template #controls>
         <HstButtonGroup
           v-model="basicData.effect" title="effetc"
@@ -97,7 +98,6 @@ const basicSource = computed(() => {
             },
           ]"
         />
-        <HstCheckbox v-model="basicData.rawContent" title="raw-content" />
         <HstText
           v-model="basicData.content"
           title="content"
