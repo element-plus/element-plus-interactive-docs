@@ -39,3 +39,7 @@ export interface basicDrawerProps {
 export interface customizedDrawerProps extends basicDrawerProps {
   content: string
 }
+
+export interface nestedDrawerProps extends basicDrawerProps {
+  internalVModel: boolean
+}

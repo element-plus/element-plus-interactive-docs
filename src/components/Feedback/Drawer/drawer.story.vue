@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { logEvent } from 'histoire/client'
-import type { basicDrawerProps, customizedDrawerProps } from './constants'
+import type { basicDrawerProps, customizedDrawerProps, nestedDrawerProps } from './constants'
 import { directionList } from './constants'
 
 const openEvent = () => {
@@ -29,8 +29,13 @@ const basicDrawerData: basicDrawerProps = reactive({
 })
 
 const basicSource = computed(() => {
-  return `<el-button>Open the drawer</el-button>
+  return `<el-button @click="basicDrawerData.vModel = true">
+  Open the drawer
+</el-button>
 <el-drawer${isAttribute(
+    basicDrawerData.vModel,
+    `v-model=${basicDrawerData.vModel}`,
+  )}${isAttribute(
     !basicDrawerData.closeOnClickModal,
     `close-on-click-modal=${basicDrawerData.closeOnClickModal}`,
   )}${isAttribute(
@@ -63,7 +68,10 @@ const basicSource = computed(() => {
   )}${isAttribute(
     !basicDrawerData.withHeader,
     `with-header=${basicDrawerData.withHeader}`,
-  )}>\n<span>Hi, there!</span>\n</el-drawer>`
+  )}
+>
+  <span>Hi, there!</span>
+</el-drawer$>`
 })
 
 const customizedDrawerData: customizedDrawerProps = reactive({
@@ -85,8 +93,13 @@ const customizedDrawerData: customizedDrawerProps = reactive({
 })
 
 const customizedSource = computed(() => {
-  return `<el-button>Open a customized drawer</el-button>
+  return `<el-button @click="customizedDrawerData.vModel = true">
+  Open a customized drawer
+</el-button>
 <el-drawer${isAttribute(
+    customizedDrawerData.vModel,
+    `v-model=${customizedDrawerData.vModel}`,
+  )}${isAttribute(
     !customizedDrawerData.closeOnClickModal,
     `close-on-click-modal=${customizedDrawerData.closeOnClickModal}`,
   )}${isAttribute(
@@ -120,19 +133,19 @@ const customizedSource = computed(() => {
     !customizedDrawerData.withHeader,
     `with-header=${customizedDrawerData.withHeader}`,
   )}>
-<template #header>
-${customizedDrawerData.title}
-</template>
-<template #default>
-${customizedDrawerData.content}
-</template>
-<template #footer>
-${customizedDrawerData.footer}
-</template>
+  <template #header>
+    ${customizedDrawerData.title}
+  </template>
+  <template #default>
+    ${customizedDrawerData.content}
+  </template>
+  <template #footer>
+    ${customizedDrawerData.footer}
+  </template>
 </el-drawer>`
 })
 
-const nestedDrawerData: basicDrawerProps = reactive({
+const nestedDrawerData: nestedDrawerProps = reactive({
   vModel: false,
   internalVModel: false,
   closeOnClickModal: true,
@@ -150,8 +163,13 @@ const nestedDrawerData: basicDrawerProps = reactive({
 })
 
 const nestedSource = computed(() => {
-  return `<el-button>Open a nested drawer</el-button>
+  return `<el-button @click="nestedDrawerData.vModel = true"> 
+  Open a nested drawer
+</el-button>
 <el-drawer${isAttribute(
+    nestedDrawerData.vModel,
+    `v-model=${nestedDrawerData.vModel}`,
+  )}${isAttribute(
     !nestedDrawerData.closeOnClickModal,
     `close-on-click-modal=${nestedDrawerData.closeOnClickModal}`,
   )}${isAttribute(
@@ -185,18 +203,25 @@ const nestedSource = computed(() => {
     !nestedDrawerData.withHeader,
     `with-header=${nestedDrawerData.withHeader}`,
   )}>
-<template #default>
-<el-drawer
-   size="20%"
-   title="Internal drawer"
-   :append-to-body="true"
-/>
-</template>
-<template #footer>
-<el-button>Cancel</el-button>
-<el-button type="primary" > Open the internal Drawer </el-button>
-</template>
-</el-drawer>`
+  <template #default>
+    <el-drawer${isAttribute(
+    nestedDrawerData.internalVModel,
+    `    internalVModel=${nestedDrawerData.internalVModel}`,
+  )}
+      size="20%"
+      title="Internal drawer"
+      :append-to-body="true"
+    />
+  </template>
+  <template #footer>
+    <el-button @click="nestedDrawerData.vModel = false">
+      Cancel 
+    </el-button>
+    <el-button type="primary" @click="nestedDrawerData.internalVModel = true"> 
+      Open the internal Drawer
+    </el-button>
+  </template>
+</el-drawer$>`
 })
 </script>
 
