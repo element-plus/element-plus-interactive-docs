@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { logEvent } from 'histoire/client'
-import type { basicDrawerProps, customizedDrawerProps, nestedDrawerProps } from './constants'
+import type {
+  basicDrawerProps,
+  customizedDrawerProps,
+  nestedDrawerProps,
+} from './constants'
 import { directionList } from './constants'
 
 const openEvent = () => {
@@ -29,13 +33,15 @@ const basicDrawerData: basicDrawerProps = reactive({
 })
 
 const basicSource = computed(() => {
-  return `<el-button @click="basicDrawerData.vModel = true">
+  return `<script setup lang="ts">
+  import { ref } from 'vue'
+  const active = ref(false)
+<\/script>
+<el-button @click="active = true">
   Open the drawer
 </el-button>
-<el-drawer${isAttribute(
-    basicDrawerData.vModel,
-    `v-model=${basicDrawerData.vModel}`,
-  )}${isAttribute(
+<el-drawer
+  v-model="active"${isAttribute(
     !basicDrawerData.closeOnClickModal,
     `close-on-click-modal=${basicDrawerData.closeOnClickModal}`,
   )}${isAttribute(
@@ -71,7 +77,7 @@ const basicSource = computed(() => {
   )}
 >
   <span>Hi, there!</span>
-</el-drawer$>`
+</el-drawer>`
 })
 
 const customizedDrawerData: customizedDrawerProps = reactive({
@@ -93,13 +99,15 @@ const customizedDrawerData: customizedDrawerProps = reactive({
 })
 
 const customizedSource = computed(() => {
-  return `<el-button @click="customizedDrawerData.vModel = true">
+  return `<script setup lang="ts">
+  import { ref } from 'vue'
+  const active = ref(false)
+<\/script>
+<el-button @click="active = true">
   Open a customized drawer
 </el-button>
-<el-drawer${isAttribute(
-    customizedDrawerData.vModel,
-    `v-model=${customizedDrawerData.vModel}`,
-  )}${isAttribute(
+<el-drawer
+  v-model="active"${isAttribute(
     !customizedDrawerData.closeOnClickModal,
     `close-on-click-modal=${customizedDrawerData.closeOnClickModal}`,
   )}${isAttribute(
@@ -163,13 +171,16 @@ const nestedDrawerData: nestedDrawerProps = reactive({
 })
 
 const nestedSource = computed(() => {
-  return `<el-button @click="nestedDrawerData.vModel = true"> 
+  return `<script setup lang="ts">
+  import { ref } from 'vue'
+  const externalActive = ref(false)
+  const internalActive = ref(false)
+<\/script>
+<el-button @click="externalActive = true"> 
   Open a nested drawer
 </el-button>
-<el-drawer${isAttribute(
-    nestedDrawerData.vModel,
-    `v-model=${nestedDrawerData.vModel}`,
-  )}${isAttribute(
+<el-drawer
+  v-model="externalActive"${isAttribute(
     !nestedDrawerData.closeOnClickModal,
     `close-on-click-modal=${nestedDrawerData.closeOnClickModal}`,
   )}${isAttribute(
@@ -204,24 +215,22 @@ const nestedSource = computed(() => {
     `with-header=${nestedDrawerData.withHeader}`,
   )}>
   <template #default>
-    <el-drawer${isAttribute(
-    nestedDrawerData.internalVModel,
-    `    internalVModel=${nestedDrawerData.internalVModel}`,
-  )}
+    <el-drawer      
+      v-model="internalActive"
       size="20%"
       title="Internal drawer"
       :append-to-body="true"
     />
   </template>
   <template #footer>
-    <el-button @click="nestedDrawerData.vModel = false">
+    <el-button @click="externalActive = false">
       Cancel 
     </el-button>
-    <el-button type="primary" @click="nestedDrawerData.internalVModel = true"> 
+    <el-button type="primary" @click="internalActive = true"> 
       Open the internal Drawer
     </el-button>
   </template>
-</el-drawer$>`
+</el-drawer>`
 })
 </script>
 
@@ -230,8 +239,8 @@ const nestedSource = computed(() => {
     <Variant title="Basic Usage" :source="basicSource">
       <el-button
         @click="
-          basicDrawerData.vModel = true;
-          openEvent();
+          basicDrawerData.vModel = true
+          openEvent()
         "
       >
         Open the drawer
@@ -285,8 +294,8 @@ const nestedSource = computed(() => {
     <Variant title="Customized Drawer" :source="customizedSource">
       <el-button
         @click="
-          customizedDrawerData.vModel = true;
-          openEvent();
+          customizedDrawerData.vModel = true
+          openEvent()
         "
       >
         Open a customized drawer
@@ -360,8 +369,8 @@ const nestedSource = computed(() => {
     <Variant title="Nested Drawer" :source="nestedSource">
       <el-button
         @click="
-          nestedDrawerData.vModel = true;
-          openEvent();
+          nestedDrawerData.vModel = true
+          openEvent()
         "
       >
         Open a nested drawer
@@ -394,8 +403,8 @@ const nestedSource = computed(() => {
           <template #footer>
             <el-button
               @click="
-                nestedDrawerData.vModel = false;
-                openEvent();
+                nestedDrawerData.vModel = false
+                openEvent()
               "
             >
               Cancel
@@ -403,8 +412,8 @@ const nestedSource = computed(() => {
             <el-button
               type="primary"
               @click="
-                nestedDrawerData.internalVModel = true;
-                openEvent();
+                nestedDrawerData.internalVModel = true
+                openEvent()
               "
             >
               Open the internal Drawer
