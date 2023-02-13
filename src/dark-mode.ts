@@ -1,4 +1,4 @@
-export const isDark = useDark({ valueDark: '' })
+import { isDark } from 'histoire/client'
 
 const setDarkMode = () => {
   setTimeout(() => {
@@ -6,7 +6,7 @@ const setDarkMode = () => {
     const classList = Array.from(document.documentElement.classList)
     let colorMode
     if (vueuseColorScheme.value === 'auto') {
-      if (isDark.value)
+      if (isDark())
         colorMode = 'dark'
       else
         colorMode = ''
@@ -34,3 +34,5 @@ useMutationObserver(document.documentElement, (mutations) => {
 }, {
   attributes: true,
 })
+
+export { isDark }

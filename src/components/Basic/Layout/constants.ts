@@ -44,4 +44,3 @@ export const alignOptions: AlignOptionsTypes = [
     value: 'bottom',
   },
 ]
-

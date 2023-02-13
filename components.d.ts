@@ -132,6 +132,7 @@ declare module '@vue/runtime-core' {
     'Notification.story': typeof import('./src/components/Feedback/Notification/notification.story.vue')['default']
     'PageHeader.story': typeof import('./src/components/Navigation/PageHeader/pageHeader.story.vue')['default']
     'Pagination.story': typeof import('./src/components/Data/pagination.story.vue')['default']
+    'Popover.story': typeof import('./src/components/Feedback/Popover/popover.story.vue')['default']
     'Progress.story': typeof import('./src/components/Data/progress.story.vue')['default']
     'Radio.story': typeof import('./src/components/Form/radio.story.vue')['default']
     'Rate.story': typeof import('./src/components/Form/rate.story.vue')['default']
@@ -149,6 +150,7 @@ declare module '@vue/runtime-core' {
     'Timeline.story': typeof import('./src/components/Data/Timeline/timeline.story.vue')['default']
     'TimePicker.story': typeof import('./src/components/Form/TimePicker/timePicker.story.vue')['default']
     'TimeSelect.story': typeof import('./src/components/Form/TimeSelect/timeSelect.story.vue')['default']
+    'Tooltip.story': typeof import('./src/components/Feedback/Tooltip/tooltip.story.vue')['default']
   }
   export interface ComponentCustomProperties {
     vInfiniteScroll: typeof import('element-plus/es')['ElInfiniteScroll']
