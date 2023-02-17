@@ -134,6 +134,7 @@ declare module '@vue/runtime-core' {
     'Notification.story': typeof import('./src/components/Feedback/Notification/notification.story.vue')['default']
     'PageHeader.story': typeof import('./src/components/Navigation/PageHeader/pageHeader.story.vue')['default']
     'Pagination.story': typeof import('./src/components/Data/pagination.story.vue')['default']
+    'Popconfirm.story': typeof import('./src/components/Feedback/Popconfirm/popconfirm.story.vue')['default']
     'Popover.story': typeof import('./src/components/Feedback/Popover/popover.story.vue')['default']
     'Progress.story': typeof import('./src/components/Data/progress.story.vue')['default']
     'Radio.story': typeof import('./src/components/Form/radio.story.vue')['default']
