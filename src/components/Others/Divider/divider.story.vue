@@ -1,22 +1,11 @@
 <script setup lang="ts">
-import { ref } from 'vue'
 import type { DividerProps } from 'element-plus'
+import { borderStyleList, contentPositionList, dividerDirectionList } from './constants'
 
 const currentDirection = ref<DividerProps['direction']>('horizontal')
 const currentBorderStyle = ref<DividerProps['borderStyle']>('solid')
 const contentPosition = ref<DividerProps['contentPosition']>('center')
 const content = ref('Element-Plus')
-
-const dividerDirectionList = [
-  'horizontal',
-  'vertical',
-]
-
-const contentPositionList = [
-  'left',
-  'right',
-  'center',
-]
 </script>
 
 <template>
@@ -36,7 +25,7 @@ const contentPositionList = [
       <el-divider :direction="currentDirection" />
       <span>Grass</span>
       <template #controls>
-        <HstRadio
+        <HstButtonGroup
           v-model="currentDirection"
           title="Divider Direction"
           :options="dividerDirectionList"
@@ -51,9 +40,10 @@ const contentPositionList = [
       <el-divider :border-style="currentBorderStyle" />
       <span>Grass</span>
       <template #controls>
-        <HstText
+        <HstSelect
           v-model="currentBorderStyle"
-          title="currentBorderStyle"
+          :options="borderStyleList"
+          title="BorderStyle"
         />
       </template>
     </Variant>
@@ -65,7 +55,7 @@ const contentPositionList = [
       </el-divider>
       <span>Grass</span>
       <template #controls>
-        <HstRadio
+        <HstButtonGroup
           v-model="contentPosition"
           title="Position of content on the divider line"
           :options="contentPositionList"
@@ -78,28 +68,6 @@ const contentPositionList = [
     </Variant>
   </Story>
 </template>
-
-<docs lang="md">
-## Basic usage
-
-Divider usage
-
-## Direction
-
-Divider provides two different Direction, horizontal and vertical.
-
-Set divider's direction, default is horizontal.
-
-## Border Style
-
-The style of divider, border-style, acceptance values referenced from the website: [CSS/border-style](https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-style)
-
-## With Content
-
-Divider provides three different position of the customized content on the divider line, left, right and center.
-
-Default is center.
-</docs>
 
 <style>
 .el-alert {
