@@ -52,7 +52,7 @@ const customizationMessageBoxSource = computed(() => {
 </script>
 
 <template>
-  <Story title="Feedback/MessageBox" icon="ep:element-plus">
+  <Story title="Feedback/MessageBox" icon="mdi:message-text-fast-outline">
     <Variant
       title="Alert"
       :source="alertMessageBoxSource"
@@ -99,6 +99,3 @@ const customizationMessageBoxSource = computed(() => {
     </Variant>
   </Story>
 </template>
-
-<style scoped>
-</style>
