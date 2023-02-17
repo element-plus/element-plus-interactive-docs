@@ -10,7 +10,7 @@ ${
       .filter((key) => {
         if (!titleAndMessage && (key === 'title' || key === 'message'))
           return false
-        if (isNil(defaultMessageBoxOptions)
+        if (isNil(defaultMessageBoxOptions[key])
         || defaultMessageBoxOptions[key] === options[key as keyof MessageBoxOptions])
           return false
         return !isNil(options[key as keyof MessageBoxOptions])
