@@ -29,7 +29,7 @@ declare module '@vue/runtime-core' {
     'DateTimePicker.story': typeof import('./src/components/Form/dateTimePicker.story.vue')['default']
     'Descriptions.story': typeof import('./src/components/Data/descriptions.story.vue')['default']
     'Dialog.story': typeof import('./src/components/Feedback/dialog.story.vue')['default']
-    'Divider.story': typeof import('./src/components/Others/divider.story.vue')['default']
+    'Divider.story': typeof import('./src/components/Others/Divider/divider.story.vue')['default']
     'Drawer.story': typeof import('./src/components/Feedback/Drawer/drawer.story.vue')['default']
     'Dropdown.story': typeof import('./src/components/Navigation/Dropdown/dropdown.story.vue')['default']
     ElAlert: typeof import('element-plus/es')['ElAlert']
