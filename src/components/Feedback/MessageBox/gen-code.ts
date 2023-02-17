@@ -2,6 +2,8 @@ import { isNil } from 'lodash'
 import { defaultMessageBoxOptions } from './controls'
 import type { MessageBoxOptions } from './controls'
 
+const defaultOptionsKeys = Object.keys(defaultMessageBoxOptions)
+
 const genOptionCode = (options: MessageBoxOptions, titleAndMessage?: boolean) => {
   return `
 const option = {
@@ -10,7 +12,7 @@ ${
       .filter((key) => {
         if (!titleAndMessage && (key === 'title' || key === 'message'))
           return false
-        if (isNil(defaultMessageBoxOptions[key])
+        if (!defaultOptionsKeys.includes(key)
         || defaultMessageBoxOptions[key] === options[key as keyof MessageBoxOptions])
           return false
         return !isNil(options[key as keyof MessageBoxOptions])
