@@ -60,8 +60,8 @@ const value = ref([])
     basicData.filterable,
     'filterable',
   )}${isAttribute(
-    basicData.filterPlaceholder !== 'Enter keyword',
-    'filter-placeholder',
+    basicData.filterPlaceholder !== 'Enter keyword' && basicData.filterable,
+    `filter-placeholder="${basicData.filterPlaceholder}""`,
   )}${isAttribute(
     basicData.targetOrder !== 'original',
     'target-order',
@@ -103,7 +103,7 @@ const value = ref([])
       </div>
       <template #controls>
         <HstCheckbox v-model="basicData.filterable" title="filterable" />
-        <HstText v-model="basicData.filterPlaceholder" title="filter-placeholder" />
+        <HstText v-model="basicData.filterPlaceholder" title="filter-placeholder" :style="useElDisplay(basicData.filterable)" />
         <HstSelect
           v-model="basicData.targetOrder"
           title="target-order"
