@@ -154,6 +154,8 @@ declare module '@vue/runtime-core' {
     'TimePicker.story': typeof import('./src/components/Form/TimePicker/timePicker.story.vue')['default']
     'TimeSelect.story': typeof import('./src/components/Form/TimeSelect/timeSelect.story.vue')['default']
     'Tooltip.story': typeof import('./src/components/Feedback/Tooltip/tooltip.story.vue')['default']
+    'Transfer.story': typeof import('./src/components/Form/Transfer/transfer.story.vue')['default']
+    'Upload.story': typeof import('./src/components/Form/Upload/upload.story.vue')['default']
   }
   export interface ComponentCustomProperties {
     vInfiniteScroll: typeof import('element-plus/es')['ElInfiniteScroll']
