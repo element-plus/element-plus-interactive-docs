@@ -10,6 +10,7 @@ declare module '@vue/runtime-core' {
     'Alert.story': typeof import('./src/components/Feedback/alert.story.vue')['default']
     'Autocomplete.story': typeof import('./src/components/Form/autocomplete.story.vue')['default']
     'Avatar.story': typeof import('./src/components/Data/avatar.story.vue')['default']
+    'Backtop.story': typeof import('./src/components/Navigation/Backtop/backtop.story.vue')['default']
     'Badge.story': typeof import('./src/components/Data/badge.story.vue')['default']
     'Border.story': typeof import('./src/components/Basic/Border/border.story.vue')['default']
     'Breadcrumb.story': typeof import('./src/components/Navigation/Breadcrumb/breadcrumb.story.vue')['default']
