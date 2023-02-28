@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { NotificationProps } from 'element-plus'
+import { ElNotification } from 'element-plus'
 import { positionList, typeList } from './constants'
 import { isAttribute } from '@/utils'
 
