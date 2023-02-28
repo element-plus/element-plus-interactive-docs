@@ -29,6 +29,7 @@ declare module '@vue/runtime-core' {
     Controls: typeof import('./src/components/Feedback/MessageBox/controls.vue')['default']
     'DatePicker.story': typeof import('./src/components/Form/datePicker.story.vue')['default']
     'DateTimePicker.story': typeof import('./src/components/Form/dateTimePicker.story.vue')['default']
+    Demo: typeof import('./src/components/Navigation/Affix/demo.vue')['default']
     'Descriptions.story': typeof import('./src/components/Data/descriptions.story.vue')['default']
     'Dialog.story': typeof import('./src/components/Feedback/dialog.story.vue')['default']
     'Divider.story': typeof import('./src/components/Others/Divider/divider.story.vue')['default']
