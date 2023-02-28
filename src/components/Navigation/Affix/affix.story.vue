@@ -17,7 +17,7 @@ const affixSource = computed(() => {
     <div class="scroll">
       <div class="affix-container">
         <el-affix
-          position="${affixData.value.position}"${isAttribute((Boolean(affixData.value.offset) || affixData.value.offset === 0), `        offset="${affixData.value.offset}"`)}${isAttribute((Boolean(affixData.value.zIndex) || affixData.value.zIndex === 0), `        z-index="${affixData.value.zIndex}"`)}
+          position="${affixData.value.position}"${isAttribute((Boolean(affixData.value.offset) || affixData.value.offset === 0), `        :offset="${affixData.value.offset}"`)}${isAttribute((Boolean(affixData.value.zIndex) || affixData.value.zIndex === 0), `        :z-index="${affixData.value.zIndex}"`)}
         >
           <el-button type="primary">
             Affix content
@@ -58,7 +58,7 @@ const targetSource = computed(() => {
   return `<template>
   <div class="wrapper">
     <div class="affix-container">
-      <el-affix${isAttribute((Boolean(targetData.value.offset) || targetData.value.offset === 0), `      offset="${targetData.value.offset}"`)}${isAttribute(Boolean(targetData.value.target), `      target="${targetData.value.target}"`)}
+      <el-affix${isAttribute((Boolean(targetData.value.offset) || targetData.value.offset === 0), `      :offset="${targetData.value.offset}"`)}${isAttribute(Boolean(targetData.value.target), `      target="${targetData.value.target}"`)}
       >
         <el-button type="primary">
           Affix content
@@ -111,7 +111,7 @@ const targetSource = computed(() => {
       </div>
       <template #controls>
         <HstNumber v-model="affixData.offset" title="offset" />
-        <HstRadio
+        <HstButtonGroup
           v-model="affixData.position"
           title="position"
           :options="affixData.positionList"
