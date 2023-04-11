@@ -5,7 +5,9 @@ const distance = ref(0)
 const delay = ref(200)
 const disabled = ref(false)
 const refresh = ref(true)
-const load = () => count.value += 2
+function load() {
+  return count.value += 2
+}
 
 debouncedWatch(delay, () => {
   refresh.value = false

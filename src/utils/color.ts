@@ -2,7 +2,7 @@ import { ElMessage } from 'element-plus'
 import { isDark } from '@/dark-mode'
 import 'element-plus/theme-chalk/el-message.css'
 
-export const getCssVarName = (namespace: string, type: string) => {
+export function getCssVarName(namespace: string, type: string) {
   return type ? `--el-${namespace}-${type}` : `--el-${namespace}`
 }
 
@@ -11,7 +11,7 @@ export const getCssVarName = (namespace: string, type: string) => {
  * @param name
  * @returns
  */
-export const getCssVarValue = (name: string) => {
+export function getCssVarValue(name: string) {
   const val = ref(
     getComputedStyle(document.documentElement).getPropertyValue(name),
   )
@@ -28,7 +28,7 @@ export const getCssVarValue = (name: string) => {
   return val
 }
 
-export const getColorValue = (type: string) => {
+export function getColorValue(type: string) {
   const color = getComputedStyle(document.documentElement).getPropertyValue(
     `--el-color-${type}`,
   )
@@ -37,7 +37,7 @@ export const getColorValue = (type: string) => {
 
 // copy color
 
-export const useCopyColor = () => {
+export function useCopyColor() {
   const source = ref('')
   const { copy, isSupported } = useClipboard({ source })
 

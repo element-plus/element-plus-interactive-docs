@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 import en from 'element-plus/dist/locale/en.mjs'
+
 const language = ref('en')
 const locale = computed(() => (language.value === 'zhCn' ? zhCn : en))
 

@@ -235,7 +235,7 @@ export const options = Array.from({ length: 10000 }).map((_, idx) => ({
   label: `${idx + 1}`,
 }))
 
-export const resetForm = (formEl: FormInstance | undefined) => {
+export function resetForm(formEl: FormInstance | undefined) {
   if (!formEl)
     return
   formEl.resetFields()

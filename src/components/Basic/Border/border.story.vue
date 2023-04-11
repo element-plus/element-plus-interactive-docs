@@ -18,7 +18,7 @@ const radiusGroup = ref([
   },
 ])
 
-const getValue = (type: string) => {
+function getValue(type: string) {
   const getCssVarValue = (prefix: string, type: string) =>
     getComputedStyle(document.documentElement).getPropertyValue(
       `--el-${prefix}-${type}`,
@@ -45,7 +45,7 @@ const shadowGroup = ref([
   },
 ])
 
-const getCssVarName = (type: string) => {
+function getCssVarName(type: string) {
   return `--el-box-shadow${type ? '-' : ''}${type}`
 }
 </script>

@@ -52,7 +52,7 @@ const limitRangeData = reactive({
   value: '',
 })
 
-const makeRange = (rangeList: [number, number]) => {
+function makeRange(rangeList: [number, number]) {
   const result: number[] = []
   const maxNum = rangeList[0] > rangeList[1] ? rangeList[0] : rangeList[1]
   const minNum = rangeList[0] > rangeList[1] ? rangeList[1] : rangeList[0]
@@ -63,13 +63,19 @@ const makeRange = (rangeList: [number, number]) => {
 }
 
 const disabledHoursRange = ref<[number, number]>([0, 6])
-const disabledHours = () => makeRange(disabledHoursRange.value)
+function disabledHours() {
+  return makeRange(disabledHoursRange.value)
+}
 
 const disabledMinutesRange = ref<[number, number]>([30, 45])
-const disabledMinutes = () => makeRange(disabledMinutesRange.value)
+function disabledMinutes() {
+  return makeRange(disabledMinutesRange.value)
+}
 
 const disabledSecondsRange = ref<[number, number]>([22, 55])
-const disabledSeconds = () => makeRange(disabledSecondsRange.value)
+function disabledSeconds() {
+  return makeRange(disabledSecondsRange.value)
+}
 
 const limitRangeSource = computed(() => {
   return `<script setup lang="ts">

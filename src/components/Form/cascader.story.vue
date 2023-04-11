@@ -33,7 +33,7 @@ const dynamicProps: CascaderProps = {
     }, 1000)
   },
 }
-const handleChange = (value: any) => {
+function handleChange(value: any) {
   logEvent('change', value)
 }
 

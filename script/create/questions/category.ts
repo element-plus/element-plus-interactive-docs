@@ -8,6 +8,6 @@ const category = {
   choices: categoryList,
 }
 
-export const getCategory = async () => {
+export async function getCategory() {
   return (await inquirer.prompt([category])).category
 }

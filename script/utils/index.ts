@@ -1,4 +1,4 @@
-export const lowerFirst = (name: string) => {
+export function lowerFirst(name: string) {
   if (!name)
     return ''
   if (name.length === 1)
@@ -6,7 +6,7 @@ export const lowerFirst = (name: string) => {
   return name[0].toLowerCase() + name.substring(1)
 }
 
-export const upperFirst = (name: string) => {
+export function upperFirst(name: string) {
   if (!name)
     return ''
   if (name.length === 1)

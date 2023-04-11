@@ -7,6 +7,7 @@ import {
   Tickets,
   User,
 } from '@element-plus/icons-vue'
+
 interface marginMapType {
   large: string
   default: string

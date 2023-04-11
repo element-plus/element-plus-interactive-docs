@@ -2,7 +2,10 @@
 import { logEvent } from 'histoire/client'
 
 import { ref } from 'vue'
-const handleChange = (currentNum?: number, oldNum?: number) => logEvent('Change', { currentNum, oldNum })
+
+function handleChange(currentNum?: number, oldNum?: number) {
+  return logEvent('Change', { currentNum, oldNum })
+}
 
 const numBasic = ref(1)
 const minBasic = ref(1)

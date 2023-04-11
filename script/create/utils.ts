@@ -1,11 +1,11 @@
-import { existsSync, mkdirSync, readdirSync, writeFileSync } from 'fs'
+import { existsSync, mkdirSync, readdirSync, writeFileSync } from 'node:fs'
 import consola from 'consola'
 import { lowerFirst, upperFirst } from '../utils'
 import type { CategoryType, ComponentType } from './constant'
 import { categoryList, componentCollection, createStoryComponent, createStoryMd, resolver } from './constant'
 import { getCategory } from './questions/category'
 
-export const getComponentChoices = async () => {
+export async function getComponentChoices() {
   const category: CategoryType = await getCategory()
   // 读取已有的组件
   let files: string[] = []
@@ -29,7 +29,7 @@ export const getComponentChoices = async () => {
   }
 }
 
-export const generateStoryDoc = (component: ComponentType) => {
+export function generateStoryDoc(component: ComponentType) {
   const category = categoryList.find(type => (componentCollection[type]?.components as [ComponentType])?.includes(component))!
   if (!category)
     return consola.error(`${component} not a legal component of EP, please check and re-enter!`)

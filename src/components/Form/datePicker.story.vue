@@ -161,19 +161,19 @@ const holidays = [
   '2022-10-07',
 ]
 
-const disabledDate = (time: Date) => {
+function disabledDate(time: Date) {
   return time.getTime() > Date.now()
 }
-const handleChange = (val: typeof date) => {
+function handleChange(val: typeof date) {
   logEvent('change', { date: val })
 }
-const calendarChange = (val: [Date, Date]) => {
+function calendarChange(val: [Date, Date]) {
   logEvent('calendar-change', { calendarValue: val })
 }
-const visibleChange = (val: boolean) => {
+function visibleChange(val: boolean) {
   logEvent('visible-change', { visible: val })
 }
-const isHoliday = ({ dayjs }: DateCell) => {
+function isHoliday({ dayjs }: DateCell) {
   return holidays.includes(dayjs!.format('YYYY-MM-DD'))
 }
 </script>

@@ -1,6 +1,6 @@
 import { isDark } from 'histoire/client'
 
-const setDarkMode = () => {
+function setDarkMode() {
   setTimeout(() => {
     const vueuseColorScheme = useLocalStorage('vueuse-color-scheme', 'auto')
     const classList = Array.from(document.documentElement.classList)

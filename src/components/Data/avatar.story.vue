@@ -3,6 +3,7 @@ import { ref } from 'vue'
 import { logEvent } from 'histoire/client'
 import { UserFilled } from '@element-plus/icons-vue'
 import type { AvatarProps } from 'element-plus'
+
 const url = ref('https://cube.elemecdn.com/e/fd/0fc7d20532fdaf769a25683617711png.png')
 const avatarShapeList: { label: string; value: AvatarProps['shape'] }[] = [
   {
@@ -55,8 +56,10 @@ const currentSize = ref<AvatarProps['size']>('default')
 const currentFit = ref<AvatarProps['fit']>('cover')
 const customSize = ref<number>(50)
 
-const errorHandler = () => true
-const fireClose = () => {
+function errorHandler() {
+  return true
+}
+function fireClose() {
   logEvent('error', errorHandler)
 }
 </script>

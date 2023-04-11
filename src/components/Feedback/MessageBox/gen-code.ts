@@ -4,7 +4,7 @@ import type { MessageBoxOptions } from './controls'
 
 const defaultOptionsKeys = Object.keys(defaultMessageBoxOptions)
 
-const genOptionCode = (options: MessageBoxOptions, titleAndMessage?: boolean) => {
+function genOptionCode(options: MessageBoxOptions, titleAndMessage?: boolean) {
   return `
 const option = {
 ${
@@ -31,7 +31,7 @@ ${
 `
 }
 
-export const genSourceCode = (methodName?: string, data: MessageBoxOptions | undefined) => {
+export function genSourceCode(methodName?: string, data: MessageBoxOptions | undefined) {
   if (isNil(data))
     data = defaultMessageBoxOptions
   return `<script setup lang='ts'>

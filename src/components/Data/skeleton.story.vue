@@ -13,7 +13,7 @@ const currentDate = new Date().toDateString()
 
 const lists = ref<ListItem[]>([])
 
-const setLoading = (index: number) => {
+function setLoading(index: number) {
   loading[index] = true
   setTimeout(() => {
     loading[index] = false
