@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { stateOptions } from './constants'
+
 const basicData = reactive({
   active: 0,
   direction: 'horizontal',

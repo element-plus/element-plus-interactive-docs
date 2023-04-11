@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { PopoverProps } from 'element-plus'
 import placementOptions from '@/constants/placementOptions'
+
 const basicData = reactive({
   effect: 'dark',
   content: 'content',

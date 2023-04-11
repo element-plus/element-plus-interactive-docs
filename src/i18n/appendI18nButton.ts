@@ -1,6 +1,6 @@
 import './i18nButton.css'
 
-export const appendI18nButton = () => {
+export function appendI18nButton() {
   const el = document.querySelector('div.htw-ml-auto.htw-flex-none.htw-flex')
   if (!el)
     return

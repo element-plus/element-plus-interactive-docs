@@ -86,7 +86,7 @@ const valueFormatList = [
     value: 'x',
   },
 ]
-const handleChange = (dateTime: any) => {
+function handleChange(dateTime: any) {
   logEvent('change', { dateTime })
 }
 </script>

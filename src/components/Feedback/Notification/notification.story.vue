@@ -11,7 +11,7 @@ const basicNotificationData = reactive({
   type: ref<NotificationProps['type']>(''),
   typeList,
 })
-const basicNotificationOpen = () => {
+function basicNotificationOpen() {
   ElNotification({
     title: basicNotificationData.title,
     message: basicNotificationData.message,
@@ -44,7 +44,7 @@ const customCloseNotificationData = reactive({
   duration: ref<NotificationProps['duration']>(4500),
   showClose: ref<NotificationProps['showClose']>(true),
 })
-const customCloseNotificationOpen = () => {
+function customCloseNotificationOpen() {
   ElNotification({
     title: customCloseNotificationData.title,
     message: customCloseNotificationData.message,
@@ -80,7 +80,7 @@ const positionNotificationData = reactive({
   offset: ref<NotificationProps['offset']>(0),
   positionList,
 })
-const positionNotificationOpen = () => {
+function positionNotificationOpen() {
   ElNotification({
     title: positionNotificationData.title,
     message: positionNotificationData.message,
@@ -119,7 +119,7 @@ const htmlMessageNotificationData = reactive({
   message: 'message',
   dangerouslyUseHTMLString: ref<NotificationProps['dangerouslyUseHTMLString']>(true),
 })
-const htmlMessageNotificationOpen = () => {
+function htmlMessageNotificationOpen() {
   ElNotification({
     title: htmlMessageNotificationData.title,
     dangerouslyUseHTMLString: htmlMessageNotificationData.dangerouslyUseHTMLString,

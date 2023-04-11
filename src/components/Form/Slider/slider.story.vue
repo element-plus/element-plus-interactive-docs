@@ -2,6 +2,7 @@
 import { placementOptions } from './constants'
 import sizeOptions from '@/constants/sizeOptions'
 import { isAttribute } from '@/utils'
+
 const basicData = reactive({
   value: 0,
   max: 10,

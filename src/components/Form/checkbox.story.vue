@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import type { CheckboxProps, CheckboxValueType } from 'element-plus'
 import { logEvent } from 'histoire/client'
+
 const size = ref<CheckboxProps['size']>('default')
 const disabled = ref(false)
 const checkAll = ref(false)
@@ -29,21 +30,21 @@ const sizeOptions: {
     value: 'small',
   },
 ]
-const handleCheckAllChange = (val: CheckboxValueType) => {
+function handleCheckAllChange(val: CheckboxValueType) {
   checkedCities.value = val ? cities : []
   isIndeterminate.value = false
   logEvent('checkboxChange', val)
 }
-const handleCheckedCitiesChange = (value: CheckboxValueType[]) => {
+function handleCheckedCitiesChange(value: CheckboxValueType[]) {
   const checkedCount = value.length
   checkAll.value = checkedCount === cities.length
   isIndeterminate.value = checkedCount > 0 && checkedCount < cities.length
   logEvent('checkboxGroupChange', value)
 }
-const checkboxChange = (value: CheckboxValueType) => {
+function checkboxChange(value: CheckboxValueType) {
   logEvent('checkboxChange', { value })
 }
-const checkboxGroupChange = (value: CheckboxValueType[]) => {
+function checkboxGroupChange(value: CheckboxValueType[]) {
   logEvent('checkboxGroupChange', value)
 }
 </script>

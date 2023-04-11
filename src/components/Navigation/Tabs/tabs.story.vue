@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { TabsProps } from 'element-plus'
+
 const basicData = reactive({
   activeName: 'first',
   type: '' as TabsProps['type'],

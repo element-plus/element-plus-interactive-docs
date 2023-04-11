@@ -1,9 +1,13 @@
 import { resolve } from 'pathe'
 import { lowerFirst } from 'script/utils'
-export const PROJECT_DIR = process.cwd()
-export const resolver = (dir: string) => resolve(PROJECT_DIR, dir)
 
-export const createStoryComponent = (category: CategoryType, component: ComponentType) => `\
+export const PROJECT_DIR = process.cwd()
+export function resolver(dir: string) {
+  return resolve(PROJECT_DIR, dir)
+}
+
+export function createStoryComponent(category: CategoryType, component: ComponentType) {
+  return `\
 <script setup lang="ts">
 // import type { ${component}Props } from 'element-plus'
 </script>
@@ -24,10 +28,13 @@ export const createStoryComponent = (category: CategoryType, component: Componen
 <style scoped>
 </style>
 `
+}
 
-export const createStoryMd = (component: ComponentType) => `\
+export function createStoryMd(component: ComponentType) {
+  return `\
 ## ${component} Attributes
 `
+}
 
 export const componentCollection = {
   Basic: {

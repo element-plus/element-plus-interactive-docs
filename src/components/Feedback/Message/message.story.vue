@@ -15,7 +15,7 @@ const basicMessageData = reactive({
   type: ref<MessageProps['type']>('info'),
   typeList,
 })
-const basicMessageOpen = () => {
+function basicMessageOpen() {
   const basicElMessageInstance = ElMessage({
     message: basicMessageData.message,
     offset: basicMessageData.offset,
@@ -54,7 +54,7 @@ const basicMessageSource = computed(() => {
 })
 
 // VNode-Message
-const VNodeMessageOpen = () => {
+function VNodeMessageOpen() {
   ElMessage({
     message: h('p', null, [
       h('span', null, 'Message can be '),
@@ -89,7 +89,7 @@ const htmlMessageData = reactive({
   type: ref<MessageProps['type']>('info'),
   typeList,
 })
-const htmlMessageOpen = () => {
+function htmlMessageOpen() {
   ElMessage({
     message: htmlMessageData.message,
     dangerouslyUseHTMLString: htmlMessageData.dangerouslyUseHTMLString,
@@ -120,7 +120,7 @@ const groupingMessageData = reactive({
   type: ref<MessageProps['type']>('info'),
   typeList,
 })
-const groupingMessageOpen = () => {
+function groupingMessageOpen() {
   ElMessage({
     message: groupingMessageData.message,
     grouping: groupingMessageData.grouping,

@@ -70,14 +70,14 @@ const customLoadingSource = computed(() => {
 
 // Full Screen Loading
 const fullscreenLoading = ref(false)
-const openFullScreen1 = () => {
+function openFullScreen1() {
   logEvent('click', { log: 'Full Screen Loading as a directive' })
   fullscreenLoading.value = true
   setTimeout(() => {
     fullscreenLoading.value = false
   }, 2000)
 }
-const openFullScreen2 = () => {
+function openFullScreen2() {
   logEvent('click', { log: 'Full Screen Loading as a service' })
   const loading = ElLoading.service()
   setTimeout(() => {
@@ -125,7 +125,7 @@ const serviceLoadingData = reactive({
   spinner: '',
   background: '',
 })
-const openServiceLoading = () => {
+function openServiceLoading() {
   const loading = ElLoading.service(serviceLoadingData)
   setTimeout(() => {
     loading.close()

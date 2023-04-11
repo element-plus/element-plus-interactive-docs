@@ -3,6 +3,7 @@ import { Edit, Warning } from '@element-plus/icons-vue'
 import { cloneDeep, isNil } from 'lodash'
 import { defaultMessageBoxOptions } from './controls'
 import type { MessageBoxOptions } from './controls'
+
 const props = defineProps<{
   modelValue?: MessageBoxOptions
 }>()

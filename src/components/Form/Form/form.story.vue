@@ -60,7 +60,7 @@ const ruleForm = reactive({
   age: '',
 })
 
-const submitForm = async (formEl: FormInstance | undefined) => {
+async function submitForm(formEl: FormInstance | undefined) {
   if (!formEl)
     return
   await formEl.validate((valid) => {

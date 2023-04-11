@@ -14,6 +14,6 @@ const componentName = {
   },
 }
 
-export const getComponentsName = async () => {
+export async function getComponentsName() {
   return (await inquirer.prompt([componentName])).components
 }

@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import type { ColorPickerProps } from 'element-plus'
 import { logEvent } from 'histoire/client'
+
 const color = ref('#409EFF')
 const alphaColor = ref('rgba(19, 206, 102, 0.8)')
 const predefine = ref(true)
@@ -36,10 +37,10 @@ const sizeList = [
     value: 'small',
   },
 ]
-const handleChange = (val: string | null) => {
+function handleChange(val: string | null) {
   logEvent('change', { color: val })
 }
-const handleActiveChange = (val: string | null) => {
+function handleActiveChange(val: string | null) {
   logEvent('active-change', { color: val })
 }
 </script>

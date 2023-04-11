@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import type { RadioProps } from 'element-plus'
 import { logEvent } from 'histoire/client'
+
 const radio = ref('1')
 const isDisabled = ref(true)
 const isBorder = ref(true)
@@ -20,7 +21,7 @@ const radioSizeList: Record<'label' & 'value', RadioProps['size']>[] = [
     value: 'small',
   },
 ]
-const radioChange = (e: string | number | boolean) => {
+function radioChange(e: string | number | boolean) {
   logEvent('change', e)
 }
 </script>

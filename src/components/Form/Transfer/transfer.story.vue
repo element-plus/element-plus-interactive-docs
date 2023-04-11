@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import type { TransferProps } from 'element-plus'
+
 interface Option {
   key: number
   label: string
   disabled: boolean
 }
 
-const generateData = () => {
+function generateData() {
   const data: Option[] = []
   for (let i = 1; i <= 15; i++) {
     data.push({

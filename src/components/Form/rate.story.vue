@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import { ChatDotRound, ChatLineRound, ChatRound } from '@element-plus/icons-vue'
 import type { RateProps } from 'element-plus'
+
 const currentRate = ref<RateProps['modelValue']>(0)
 const maxRate = ref<RateProps['max']>(5)
 const colors = ['#409eff', '#67c23a', '#FF9900']

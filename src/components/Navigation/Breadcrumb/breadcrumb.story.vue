@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ArrowRight } from '@element-plus/icons-vue'
+
 const basicData = reactive({
   isIconSeparator: false,
   separator: '/',

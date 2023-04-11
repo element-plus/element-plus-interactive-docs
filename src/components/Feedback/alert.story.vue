@@ -32,7 +32,7 @@ const alertTypeList = [
   },
 ]
 
-const fireClose = (e: Event) => {
+function fireClose(e: Event) {
   logEvent('close', e)
 }
 </script>

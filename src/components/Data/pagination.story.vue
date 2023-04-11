@@ -63,11 +63,11 @@ const allCombinedCase = reactive({
   total: 400,
 })
 
-const handleSizeChange = (val: number) => {
+function handleSizeChange(val: number) {
   logEvent('per page items: ', { perPageItemCount: val })
 }
 
-const handleCurrentChange = (val: number) => {
+function handleCurrentChange(val: number) {
   logEvent('current page: ', { currentPage: val })
 }
 </script>

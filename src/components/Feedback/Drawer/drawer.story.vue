@@ -7,11 +7,11 @@ import type {
 } from './constants'
 import { directionList } from './constants'
 
-const openEvent = () => {
+function openEvent() {
   logEvent('open', { log: 'Drawer is opened' })
 }
 
-const handleClose = (close: () => void) => {
+function handleClose(close: () => void) {
   logEvent('close', { log: 'Drawer is closed' })
   close()
 }

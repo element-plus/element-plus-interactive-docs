@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import { logEvent } from 'histoire/client'
+
 interface LinkItem {
   value: string
   link: string
@@ -11,14 +12,14 @@ const state1 = ref('')
 const state = ref('')
 const isAsync = ref(true)
 const links = ref<LinkItem[]>([])
-const createFilter = (queryString: string) => {
+function createFilter(queryString: string) {
   return (restaurant: LinkItem) => {
     return (
       restaurant.value.toLowerCase().indexOf(queryString.toLowerCase()) === 0
     )
   }
 }
-const querySearch = (queryString: string, cb: any) => {
+function querySearch(queryString: string, cb: any) {
   const results = queryString
     ? links.value.filter(createFilter(queryString))
     : links.value
@@ -26,7 +27,7 @@ const querySearch = (queryString: string, cb: any) => {
   cb(results)
 }
 let timeout: NodeJS.Timeout
-const querySearchAsync = (queryString: string, cb: (arg: any) => void) => {
+function querySearchAsync(queryString: string, cb: (arg: any) => void) {
   const results = queryString
     ? links.value.filter(createFilter(queryString))
     : links.value
@@ -35,7 +36,7 @@ const querySearchAsync = (queryString: string, cb: (arg: any) => void) => {
     cb(results)
   }, 3000 * Math.random())
 }
-const loadAll = () => {
+function loadAll() {
   return [
     { value: 'vue', link: 'https://github.com/vuejs/vue' },
     { value: 'element', link: 'https://github.com/ElemeFE/element' },
@@ -46,7 +47,7 @@ const loadAll = () => {
     { value: 'babel', link: 'https://github.com/babel/babel' },
   ]
 }
-const handleSelect = (value: any) => {
+function handleSelect(value: any) {
   logEvent('select', value)
 }
 onMounted(() => {

@@ -40,7 +40,7 @@ const switchText = ref(
   },
 )
 
-const beforeChange = () => {
+function beforeChange() {
   preventSwitchValue.value.loading = true
   return new Promise((resolve) => {
     setTimeout(() => {
@@ -50,7 +50,7 @@ const beforeChange = () => {
     }, 1000)
   })
 }
-const beforeChangeSecond = () => {
+function beforeChangeSecond() {
   preventSwitchValue.value.loading_sec = true
   return new Promise((resolve, reject) => {
     setTimeout(() => {

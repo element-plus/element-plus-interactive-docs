@@ -7,7 +7,7 @@ import type { MessageBoxOptions } from './controls'
 
 // AlertMessageBox
 const alertMessageBoxOptions = ref<MessageBoxOptions>()
-const openAlertMessageBox = () => {
+function openAlertMessageBox() {
   const options = alertMessageBoxOptions.value || cloneDeep(defaultMessageBoxOptions)
   ElMessageBox.alert(options.title, options)
 }
@@ -18,7 +18,7 @@ const alertMessageBoxSource = computed(() => {
 
 // ConfirmMessageBox
 const confirmMessageBoxOptions = ref<MessageBoxOptions>()
-const openConfirmMessageBox = () => {
+function openConfirmMessageBox() {
   const options = confirmMessageBoxOptions.value || cloneDeep(defaultMessageBoxOptions)
   ElMessageBox.confirm(options.title, options)
 }
@@ -29,7 +29,7 @@ const confirmMessageBoxSource = computed(() => {
 
 // PromptMessageBox
 const promptMessageBoxOptions = ref<MessageBoxOptions>()
-const openPromptMessageBox = () => {
+function openPromptMessageBox() {
   const options = promptMessageBoxOptions.value || cloneDeep(defaultMessageBoxOptions)
   ElMessageBox.prompt(options.title || 'title', options)
 }
@@ -41,7 +41,7 @@ const promptMessageBoxSource = computed(() => {
 // Customization
 const customizationMessageBoxOptions = ref<MessageBoxOptions>()
 
-const openCustomizationMessageBox = () => {
+function openCustomizationMessageBox() {
   const options = customizationMessageBoxOptions.value || cloneDeep(defaultMessageBoxOptions)
   ElMessageBox(options)
 }
