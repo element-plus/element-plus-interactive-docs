@@ -2,6 +2,7 @@
 import { Edit } from '@element-plus/icons-vue'
 import { isAttribute } from '@utils'
 import { linkTypeList } from './constants'
+
 // basic usage
 const basicLinkData = reactive({
   text: 'Link',

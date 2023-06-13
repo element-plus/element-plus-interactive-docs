@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { justifyOptions } from './constants'
+
 // Basic Usage
 const basicData = reactive({
   span: 6,

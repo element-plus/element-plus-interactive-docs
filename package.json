@@ -2,7 +2,7 @@
   "name": "@element-plus/interactive-docs",
   "type": "module",
   "private": true,
-  "packageManager": "pnpm@7.12.0",
+  "packageManager": "pnpm@8.6.1",
   "scripts": {
     "dev": "histoire dev",
     "build": "histoire build",
@@ -31,6 +31,7 @@
     "inquirer": "^9.1.5",
     "lint-staged": "^13.2.1",
     "pathe": "^0.3.9",
+    "pnpm": "8.6.1",
     "sass": "^1.62.0",
     "simple-git-hooks": "^2.8.1",
     "taze": "^0.9.1",
@@ -42,11 +43,9 @@
     "vue-tsc": "^1.4.2"
   },
   "simple-git-hooks": {
-    "pre-commit": "npx lint-staged"
+    "pre-commit": "pnpm lint-staged"
   },
   "lint-staged": {
-    "*.{js,ts,tsx,vue,md}": [
-      "eslint --fix"
-    ]
+    "*": "eslint --fix"
   }
 }
